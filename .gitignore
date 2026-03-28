@@ -1,0 +1,63 @@
+# =========================
+# Qt Creator
+# =========================
+.qtcreator/
+
+# Ignorar archivos de configuración de usuario de Qt
+*.pro.user
+*.pro.user.*
+*.user
+*.autosave
+
+# =========================
+# Archivos generados por Qt
+# =========================
+*.moc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+
+# =========================
+# Build (Qt / CMake / qmake)
+# =========================
+build/
+build-*/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.out
+*.app
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+.history/
+*.code-workspace
+
+# =========================
+# Logs y temporales
+# =========================
+*.log
+*.tmp
+*.temp
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Otros
+# =========================
+*.bak
+*.swp
+*.swo
