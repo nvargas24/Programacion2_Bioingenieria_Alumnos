@@ -41,6 +41,7 @@ Makefile
 .vscode/
 .history/
 *.code-workspace
+.output/
 
 # =========================
 # Logs y temporales
