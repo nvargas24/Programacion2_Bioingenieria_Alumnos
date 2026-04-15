@@ -2,12 +2,12 @@
 
 using namespace std;
 
-struct Punto{
+struct Vector{
     int x, y;
 
     // Sobrecarga de operador
-    Punto operator+(const Punto &otro){
-        Punto resultado;
+    Vector operator+(const Vector &otro){
+        Vector resultado;
 
         resultado.x = x + otro.x;
         resultado.y = y + otro.y;
@@ -16,10 +16,10 @@ struct Punto{
 };
 
 int main(){
-    Punto a={2,3};
-    Punto b={4,5};
+    Vector a={2,3};
+    Vector b={4,5};
 
-    Punto c = a + b;
+    Vector c = a + b;
     cout <<"Resultado de suma: " << c.x << ", " << c.y << endl;
 
     return 0;
