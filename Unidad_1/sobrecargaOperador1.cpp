@@ -20,7 +20,7 @@ int main(){
     Vector b={4,5};
 
     Vector c = a + b;
-    cout <<"Resultado de suma: " << c.x << ", " << c.y << endl;
+    cout <<"Resultado de suma: " << c.x << "; " << c.y << endl;
 
     return 0;
 }

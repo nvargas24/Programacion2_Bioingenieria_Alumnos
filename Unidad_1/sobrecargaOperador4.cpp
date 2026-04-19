@@ -13,7 +13,7 @@ Vector operator+(Vector &a, Vector &b){
     return resultado;
 }
 ostream& operator<<(ostream &miCout, const Vector &rta){
-    miCout <<"(" << rta.x << ", " << rta.y << ")"<< endl;
+    miCout <<"(" << rta.x << ", " << rta.y << ")";
     return miCout;
 }
 int main(){

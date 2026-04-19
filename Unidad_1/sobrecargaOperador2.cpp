@@ -28,8 +28,8 @@ struct Vector{
 
 void compareVector(Vector* a, Vector* b){
     cout <<"Los vectores: " << 
-    " (" << a->x << "," << a->y << ")"
-    << " y "<< "(" << b->x << ","<< b->y <<") -";
+    " (" << a->x << ";" << a->y << ")"
+    << " y "<< "(" << b->x << ";"<< b->y <<") -";
     
     if(*a == *b){
         cout << "son iguales" << endl;
@@ -46,7 +46,7 @@ int main(){
     Vector d={6,7};
 
     Vector e = a + b + c + d;
-    cout <<"Resultado de suma: " << e.x << ", " << e.y << endl;
+    cout <<"Resultado de suma: " << e.x << "; " << e.y << endl;
 
     // Determina si son iguales sus componentes
     compareVector(&a, &b);
