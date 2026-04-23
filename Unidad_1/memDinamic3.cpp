@@ -5,7 +5,7 @@ using namespace std;
 struct Paciente {
     char nombre[50];
     int edad;
-    float presion;
+    float altura;
 };
 
 int main() {
@@ -28,8 +28,8 @@ int main() {
         cout << "Edad: ";
         cin >> pacientes[i].edad;
 
-        cout << "Presion: ";
-        cin >> pacientes[i].presion;
+        cout << "Altura: ";
+        cin >> pacientes[i].altura;
     }
 
     // Muestra de datos
@@ -39,9 +39,10 @@ int main() {
         cout << "Paciente " << i + 1 << endl;
         cout << "Nombre: " << pacientes[i].nombre << endl;
         cout << "Edad: " << pacientes[i].edad << endl;
-        cout << "Presion: " << pacientes[i].presion << endl;
+        cout << "Altura: " << pacientes[i].altura << endl;
 
         cout << "Direccion en memoria: " << &pacientes[i] << endl;
+        cout << "--------------------------" << endl;
     }
 
     // Liberación de memoria
