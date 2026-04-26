@@ -71,6 +71,68 @@ Escriba un programa que genere los primeros n términos de la serie de Fibonacci
 ### Ejercicio 12
 Pida al usuario que elija entre un cubo o una esfera, luego solicite la dimensión correspondiente y proporcione el volumen del solido geométrico
 
+# Ejercicios con nuevas funcionalidades en C++
+### Ejercicio 1
+En un sistema de asistencia médica, se requiere implementar una clase `CalculadoraDosis` que permita calcular la dosis de un medicamento en función de distintos parámetros clínicos del paciente.
+
+La clase deberá implementar métodos sobrecargados llamados `calcularDosis`, contemplando los siguientes casos:
+
+- Cálculo en función del peso (`double peso`)
+- Cálculo en función de la edad (`int edad`)
+- Cálculo en función del peso y un factor adicional (`float peso, float factor`)
+
+Se espera que el diseño permita reutilizar el mismo nombre de función, diferenciando su comportamiento según los parámetros recibidos.
+
+```cpp
+// Ejemplo de uso
+CalculadoraDosis calc;
+
+calc.calcularDosis(70.0);
+calc.calcularDosis(30);
+calc.calcularDosis(70.0, 1.2);
+```
+```text
+--- salida esperada ---
+[INFO] Dosis calculada: 140 mg
+[INFO] Dosis calculada: 80 mg
+[INFO] Dosis ajustada: 168 mg
+```
+**Consideraciones**: 
+- Se debe utilizar sobrecarga de funciones.
+- No se permite usar nombres distintos para cada método.
+- Puede definirse una lógica simple para el cálculo (no se evalúa exactitud clínica).
+
+### Ejercicio 2
+En el análisis de señales biomédicas discretas, se requiere modelar una clase `Senial` que permita representar un conjunto de muestras.
+
+La clase deberá contener como atributo:
+- `vector<float> muestras`
+
+Se deberá implementar la sobrecarga del operador `+` para permitir la suma de dos señales, generando una nueva señal como resultado.
+
+Asimismo, se deberá sobrecargar el operador `<<` para permitir la visualización de la señal por consola.
+
+Antes de realizar la suma, se deberá validar que ambas señales posean la misma cantidad de muestras.
+
+```cpp
+// Ejemplo de uso
+Senial s1({1.0, 2.0, 3.0});
+Senial s2({4.0, 5.0, 6.0});
+
+Senial s3 = s1 + s2;
+
+cout << s3;
+```
+```text
+--- salida esperada ---
+[5.0, 7.0, 9.0]
+```
+**Consideraciones:**
+- Validar dimensiones antes de operar.
+- La suma debe ser elemento a elemento.
+- El operador << debe facilitar la lectura de los datos.
+
+
 # Ejercicios extras de POO
 ### Ejercicio 1
 Escriba un programa en C++ que implemente una clase llamada `Circulo`, la cual deberá contener una variable miembro privada correspondiente al radio, e incluir funciones miembro que permitan calcular el área y la circunferencia.
@@ -133,67 +195,8 @@ Paciente p("Juan Perez", 45, 120.5);
 [INFO] Paciente creado: Juan Perez
 [INFO] Paciente eliminado: Juan Perez
 ```
+
 ### Ejercicio 8
-En un sistema de asistencia médica, se requiere implementar una clase `CalculadoraDosis` que permita calcular la dosis de un medicamento en función de distintos parámetros clínicos del paciente.
-
-La clase deberá implementar métodos sobrecargados llamados `calcularDosis`, contemplando los siguientes casos:
-
-- Cálculo en función del peso (`double peso`)
-- Cálculo en función de la edad (`int edad`)
-- Cálculo en función del peso y un factor adicional (`float peso, float factor`)
-
-Se espera que el diseño permita reutilizar el mismo nombre de función, diferenciando su comportamiento según los parámetros recibidos.
-
-```cpp
-// Ejemplo de uso
-CalculadoraDosis calc;
-
-calc.calcularDosis(70.0);
-calc.calcularDosis(30);
-calc.calcularDosis(70.0, 1.2);
-```
-```text
---- salida esperada ---
-[INFO] Dosis calculada: 140 mg
-[INFO] Dosis calculada: 80 mg
-[INFO] Dosis ajustada: 168 mg
-```
-**Consideraciones**: 
-- Se debe utilizar sobrecarga de funciones.
-- No se permite usar nombres distintos para cada método.
-- Puede definirse una lógica simple para el cálculo (no se evalúa exactitud clínica).
-
-### Ejercicio 9
-En el análisis de señales biomédicas discretas, se requiere modelar una clase `Senial` que permita representar un conjunto de muestras.
-
-La clase deberá contener como atributo:
-- `vector<float> muestras`
-
-Se deberá implementar la sobrecarga del operador `+` para permitir la suma de dos señales, generando una nueva señal como resultado.
-
-Asimismo, se deberá sobrecargar el operador `<<` para permitir la visualización de la señal por consola.
-
-Antes de realizar la suma, se deberá validar que ambas señales posean la misma cantidad de muestras.
-
-```cpp
-// Ejemplo de uso
-Senial s1({1.0, 2.0, 3.0});
-Senial s2({4.0, 5.0, 6.0});
-
-Senial s3 = s1 + s2;
-
-cout << s3;
-```
-```text
---- salida esperada ---
-[5.0, 7.0, 9.0]
-```
-**Consideraciones:**
-- Validar dimensiones antes de operar.
-- La suma debe ser elemento a elemento.
-- El operador << debe facilitar la lectura de los datos.
-
-### Ejercicio 10
 En un entorno hospitalario, distintos dispositivos comparten características comunes. Se solicita modelar una clase base `DispositivoMedico`.
 
 La clase deberá incluir:
@@ -221,7 +224,7 @@ Saturacion de Oxigeno: 98.5%
 - Utilizar herencia para evitar redundancia.
 - Los atributos comunes deben estar en la clase base.
 
-### Ejercicio 11
+### Ejercicio 9
 En un sistema de monitoreo clínico, las alarmas generadas por los dispositivos pueden ser de distinta naturaleza. Se requiere modelar una jerarquía de clases que permita representar este comportamiento de forma flexible.
 
 Defina una clase base abstracta `Alarma` con los siguientes atributos protegidos:
@@ -266,7 +269,7 @@ for (auto a : alarmas) {
 - La clase base debe ser abstracta.
 - Gestionar correctamente la memoria dinámica.
 
-### Ejercicio 12
+### Ejercicio 10
 Un sistema de adquisición de datos biomédicos debe soportar distintos modos de funcionamiento según el dispositivo conectado.
 
 Defina una clase base abstracta `DispositivoAdquisicion` con:
@@ -307,7 +310,7 @@ d->adquirir();
 - Implementación de métodos virtuales.
 - Simulación clara de cada modo de adquisición.
 
-### Ejercicio 13
+### Ejercicio 11
 Un sistema de monitoreo clínico debe permitir visualizar información del paciente mediante distintos tipos de interfaz.
 
 Defina una clase base abstracta `InterfazUsuario` con el método:
@@ -342,7 +345,7 @@ ui->mostrar("Registro guardado");
 - Separación clara entre lógica y presentación.
 - Uso de polimorfismo para intercambiar interfaces.
 
-### Ejercicio 14
+### Ejercicio 12
 En un sistema de procesamiento biomédico, las señales atraviesan múltiples etapas.
 
 Defina una clase base abstracta `EtapaProcesamiento` con:
@@ -379,7 +382,7 @@ Señal normalizada...
 - Uso de referencias para modificar la señal.
 - Diseño extensible (nuevas etapas).
 
-### Ejercicio 15
+### Ejercicio 13
 En dispositivos médicos como bombas de infusión o estimuladores eléctricos, se requiere controlar distintos tipos de actuadores.
 
 Defina una clase base abstracta `Actuador` con:
