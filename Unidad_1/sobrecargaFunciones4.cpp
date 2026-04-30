@@ -9,7 +9,7 @@ int main()
 {
     cout << "Suma 1: " << suma(2, 3) << endl;
     cout << "Suma 2: " << suma(5.2, 1) << endl;
-    cout << "Suma 3: " << suma(5.2, 1.2, 2) << endl;
+    cout << "Suma 3: " << suma(5.2f, 1.2f, 2) << endl;
     
     return 0;
 }
