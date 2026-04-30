@@ -71,6 +71,347 @@ Escriba un programa que genere los primeros n términos de la serie de Fibonacci
 ### Ejercicio 12
 Pida al usuario que elija entre un cubo o una esfera, luego solicite la dimensión correspondiente y proporcione el volumen del solido geométrico
 
+# Ejercicios con nuevas funcionalidades en C++
+### Ejercicio 1
+En un sistema de asistencia médica, se requiere implementar una clase `CalculadoraDosis` que permita calcular la dosis de un medicamento en función de distintos parámetros clínicos del paciente.
+
+La clase deberá implementar métodos sobrecargados llamados `calcularDosis`, contemplando los siguientes casos:
+
+- Cálculo en función del peso (`double peso`)
+- Cálculo en función de la edad (`int edad`)
+- Cálculo en función del peso y un factor adicional (`float peso, float factor`)
+
+Se espera que el diseño permita reutilizar el mismo nombre de función, diferenciando su comportamiento según los parámetros recibidos.
+
+```cpp
+// Ejemplo de uso
+CalculadoraDosis calc;
+
+calc.calcularDosis(70.0);
+calc.calcularDosis(30);
+calc.calcularDosis(70.0, 1.2);
+```
+```text
+--- salida esperada ---
+[INFO] Dosis calculada: 140 mg
+[INFO] Dosis calculada: 80 mg
+[INFO] Dosis ajustada: 168 mg
+```
+**Consideraciones**: 
+- Se debe utilizar sobrecarga de funciones.
+- No se permite usar nombres distintos para cada método.
+- Puede definirse una lógica simple para el cálculo (no se evalúa exactitud clínica).
+
+### Ejercicio 2
+En el análisis de señales biomédicas discretas, se requiere modelar una clase `Senial` que permita representar un conjunto de muestras.
+
+La clase deberá contener como atributo:
+- `vector<float> muestras`
+
+Se deberá implementar la sobrecarga del operador `+` para permitir la suma de dos señales, generando una nueva señal como resultado.
+
+Asimismo, se deberá sobrecargar el operador `<<` para permitir la visualización de la señal por consola.
+
+Antes de realizar la suma, se deberá validar que ambas señales posean la misma cantidad de muestras.
+
+```cpp
+// Ejemplo de uso
+Senial s1({1.0, 2.0, 3.0});
+Senial s2({4.0, 5.0, 6.0});
+
+Senial s3 = s1 + s2;
+
+cout << s3;
+```
+```text
+--- salida esperada ---
+[5.0, 7.0, 9.0]
+```
+**Consideraciones:**
+- Validar dimensiones antes de operar.
+- La suma debe ser elemento a elemento.
+- El operador << debe facilitar la lectura de los datos.
+
+
+### Ejercicio 3
+
+En un sistema de monitoreo clínico, se requiere implementar una función que permita calcular la frecuencia cardíaca en función de distintos parámetros disponibles.
+
+Se deberán implementar funciones sobrecargadas llamadas calcularFrecuencia, contemplando los siguientes casos:
+
+- Cálculo a partir de la cantidad de latidos en un intervalo de tiempo (int latidos, float tiempoSeg)
+- Cálculo directo si ya se conoce la frecuencia (float frecuencia)
+- Cálculo a partir de un vector de intervalos RR (vector<float> rr)
+
+``` cpp
+// Ejemplo de uso
+calcularFrecuencia(75, 60.0);
+calcularFrecuencia(72.5);
+calcularFrecuencia({0.8, 0.82, 0.78});
+```
+```text
+--- salida esperada ---
+[INFO] Frecuencia: 75 bpm
+[INFO] Frecuencia: 72.5 bpm
+[INFO] Frecuencia promedio: 75 bpm
+```
+**Consideraciones:**
+
+- Utilizar sobrecarga de funciones.
+- No utilizar nombres distintos.
+- Puede definirse una lógica simplificada (caculo no preciso en cada funcion).
+
+### Ejercicio 4
+
+En un sistema de análisis de señales fisiológicas, se requiere modelar una estructura Muestra que represente un valor con su instante de tiempo.
+
+``` cpp
+struct Muestra {
+    float valor;
+    float tiempo;
+};
+```
+
+Se deberá implementar la sobrecarga del operador + para permitir sumar dos muestras (sumando únicamente sus valores y manteniendo el tiempo de la primera).
+
+Además, se deberá sobrecargar el operador << para mostrar la muestra en formato:
+
+>   **(tiempo: X s, valor: Y)**
+
+```cpp
+// Ejemplo de uso
+Muestra m1{2.0, 0.1};
+Muestra m2{3.5, 0.2};
+
+Muestra m3 = m1 + m2;
+
+cout << m3;
+```
+```text
+--- salida esperada ---
+(tiempo: 0.1 s, valor: 5.5)
+```
+**Consideraciones:**
+
+- Implementar operadores como funciones externas.
+
+### Ejercicio 5
+
+En un sistema hospitalario, se requiere calcular la dosis de un fármaco según distintos criterios clínicos.
+
+Implemente funciones sobrecargadas llamadas **calcularDosis**, contemplando:
+
+- Según peso (float peso)
+- Según peso y concentración (float peso, float concentracion)
+- Según edad y peso (int edad, float peso)
+
+```cpp
+// Ejemplo de uso
+calcularDosis(70.0f);
+calcularDosis(70.0f, 2.0f);
+calcularDosis(30, 70.0f);
+```
+```text
+--- salida esperada ---
+[INFO] Dosis: 140 mg
+[INFO] Dosis ajustada: 280 mg
+[INFO] Dosis pediátrica: 105 mg
+```
+**Consideraciones:**
+
+- Diferenciar por tipo y cantidad de parámetros.
+
+### Ejercicio 6
+
+En el procesamiento de señales biomédicas, se requiere representar una señal discreta mediante una estructura.
+
+```cpp
+struct Senial {
+    vector<float> datos;
+};
+```
+
+Se deberá:
+
+- Sobrecargar el operador + para sumar dos señales.
+- Sobrecargar el operador * para escalar (ampliar/ disminuir) una señal por un valor.
+- Sobrecargar el operador << para mostrar la señal.
+
+```cpp
+// Ejemplo de uso
+Senial s1{{1.0, 2.0, 3.0}};
+Senial s2{{4.0, 5.0, 6.0}};
+
+Senial suma = s1 + s2;
+Senial escalada = s1 * 2.0;
+
+cout << suma;
+cout << escala;
+```
+```text
+--- salida esperada ---
+[5.0, 7.0, 9.0]
+[2.0, 4.0, 6.0]
+```
+
+**Consideraciones:**
+
+- Validar dimensiones en la suma.
+- Operadores como funciones externas.
+
+### Ejercicio 7
+
+En un sistema hospitalario, se requiere registrar los nombres de pacientes atendidos durante el día.
+
+El programa deberá permitir almacenar múltiples nombres utilizando un `vector<string>`.
+
+Se deberá implementar una función que:
+
+- Permita agregar pacientes
+- Permita buscar un paciente por nombre
+- Informe si el paciente fue atendido o no
+
+```cpp
+// Ejemplo de uso
+agregarPaciente("Juan");
+agregarPaciente("Maria");
+
+buscarPaciente("Juan");
+buscarPaciente("Pedro");
+```
+```text
+--- salida esperada ---
+[INFO] Paciente Juan encontrado
+[INFO] Paciente Pedro no encontrado
+```
+**Consideraciones:**
+
+- Usar `vector<string>`
+- Recorrer el vector para la búsqueda
+- Comparación de strings
+
+### Ejercicio 8
+
+En un sistema de análisis biomédico, se requiere implementar funciones dentro de un namespace anidado.
+
+```cpp
+namespace Sistema {
+    namespace Analisis {
+        // funciones aquí
+    }
+}
+```
+
+Se deberán implementar funciones para:
+
+- Calcular máximo de un vector<float>
+- Calcular mínimo de un vector<float>
+
+```cpp
+// Ejemplo de uso
+Sistema::Analisis::maximo({1.0, 5.0, 3.0});
+Sistema::Analisis::minimo({1.0, 5.0, 3.0});
+```
+```text
+--- salida esperada ---
+Max: 5
+Min: 1
+```
+**Consideraciones:**
+
+- Namespace anidado
+- Uso de vector
+
+### Ejercicio 9
+
+En un sistema de procesamiento de señales, se requiere definir una estructura dentro de un grupo de namespaces.
+
+```cpp
+namespace Sistema {
+    namespace Datos {
+        struct Senial {
+            vector<float> datos;
+        };
+    }
+    namespace Operaciones {
+    }
+}
+```
+Se deberá implementar en `Operaciones`:
+
+- Operador + para sumar señales
+- Función `filtrar(Senial s, float umbral)`
+- Operador << para mostrar la señal
+
+```cpp
+// Ejemplo de uso
+Sistema::Datos::Senial s1{{1,2,3}};
+Sistema::Datos::Senial s2{{4,5,6}};
+
+Sistema::Datos::Senial s3 = s1 + s2;
+
+Sistema::Datos::Senial s4 = Sistema::Operaciones::filtrar(s3, 4.0f);
+
+cout << s4;
+```
+
+```text
+--- salida esperada ---
+[5, 7, 9]
+[5, 7, 9]
+```
+**Consideraciones:**
+
+- Operadores definidos fuera del struct
+- Uso de múltiples namespaces
+
+### Ejercicio 10
+
+En un sistema de monitoreo de temperatura, se requiere organizar estructuras y operaciones.
+```cpp
+namespace Sistema {
+    namespace Mediciones {
+        struct Temperatura {
+            float valor;
+        };
+    }
+    namespace Analisis {
+    }
+}
+```
+Se deberá implementar:
+
+En `Analisis`:
+
+- Operador > para comparar
+- Operador + para promedio
+- Función `esCritica(Temperatura t)`
+
+```cpp
+// Ejemplo de uso (main)
+Sistema::Mediciones::Temperatura t1{36.0};
+Sistema::Mediciones::Temperatura t2{39.0};
+
+Sistema::Mediciones::Temperatura t3 = t1 + t2;
+
+if (Sistema::Analisis::esCritica(t2)) {
+    cout << "Alerta\n";
+}
+
+cout << t3.valor;
+```
+```cpp
+--- salida esperada ---
+Alerta
+37.5
+```
+
+**Consideraciones:**
+
+- Uso de struct
+- Operadores en namespace distinto
+
+
 # Ejercicios extras de POO
 ### Ejercicio 1
 Escriba un programa en C++ que implemente una clase llamada `Circulo`, la cual deberá contener una variable miembro privada correspondiente al radio, e incluir funciones miembro que permitan calcular el área y la circunferencia.
@@ -133,67 +474,8 @@ Paciente p("Juan Perez", 45, 120.5);
 [INFO] Paciente creado: Juan Perez
 [INFO] Paciente eliminado: Juan Perez
 ```
+
 ### Ejercicio 8
-En un sistema de asistencia médica, se requiere implementar una clase `CalculadoraDosis` que permita calcular la dosis de un medicamento en función de distintos parámetros clínicos del paciente.
-
-La clase deberá implementar métodos sobrecargados llamados `calcularDosis`, contemplando los siguientes casos:
-
-- Cálculo en función del peso (`double peso`)
-- Cálculo en función de la edad (`int edad`)
-- Cálculo en función del peso y un factor adicional (`float peso, float factor`)
-
-Se espera que el diseño permita reutilizar el mismo nombre de función, diferenciando su comportamiento según los parámetros recibidos.
-
-```cpp
-// Ejemplo de uso
-CalculadoraDosis calc;
-
-calc.calcularDosis(70.0);
-calc.calcularDosis(30);
-calc.calcularDosis(70.0, 1.2);
-```
-```text
---- salida esperada ---
-[INFO] Dosis calculada: 140 mg
-[INFO] Dosis calculada: 80 mg
-[INFO] Dosis ajustada: 168 mg
-```
-**Consideraciones**: 
-- Se debe utilizar sobrecarga de funciones.
-- No se permite usar nombres distintos para cada método.
-- Puede definirse una lógica simple para el cálculo (no se evalúa exactitud clínica).
-
-### Ejercicio 9
-En el análisis de señales biomédicas discretas, se requiere modelar una clase `Senial` que permita representar un conjunto de muestras.
-
-La clase deberá contener como atributo:
-- `vector<float> muestras`
-
-Se deberá implementar la sobrecarga del operador `+` para permitir la suma de dos señales, generando una nueva señal como resultado.
-
-Asimismo, se deberá sobrecargar el operador `<<` para permitir la visualización de la señal por consola.
-
-Antes de realizar la suma, se deberá validar que ambas señales posean la misma cantidad de muestras.
-
-```cpp
-// Ejemplo de uso
-Senial s1({1.0, 2.0, 3.0});
-Senial s2({4.0, 5.0, 6.0});
-
-Senial s3 = s1 + s2;
-
-cout << s3;
-```
-```text
---- salida esperada ---
-[5.0, 7.0, 9.0]
-```
-**Consideraciones:**
-- Validar dimensiones antes de operar.
-- La suma debe ser elemento a elemento.
-- El operador << debe facilitar la lectura de los datos.
-
-### Ejercicio 10
 En un entorno hospitalario, distintos dispositivos comparten características comunes. Se solicita modelar una clase base `DispositivoMedico`.
 
 La clase deberá incluir:
@@ -221,7 +503,7 @@ Saturacion de Oxigeno: 98.5%
 - Utilizar herencia para evitar redundancia.
 - Los atributos comunes deben estar en la clase base.
 
-### Ejercicio 11
+### Ejercicio 9
 En un sistema de monitoreo clínico, las alarmas generadas por los dispositivos pueden ser de distinta naturaleza. Se requiere modelar una jerarquía de clases que permita representar este comportamiento de forma flexible.
 
 Defina una clase base abstracta `Alarma` con los siguientes atributos protegidos:
@@ -266,7 +548,7 @@ for (auto a : alarmas) {
 - La clase base debe ser abstracta.
 - Gestionar correctamente la memoria dinámica.
 
-### Ejercicio 12
+### Ejercicio 10
 Un sistema de adquisición de datos biomédicos debe soportar distintos modos de funcionamiento según el dispositivo conectado.
 
 Defina una clase base abstracta `DispositivoAdquisicion` con:
@@ -307,7 +589,7 @@ d->adquirir();
 - Implementación de métodos virtuales.
 - Simulación clara de cada modo de adquisición.
 
-### Ejercicio 13
+### Ejercicio 11
 Un sistema de monitoreo clínico debe permitir visualizar información del paciente mediante distintos tipos de interfaz.
 
 Defina una clase base abstracta `InterfazUsuario` con el método:
@@ -342,7 +624,7 @@ ui->mostrar("Registro guardado");
 - Separación clara entre lógica y presentación.
 - Uso de polimorfismo para intercambiar interfaces.
 
-### Ejercicio 14
+### Ejercicio 12
 En un sistema de procesamiento biomédico, las señales atraviesan múltiples etapas.
 
 Defina una clase base abstracta `EtapaProcesamiento` con:
@@ -379,7 +661,7 @@ Señal normalizada...
 - Uso de referencias para modificar la señal.
 - Diseño extensible (nuevas etapas).
 
-### Ejercicio 15
+### Ejercicio 13
 En dispositivos médicos como bombas de infusión o estimuladores eléctricos, se requiere controlar distintos tipos de actuadores.
 
 Defina una clase base abstracta `Actuador` con:
