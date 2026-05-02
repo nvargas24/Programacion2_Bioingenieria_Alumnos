@@ -186,3 +186,119 @@ int main() {
 > **Ejemplos base** : stack2.cpp
 
 > **Respuesta**: stack4.cpp
+
+## Clase 5
+####  Problema 1
+Validar la ‘edad’ seteada. Considere valida:  **0< edad < 20**. Y que se muestre por terminal, según corresponda:
+```text
+> Edad seteada valida
+> Edad seteada no valida 
+```
+> **Ejemplos base** : encapsulamiento2.cpp
+
+> **Respuesta**: encapsulamiento3.cpp
+
+####  Problema 2
+Modifique el código para que se incremente 3 años mas el valor de edad seteada. Muestre el incremento de edad **uno por uno**
+```cpp 
+// Ejemplo  
+ Ingresar edad: 25
+```
+```text
+ > Edad ingresada: 25
+ > Edad +1: 26
+ > Edad +2: 27
+ > Edad +3: 28 
+```
+
+> **Ejemplos base** : encapsulamiento2.cpp
+
+> **Respuesta**: encapsulamiento4.cpp
+
+#### Problema 3
+Modificar el código para que no se permitan depósitos negativos. Debe mostrar los siguientes mjs, segun corresponda:
+```text
+ > [INFO] Deposito valido
+ > [ERROR] Deposito no valido
+```
+> **Ejemplos base** : encapsulamiento5.cpp
+
+> **Respuesta**: encapsulamiento6.cpp
+
+#### Problema 4
+Ejercicio de sobrecarga de constructor y destructor
+
+
+#### Problema 5
+Modificar la `clase Animal` para que el atributo `String raza` sea privado, se inicialice mediante un **constructor** y se acceda con un **getter**.
+
+```cpp
+//ejemplo de getter
+public:
+    ...
+    string getRaza() {
+        ...
+    }
+};
+```
+
+Modificar la `clase Perro` para agregar un atributo privado `String nombre`, definir un constructor que reciba `String raza` y `String nombre` utilizando el constructor de la **clase base**, y mostrar los datos usando el getter.
+
+Adaptar el `main()` para crear un objeto Perro y utilizar una funcion `mostrar()` de la `clase Perro`, que muestre su nombre y raza.
+
+```cpp
+public:
+    ...
+    void mostrar() {
+        ...
+    }
+};
+```
+Respuesta esperada en terminal
+con raza="labrador", nombre="Firulais":
+```text
+> Nombre: Firulais
+> Raza: labrador
+```
+
+> **Ejemplos base** : herencia1.cpp
+
+> **Respuesta**: herencia2.cpp
+
+#### Problema 6
+Modificar la `clase Empleado` para que incluya un atributo `nombre` como privado, inicializado mediante un constructor y accesible a través de un getter.
+
+```cpp
+// ejemplo de getter
+public:
+    ...
+    string getNombre() {
+        ...
+    }
+```
+
+Adaptar la `clase Programador` agregando un atributo privado `lenguaje`, definiendo un constructor que reciba ambos datos y utilice el constructor de la `clase base`.
+
+Agregar un método que muestre la información del programador utilizando el getter, y actualizar el `main()` para crear un objeto y mostrar sus datos.
+
+```cpp
+public:
+    ...
+    void mostrar() {
+        ...
+    }
+```
+```
+Respuesta esperada en terminal
+con nombre="Ana", lenguaje="C++":
+```text
+> Nombre: Ana
+> Lenguaje: C++
+```
+
+> **Ejemplos base** : herencia3.cpp
+
+> **Respuesta**: herencia4.cpp
+
+
+
