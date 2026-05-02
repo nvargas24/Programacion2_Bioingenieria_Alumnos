@@ -4,30 +4,38 @@ using namespace std;
 // Clase base
 class Animal {
 private:
-    string nombre;
+    string raza;
 
 public:
-    Animal(string n) {
-        nombre = n;
+    Animal(string r) {
+        raza = r;
     }
 
-    string getNombre() {
-        return nombre;
+    string getRaza() {
+        return raza;
+    }
+
+    void comer() {
+        cout << "El animal come" << endl;
     }
 };
 
 // Clase derivada
 class Perro : public Animal {
 private:
-    string raza;
+    string nombre;
 
 public:
-    Perro(string n, string r) : Animal(n) {
-        raza = r;
+    Perro(string n, string r) : Animal(r) {
+        nombre = n;
     }
+    void ladrar(){
+        cout << "El perro ladra" << endl;
+    }
+
     void mostrar() {
-        cout << "Nombre: " << getNombre() << endl;
-        cout << "Raza: " << raza << endl;
+        cout << "Nombre: " << getRaza() << endl;
+        cout << "Raza: " << nombre << endl;
     }
 };
 
