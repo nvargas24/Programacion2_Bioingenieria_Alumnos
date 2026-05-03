@@ -102,7 +102,7 @@ V=( -2; 4)  --> V=-2i+4j
 V=( 0; -4)  --> V=-4j
 V=( 0; 0)  --> V= vector nulo
 ```
-> Estrucutra de ostream:
+> Estructura de ostream:
 `ostream& operator<<(ostream &, Vector &)`
 
 > **Ejemplos base** : sobrecargaOperador4.cpp
@@ -113,7 +113,7 @@ V=( 0; 0)  --> V= vector nulo
 #### Problema 5
 En base al ejemplo de operador <<, sobre cargue operador >> para que al utilizar cin>> se solicite al usuario  componentes en x e y de Vector a y Vector b
 
-> Estrucutra de istream:
+> Estructura de istream:
 `istream& operator>>(istream &, Vector &)`
 
 > **Ejemplos base** : sobrecargaOperador4.cpp
