@@ -26,8 +26,8 @@ int main() {
     Persona p1("Felipe", 30);
     Persona p2("Eduardo", 82);
 
-    p1.compareEdad(p2);             // p1 es "this", p2 es "otro"
-    p2.compareEdad(p1);              // p2 es "this", p1 es "otro"
+    p1.compareEdad(p2); // p1 es "this", p2 es "otro"
+    p2.compareEdad(p1); // p2 es "this", p1 es "otro"
 
     return 0;
 }
