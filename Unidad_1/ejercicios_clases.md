@@ -201,7 +201,6 @@ Validar la ‘edad’ seteada. Considere valida:  **0< edad < 20**. Y que se mue
 > Edad seteada no valida 
 ```
 
-```
 > **Ejemplos base** : encapsulamiento2.cpp
 
 > **Respuesta**: encapsulamiento3.cpp

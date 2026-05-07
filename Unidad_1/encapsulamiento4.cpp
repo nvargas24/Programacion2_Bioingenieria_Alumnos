@@ -8,13 +8,13 @@ private:
 
 public:
     // Setter - Modifica atributo privado
-    int setEdad(int e){
+    bool setEdad(int e){
         if(e>0 && e<50){
             edad = e;
-            mostrarVal(true);
+            cout<< "Edad seteada valida" << endl;    
         }
         else{
-            mostrarVal(false);
+            cout<< "Edad seteada no valida" << endl;
             return false;
         } 
 
@@ -24,17 +24,6 @@ public:
     int getEdad(){
         return edad;
     }
-
-    // Muestra msj dependiendo validacion de dato
-    void mostrarVal(bool flag_ok){
-        if (flag_ok){
-            cout<< "[INFO] Edad seteada valida" << endl;    
-        }
-        else{
-            cout<< "[INFO] Edad seteada no valida" << endl;
-        }
-    }
-
 };
 
 int main() {
