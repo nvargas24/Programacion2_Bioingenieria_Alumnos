@@ -191,6 +191,7 @@ int main() {
 ####  Problema 1
 Validar la ‘edad’ seteada. Considere valida:  **0< edad < 20**. Y que se muestre por terminal, según corresponda:
 ```text
+--- salida esperada ---
 > Edad seteada valida
 > Edad seteada no valida 
 ```
@@ -205,6 +206,7 @@ Modifique el código para que se incremente 3 años mas el valor de edad seteada
  Ingresar edad: 25
 ```
 ```text
+ --- salida esperada ---
  > Edad ingresada: 25
  > Edad +1: 26
  > Edad +2: 27
@@ -218,6 +220,7 @@ Modifique el código para que se incremente 3 años mas el valor de edad seteada
 #### Problema 3
 Modificar el código para que no se permitan depósitos negativos. Debe mostrar los siguientes mjs, segun corresponda:
 ```text
+--- salida esperada ---
  > [INFO] Deposito valido
  > [ERROR] Deposito no valido
 ```
@@ -226,7 +229,37 @@ Modificar el código para que no se permitan depósitos negativos. Debe mostrar 
 > **Respuesta**: encapsulamiento6.cpp
 
 #### Problema 4
-Ejercicio de sobrecarga de constructor y destructor
+- Sobrecargar el constructor de la `clase Sensor`: 
+Un constructor debe recibir `nombre` y `valor`. 
+Otro constructor debe recibir únicamente nombre . 
+
+- Mostrar un mensaje distinto según el constructor utilizado. 
+
+- Crear un objeto (‘humedad’) dinámico utilizando new. 
+
+- Utilizar el método `mostrar()` para visualizar sus datos. 
+
+- Liberar correctamente la memoria utilizando delete . 
+
+- Verificar mediante los mensajes del destructor cuándo se destruyen los objetos.
+
+```text
+ --- salida esperada  ---
+> [Constructor 1] Sensor inicializado: Temperatura -> 24.5
+> [Constructor 2] Sensor inicializado: Presion
+> [Constructor 1] Sensor inicializado: Humedad -> 40
+> Sensor: Temperatura| Valor: 24.5
+> Sensor: Presion
+> Sensor: Humedad| Valor: 40
+> [Destructor] Liberando sensor: Humedad
+> [Destructor] Liberando sensor: Presion
+> [Destructor] Liberando sensor: Temperatura 
+```
+
+
+> **Ejemplos base** : constdest1.cpp
+
+> **Respuesta**: constdest2.cpp
 
 
 #### Problema 5
@@ -254,9 +287,11 @@ public:
     }
 };
 ```
-Respuesta esperada en terminal
-con raza="labrador", nombre="Firulais":
+Por ejemplo, considere:    
+raza="labrador"    
+nombre="Firulais"
 ```text
+--- salida esperada ---
 > Nombre: Firulais
 > Raza: labrador
 ```
@@ -288,10 +323,13 @@ public:
         ...
     }
 ```
-```
-Respuesta esperada en terminal
-con nombre="Ana", lenguaje="C++":
+
+Por ejemplo considere:     
+nombre="Ana"    
+lenguaje="C++"
+
 ```text
+--- salida esperada ---
 > Nombre: Ana
 > Lenguaje: C++
 ```
