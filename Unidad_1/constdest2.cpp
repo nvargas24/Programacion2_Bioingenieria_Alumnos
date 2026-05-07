@@ -6,7 +6,7 @@ using namespace std;
 class Sensor {
 private:
     string nombre;
-    float valor;
+    float valor = 0.0;
 public:
     Sensor(string n, float v) {
         nombre = n;
@@ -19,8 +19,11 @@ public:
         cout << "[Constructor 2] Sensor inicializado: "<< nombre << endl;
     }
     void mostrar() {
-        cout << "Sensor: "<< nombre
-             << " | Valor: "<< valor << endl;
+        cout << "Sensor: "<< nombre;
+        if(valor)
+            cout << "| Valor: "<< valor << endl;
+        else
+            cout << endl;
     }
     ~Sensor() {
         cout << "[Destructor] Liberando sensor: "<< nombre << endl;
@@ -29,15 +32,15 @@ public:
 
 int main() {
     Sensor temperatura("Temperatura", 24.5);
-    Sensor* presion = new Sensor("Presion", 101.3);
-    Sensor humedad("Humedad");
+    Sensor presion("Presion");
+    Sensor* humedad = new Sensor("Humedad", 40);    
 
     temperatura.mostrar();
-    humedad.mostrar();
-    presion->mostrar();
-
-    delete presion;
-    presion = nullptr;
+    presion.mostrar();
+    humedad->mostrar();
+    
+    delete humedad;
+    humedad = nullptr;
 
     return 0;
 }
