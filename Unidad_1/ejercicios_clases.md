@@ -193,7 +193,14 @@ Validar la ‘edad’ seteada. Considere valida:  **0< edad < 20**. Y que se mue
 ```text
 --- salida esperada ---
 > Edad seteada valida
+> Edad del gato 35 anios
+```
+
+```text
+--- salida esperada ---
 > Edad seteada no valida 
+```
+
 ```
 > **Ejemplos base** : encapsulamiento2.cpp
 
