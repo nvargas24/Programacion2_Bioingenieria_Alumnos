@@ -40,39 +40,18 @@ public:
 
 class Gato : public Animal {
 private:
-    int vidas;
+    string color;
 public:
-    Gato(string n, int e, int v) : Animal(n, e) {
-        vidas = v;
+    Gato(string n, int e, string c) : Animal(n, e) {
+        color = c;
     }
     void mostrarInfo() {
         cout << "--- GATO ---" << endl;
         Animal::mostrarInfo();
-        cout << "Vidas: " << vidas << endl;
+        cout << "Color: " << color << endl;
     }
     void hacerSonido() {
         cout << "El gato maulla: Miau!" << endl;
-    }
-};
-
-class Pajaro : public Animal {
-private:
-    bool vuela;
-public:
-    Pajaro(string n, int e, bool v) : Animal(n, e) {
-        vuela = v;
-    }
-    void mostrarInfo() {
-        cout << "--- PAJARO ---" << endl;
-        Animal::mostrarInfo();
-        cout << "Puede volar: ";
-        if(vuela)
-            cout << "Si" << endl;
-        else
-            cout << "No" << endl;
-    }
-    void hacerSonido() {
-        cout << "El pajaro canta: Pio Pio!" << endl;
     }
 };
 
@@ -86,19 +65,13 @@ void presentar(Gato g) {
     g.hacerSonido();
     cout << endl;
 }
-void presentar(Pajaro p) {
-    p.mostrarInfo();
-    p.hacerSonido();
-    cout << endl;
-}
+
 int main() {
     Perro perro1("Toby", 5, "Labrador");
-    Gato gato1("Michi", 3, 7);
-    Pajaro pajaro1("Piolin", 1, true);
+    Gato gato1("Michi", 3, "Gris");
 
     presentar(perro1);
     presentar(gato1);
-    presentar(pajaro1);
 
     return 0;
 }

@@ -1,13 +1,11 @@
 # Ejercicios realizados en clases
 
 ## Clase 1
-
 #### Problema 1
 - Mostrar primer y ultimo elemento
 - Mostrar orden inverso 
 
-> **Ejemplos base** : array1.cpp
-
+> **Ejemplos base** : array1.cpp    
 > **Respuesta**: array2.cpp
 
 #### Problema 2
@@ -15,10 +13,8 @@
 
 - Agregar una variable ‘w’ =12. Realizar cambio de valores entre ‘v’ y ‘w’ utilizando puntero ‘p’ y una variable auxiliar de ser necesario. Mostrar sus valores antes y después del intercambio
 
-> **Ejemplos base** : punteros1.cpp
-
-> **Respuesta1**: punteros2.cpp 
-
+> **Ejemplos base** : punteros1.cpp    
+> **Respuesta1**: punteros2.cpp    
 > **Respuesta2**: punteros3.cpp 
 
 ## Clase 2
@@ -26,8 +22,7 @@
 #### Problema 1
 Modifique el código para poder cambiar como mínimo 2 campos de la estructura utilizando punteros
 
-> **Ejemplos base** : estructuras3.cpp
-
+> **Ejemplos base** : estructuras3.cpp    
 > **Respuesta**: estructuras4.cpp 
 
 
@@ -44,10 +39,8 @@ Muestre los valores de ‘a’ y ‘b’, antes y después de cambiar su valores
 
 - Agregar la función resta en los namespace Impar y Par, siguiendo el mismo criterio que en suma (operar con posiciones impares o pares).
 
-> **Ejemplos base** : namespace1.cpp
-
-> **Respuesta1**: namespace2.cpp 
-
+> **Ejemplos base** : namespace1.cpp   
+> **Respuesta1**: namespace2.cpp    
 > **Respuesta2**: namespace3.cpp 
 
 #### Problema 4
@@ -57,8 +50,7 @@ Genere una función multiplicar con 4 parámetros Calcular el producto de los 4 
 ``` 
 Calcule el producto de al menos 2 funciones sobrecargadas (incluya el de 4 parámetros).
 
-> **Ejemplos base** : sobrecargaFunciones1.cpp
-
+> **Ejemplos base** : sobrecargaFunciones1.cpp    
 > **Respuesta**: sobrecargaFunciones2.cpp 
 
 ## Clase 3
@@ -70,18 +62,15 @@ Calcule el producto de al menos 2 funciones sobrecargadas (incluya el de 4 pará
 > [INFO] suma de (float, float)
 ```
 
-> **Ejemplos base** : sobrecargaFunciones3.cpp
-
-> **Respuesta1**: sobrecargaFunciones4.cpp 
-
+> **Ejemplos base** : sobrecargaFunciones3.cpp   
+> **Respuesta1**: sobrecargaFunciones4.cpp     
 > **Respuesta2**: sobrecargaFunciones5.cpp 
 
 #### Problema 2
 - Cree una función que sobrecargue un operador, el cual pueda determinar si dos estructuras ‘Vector’ son iguales.
 - Cree una función externa `void compareVector(Vector*, Vector*)`que reciba parámetros por referencia para realizar la comparación. A su vez, que muestre por terminal los vectores que se comparan y el resultado.
 
-> **Ejemplos base** : sobrecargaOperador1.cpp
-
+> **Ejemplos base** : sobrecargaOperador1.cpp    
 > **Respuesta1 y 2**: sobrecargaOperador2.cpp
 
 #### Problema 3
@@ -89,8 +78,7 @@ Agregar sobrecarga de operador para multiplicar un vector por un escalar (un lit
 
 Sea: **[escalar]*[vector]** o **[vector]*[escalar]** o **[vector]*[vector]**
 
-> **Ejemplos base** : sobrecargaOperador3.cpp
-
+> **Ejemplos base** : sobrecargaOperador3.cpp    
 > **Respuesta**: sobrecargaOperador6.cpp
 
 #### Problema 4
@@ -105,8 +93,7 @@ V=( 0; 0)  --> V= vector nulo
 > Estructura de ostream:
 `ostream& operator<<(ostream &, Vector &)`
 
-> **Ejemplos base** : sobrecargaOperador4.cpp
-
+> **Ejemplos base** : sobrecargaOperador4.cpp    
 > **Respuesta**: sobrecargaOperador7.cpp
 
 
@@ -116,8 +103,7 @@ En base al ejemplo de operador <<, sobre cargue operador >> para que al utilizar
 > Estructura de istream:
 `istream& operator>>(istream &, Vector &)`
 
-> **Ejemplos base** : sobrecargaOperador4.cpp
-
+> **Ejemplos base** : sobrecargaOperador4.cpp   
 > **Respuesta**: sobrecargaOperador5.cpp
 
 #### Problema 6
@@ -125,8 +111,7 @@ Defina la estructura `Paciente` con los campos: `char nombre[50]`, `int edad`, `
 Cree un menú para cargar estos datos de ‘n’ pacientes. ‘n’ es un entero que debe ingresar por terminal.
 Muestre todos los Pacientes y libere la memoria adecuadamente.
 
-> **Ejemplos base** : memDinamic2.cpp
-
+> **Ejemplos base** : memDinamic2.cpp   
 > **Respuesta**: memDinamic3.cpp
 
 #### Problema 7
@@ -137,8 +122,7 @@ Modifique el campo nombre de `estructuras4.cpp` utilizando operador `->`
 "Carlos" --> "Felipe"
 ```
 
-> **Ejemplos base** : string1.cpp
-
+> **Ejemplos base** : string1.cpp    
 > **Respuesta**: string2.cpp
 
 ## Clase 4
@@ -174,8 +158,7 @@ int main() {
     return 0;
 }
 ```
-> **Ejemplos base** : queue2.cpp
-
+> **Ejemplos base** : queue2.cpp     
 > **Respuesta**: queue3.cpp
 
 #### Problema 2
@@ -183,8 +166,7 @@ int main() {
 
 - Implemente función `rehacer()`, utilizando alias. 
 
-> **Ejemplos base** : stack2.cpp
-
+> **Ejemplos base** : stack2.cpp     
 > **Respuesta**: stack4.cpp
 
 ## Clase 5
@@ -201,8 +183,7 @@ Validar la `edad` seteada. Considere valida:  **0< edad < 20**. Y que se muestre
 > Edad seteada no valida 
 ```
 
-> **Ejemplos base** : encapsulamiento2.cpp
-
+> **Ejemplos base** : encapsulamiento2.cpp    
 > **Respuesta**: encapsulamiento3.cpp
 
 ####  Problema 2
@@ -219,8 +200,7 @@ Modifique el código para que se incremente 3 años mas el valor de edad seteada
  > Edad +3: 28 
 ```
 
-> **Ejemplos base** : encapsulamiento2.cpp
-
+> **Ejemplos base** : encapsulamiento2.cpp    
 > **Respuesta**: encapsulamiento4.cpp
 
 #### Problema 3
@@ -230,8 +210,7 @@ Modificar el código para que no se permitan depósitos negativos. Debe mostrar 
  > [INFO] Deposito valido
  > [ERROR] Deposito no valido
 ```
-> **Ejemplos base** : encapsulamiento5.cpp
-
+> **Ejemplos base** : encapsulamiento5.cpp     
 > **Respuesta**: encapsulamiento6.cpp
 
 #### Problema 4
@@ -262,9 +241,7 @@ Otro constructor debe recibir únicamente nombre .
 > [Destructor] Liberando sensor: Temperatura 
 ```
 
-
-> **Ejemplos base** : constdest1.cpp
-
+> **Ejemplos base** : constdest1.cpp    
 > **Respuesta**: constdest2.cpp
 
 ## Clase 6
@@ -303,8 +280,7 @@ nombre="Firulais"
 > Raza: labrador
 ```
 
-> **Ejemplos base** : herencia1.cpp
-
+> **Ejemplos base** : herencia1.cpp    
 > **Respuesta**: herencia2.cpp
 
 #### Problema 2
@@ -341,9 +317,53 @@ lenguaje="C++"
 > Lenguaje: C++
 ```
 
-> **Ejemplos base** : herencia3.cpp
-
+> **Ejemplos base** : herencia3.cpp    
 > **Respuesta**: herencia4.cpp
+
+#### Problema 3
+Se solicita que:
+- `class Animal` se incorporen los atributos `nombre` y `edad`
+- `class Perro` se incorpore atributo `raza`.
+- `class Gato` se incorpore atributo `color`
+- Genere los constructores para inicializar los objetos.
+- Un método `mostrarInfo()` que muestre la información de cada animal.
+- Funciones que permitan presentar cada objeto mostrando sus datos correspondiente.
+
+```
+ Al crear un objeto tenga en cuenta que los parametros son:   
+    Perro perro1([Nombre], [edad], [raza])  
+    Gato gato1([Nombre], [edad], [color])
+```
+
+```cpp
+// codigo obligatorio a utilizar en main()
+int main() {
+    Perro perro1("Toby", 5, "Labrador");
+    Gato gato1("Michi", 3, "Gris");
+
+    presentar(perro1);
+    presentar(gato1);
+
+    return 0;
+}
+```
+```text
+--- salida esperada ---
+> --- PERRO ---
+> Nombre: Toby
+> Edad: 5
+> Raza: Labrador
+> El perro ladra: Guau Guau!
+> 
+> --- GATO ---
+> Nombre: Michi
+> Edad: 3
+> Color: Gris
+> El gato maulla: Miau!
+```
+
+> **Ejemplos base** : polimorfismo1.cpp    
+> **Respuesta**: polimorfismo2.cpp
 
 
 
