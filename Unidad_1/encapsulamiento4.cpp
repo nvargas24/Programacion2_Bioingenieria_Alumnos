@@ -32,10 +32,10 @@ int main() {
     for(int i=0; i<4; i++){
         if(gato.setEdad(6+i)){// acceso a atributo privado
             if(i==0){
-                cout<< "Edad ingresada de gato: "<< gato.getEdad() << " años"<<endl;
+                cout<< "Edad ingresada: "<< gato.getEdad() << " anios"<<endl;
             }
             else{
-                cout<< "Edad de gato +"<< i << ": "<< gato.getEdad() << " años"<<endl; 
+                cout<< "Edad +"<< i << ": "<< gato.getEdad() << " anios"<<endl; 
             }
         }
     }
