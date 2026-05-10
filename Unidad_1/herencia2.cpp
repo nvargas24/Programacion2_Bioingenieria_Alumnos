@@ -10,11 +10,9 @@ public:
     Animal(string r) {
         raza = r;
     }
-
     string getRaza() {
         return raza;
     }
-
     void comer() {
         cout << "El animal come" << endl;
     }
@@ -24,7 +22,6 @@ public:
 class Perro : public Animal {
 private:
     string nombre;
-
 public:
     Perro(string n, string r) : Animal(r) {
         nombre = n;
@@ -32,7 +29,6 @@ public:
     void ladrar(){
         cout << "El perro ladra" << endl;
     }
-
     void mostrar() {
         cout << "Nombre: " << getRaza() << endl;
         cout << "Raza: " << nombre << endl;
