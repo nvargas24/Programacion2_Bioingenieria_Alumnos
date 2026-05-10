@@ -189,7 +189,7 @@ int main() {
 
 ## Clase 5
 ####  Problema 1
-Validar la ‘edad’ seteada. Considere valida:  **0< edad < 20**. Y que se muestre por terminal, según corresponda:
+Validar la `edad` seteada. Considere valida:  **0< edad < 20**. Y que se muestre por terminal, según corresponda:
 ```text
 --- salida esperada ---
 > Edad seteada valida
@@ -267,8 +267,9 @@ Otro constructor debe recibir únicamente nombre .
 
 > **Respuesta**: constdest2.cpp
 
+## Clase 6
 
-#### Problema 5
+#### Problema 1
 Modificar la `clase Animal` para que el atributo `String raza` sea privado, se inicialice mediante un **constructor** y se acceda con un **getter**.
 
 ```cpp
@@ -306,7 +307,7 @@ nombre="Firulais"
 
 > **Respuesta**: herencia2.cpp
 
-#### Problema 6
+#### Problema 2
 Modificar la `clase Empleado` para que incluya un atributo `nombre` como privado, inicializado mediante un constructor y accesible a través de un getter.
 
 ```cpp
