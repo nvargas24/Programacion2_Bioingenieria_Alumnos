@@ -320,7 +320,53 @@ lenguaje="C++"
 > **Ejemplos base** : herencia3.cpp    
 > **Respuesta**: herencia4.cpp
 
-#### Problema 3
+#### Problema 3            
+Considere el ejemplo `herencia4.cpp`.
+Se solicita que:      
+- Incorpore en `class Empleado` el atributo `empresa` como miembro protected.
+- Modifique el constructor de `Empleado` para inicializar los atributos `nombre` y `empresa`.
+- Modifique el constructor de `Programador` para que reciba los parámetros:
+`string nombre`, `string empresa` y `string lenguaje` El constructor deberá inicializar correctamente el constructor de `Empleado`.
+- Modifique el método `mostrar()` para visualizar los atributos `nombre`, `empresa` y `lenguaje` del objeto.
+- Implemente el método `bool compareLenguaje(Programador&)` que permita determinar si dos objetos `Programador` utilizan el mismo lenguaje de programación.
+- Utilize el método `compareLenguaje()` dentro de `main()` para comparar dos objetos `Programador`.
+
+```cpp
+// codigo obligatorio a utilizar en main()
+int main() {
+    Programador p1("Ana", "TechSoft", "C++");
+    Programador p2("Luis", "CodeSystems", "C++");
+
+    p1.mostrar();
+    p2.mostrar();
+    
+    cout << p1.getNombre()<<" y "<< p2.getNombre();
+    if (p1.compareLenguaje(p2))
+        cout <<" usan el mismo lenguaje" << endl;
+    else
+        cout << " usan lenguajes distintos" << endl;
+
+    return 0;
+}
+```
+
+```
+--- salida esperada ---
+> Nombre: Ana
+> Empresa: TechSoft
+> Lenguaje: C++
+>
+> Nombre: Luis
+> Empresa: CodeSystems
+> Lenguaje: C++
+> 
+> Ana y Luis usan el mismo lenguaje
+```
+
+> **Ejemplos base** : herencia4.cpp    
+> **Respuesta**: this5.cpp
+
+#### Problema 4
 Se solicita que:
 - `class Animal` se incorporen los atributos `nombre` y `edad`
 - `class Perro` se incorpore atributo `raza`.
@@ -365,5 +411,39 @@ int main() {
 > **Ejemplos base** : polimorfismo1.cpp    
 > **Respuesta**: polimorfismo2.cpp
 
+#### Problema 5
+Considere el ejemplo `polimorfismo2.cpp`.    
+Se solicita que:"
+- Redefina las funciones `void presentar()` como una única función `void presentarAnimal(Animal*)`.
+- La función `presentarAnimal(Animal*)` debe ejecutar los métodos `hacerSonido()` y `mostrarinfo()` de las `clases hija` correspondientes del objeto recibido como parametro.
+- Realice las modificaciones necesarias en los métodos `mostrarInfo()` y `hacerSonido()` de cada clase para que funcione correctamente la función `presentarAnimal()`.,
 
+```cpp
+// codigo obligatorio a utilizar en main()
+int main() {
+    Perro perro1("Toby", 5, "Labrador");
+    Gato gato1("Michi", 3, 7);
 
+    presentarAnimal(&perro1);
+    presentarAnimal(&gato1);
+
+    return 0;
+}
+```
+```text
+--- Salida esperada ---
+> --- PERRO ---
+> Nombre: Toby
+> Edad: 5
+> Raza: Labrador
+> El perro ladra: Guau Guau!
+> 
+> --- GATO ---
+> Nombre: Michi
+> Edad: 3
+> Vidas: 7
+> El gato maulla: Miau!
+```
+
+> **Ejemplos base** : polimorfismo4.cpp    
+> **Respuesta**: polimorfismo3.cpp
