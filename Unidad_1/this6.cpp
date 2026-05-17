@@ -3,7 +3,7 @@
 using namespace std;
 
 class Persona {
-protected:
+private:
     string nombre;
 public:
     Persona(string nombre): nombre(nombre){
