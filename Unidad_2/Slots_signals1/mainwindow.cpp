@@ -1,12 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-
-
-
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     this->setWindowTitle("Signls & Slots");
     this->resize(600, 250);
@@ -15,10 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     btn->setGeometry(10, 10, 120, 30);
 
     QObject::connect(btn, &QPushButton::clicked, this, &QMainWindow::close);
-
-
 }
-
 
 MainWindow::~MainWindow()
 {
