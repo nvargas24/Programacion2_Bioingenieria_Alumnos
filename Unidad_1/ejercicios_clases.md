@@ -366,7 +366,9 @@ int main() {
 > **Ejemplos base** : herencia4.cpp    
 > **Respuesta**: this5.cpp
 
-#### Problema 4
+## Clase 7
+
+#### Problema 1
 Se solicita que:
 - `class Animal` se incorporen los atributos `nombre` y `edad`
 - `class Perro` se incorpore atributo `raza`.
@@ -411,7 +413,7 @@ int main() {
 > **Ejemplos base** : polimorfismo1.cpp    
 > **Respuesta**: polimorfismo2.cpp
 
-#### Problema 5
+#### Problema 2
 Considere el ejemplo `polimorfismo2.cpp`.    
 Se solicita que:"
 - Redefina las funciones `void presentar()` como una única función `void presentarAnimal(Animal*)`.
