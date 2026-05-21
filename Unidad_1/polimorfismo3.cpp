@@ -30,8 +30,7 @@ class Perro : public Animal {
 private:
     string raza;
 public:
-    Perro(string n, int e, string r) : Animal(n, e) {
-        raza = r;
+    Perro(string n, int e, string r) : Animal(n, e), raza(r) {
     }
     // override indica que se redefine el metodo virtual
     void hacerSonido() override {
@@ -50,7 +49,7 @@ private:
     int vidas;
 public:
     Gato(string n, int e, int v) : Animal(n, e) {
-        vidas = v;
+        this->vidas = v;
     }
     void hacerSonido() override {
         cout << "El gato maulla: Miau!" << endl;
