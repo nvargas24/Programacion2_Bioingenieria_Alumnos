@@ -8,9 +8,7 @@ protected:
     string nombre;
     int edad;
 public:
-    Animal(string n, int e) {
-        nombre = n;
-        edad = e;
+    Animal(string n, int e): nombre(n), edad(e) {
     }
     void mostrarInfo() {
         cout << "Nombre: " << nombre << endl;
@@ -25,8 +23,7 @@ class Perro : public Animal {
 private:
     string raza;
 public:
-    Perro(string n, int e, string r) : Animal(n, e) {
-        raza = r;
+    Perro(string n, int e, string r) : Animal(n, e), raza(r) {
     }
     void mostrarInfo() {
         cout << "--- PERRO ---" << endl;
@@ -34,7 +31,7 @@ public:
         cout << "Raza: " << raza << endl;
     }
     void hacerSonido() {
-        cout << "El perro ladra: Guau Guau!" << endl;
+        cout << "El perro ladra" << endl;
     }
 };
 
@@ -42,8 +39,7 @@ class Gato : public Animal {
 private:
     string color;
 public:
-    Gato(string n, int e, string c) : Animal(n, e) {
-        color = c;
+    Gato(string n, int e, string c) : Animal(n, e), color(c) {
     }
     void mostrarInfo() {
         cout << "--- GATO ---" << endl;
@@ -51,7 +47,7 @@ public:
         cout << "Color: " << color << endl;
     }
     void hacerSonido() {
-        cout << "El gato maulla: Miau!" << endl;
+        cout << "El gato maulla" << endl;
     }
 };
 

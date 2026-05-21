@@ -370,9 +370,9 @@ int main() {
 
 #### Problema 1
 Se solicita que:
-- `class Animal` se incorporen los atributos `nombre` y `edad`
-- `class Perro` se incorpore atributo `raza`.
-- `class Gato` se incorpore atributo `color`
+- `class Animal` se incorporen los atributos protegidos `nombre` y `edad`
+- `class Perro` se incorpore atributo privado `raza`.
+- `class Gato` se incorpore atributo privado `color`
 - Genere los constructores para inicializar los objetos.
 - Un método `mostrarInfo()` que muestre la información de cada animal.
 - Funciones que permitan presentar cada objeto mostrando sus datos correspondiente.
@@ -401,13 +401,13 @@ int main() {
 > Nombre: Toby
 > Edad: 5
 > Raza: Labrador
-> El perro ladra: Guau Guau!
+> El perro ladra
 > 
 > --- GATO ---
 > Nombre: Michi
 > Edad: 3
 > Color: Gris
-> El gato maulla: Miau!
+> El gato maulla
 ```
 
 > **Ejemplos base** : polimorfismo1.cpp    
