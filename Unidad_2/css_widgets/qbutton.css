@@ -1,0 +1,39 @@
+/* ESTILO GENERAL DEL QPushButton */
+QPushButton
+{
+    background-color: #3498db;   /* Color de fondo */
+    color: white;                /* Color del texto */
+    border: 2px solid #2980b9;   /* Borde */
+    border-radius: 8px;          /* Bordes redondeados */
+
+    padding: 8px 16px;           /* Espaciado interno */
+}
+
+/* BOTON AL PASAR EL MOUSE */
+QPushButton:hover
+{
+    background-color: #5dade2;
+}
+
+/* BOTON PRESIONADO */
+QPushButton:pressed
+{
+    background-color: #21618c;
+
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+/* BOTON DESHABILITADO */
+QPushButton:disabled
+{
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+    border: 2px solid #95a5a6;
+}
+
+/* BOTON CON FOCO */
+QPushButton:focus
+{
+    border: 3px solid orange;
+}
