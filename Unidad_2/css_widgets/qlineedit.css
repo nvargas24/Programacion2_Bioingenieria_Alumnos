@@ -1,0 +1,43 @@
+/* ESTILO GENERAL DEL QLineEdit */
+QLineEdit
+{
+    background-color: white;      /* Fondo */
+    color: black;                 /* Color texto */
+
+    border: 2px solid #3498db;    /* Borde */
+    border-radius: 6px;           /* Bordes redondeados */
+
+    padding: 6px;                 /* Espaciado interno */
+
+    selection-background-color: #3498db; /* Color seleccion */
+    selection-color: white;              /* Texto seleccionado */
+}
+
+/* AL PASAR EL MOUSE */
+QLineEdit:hover
+{
+    border: 2px solid #5dade2;
+}
+
+/* CUANDO TIENE FOCO */
+QLineEdit:focus
+{
+    border: 2px solid orange;
+    background-color: #fcf3cf;
+}
+
+/* DESHABILITADO */
+QLineEdit:disabled
+{
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    border: 2px solid #bdc3c7;
+}
+
+/* SOLO LECTURA */
+QLineEdit:read-only
+{
+    background-color: #f4f6f7;
+    color: #2c3e50;
+    border: 2px dashed #95a5a6;
+}
