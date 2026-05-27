@@ -1,11 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
 #include<QStandardItemModel>
 #include<QTextStream>
 #include<QFile>
 
+#define URL_CSV "../../../../../Recursos/data/datos_biomedicos1.csv"
+// \Unidad_2\ImportCSV\UI_ImportCSV\build\x86_windows_msys_pe_64bit-Debug\debug\tableCSV.exe"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     //setWindowTitle("CSV Viewer");
 
     // Lectura de archivo .CSV
-    QString filename = "C:/Users/nahue/Documents/Workspace/Bioingenieria - Programacion2/Archivos_free/datos_biomedicos1.csv";  //ingresado por usuario
+    QString filename = URL_CSV;  //ingresado por usuario
     QFile file(filename); // se inicializa objeto con la url
 
     // Verifico que exista dicho archivo
