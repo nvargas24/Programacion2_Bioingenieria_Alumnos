@@ -25,3 +25,8 @@ Lenguajes validos:
 ## Clase 9
 
 #### Problema 1
+Diseñe una UI para carga de datos basico donde se ingresa `Nombre` y `Edad` del usuario. Estos se cargan con un `QPushButton` indentificado  como `btnIngresar`. Debe limitar la cantidad de caracteres y el tipo que puede ingresar en los `QLineEdit`.
+#### Problema 2
+Diseñe una UI para el ejemplo `stack3.cpp` que sea responsive. Recuerde implementar correctamente la UX planteada.
+
+## Clase 10
