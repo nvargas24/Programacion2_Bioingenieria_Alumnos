@@ -23,6 +23,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    winNuevo *win2;
+    winNuevo *win2; // puntero para ventana secundaria
 };
 #endif // MAINWINDOW_H

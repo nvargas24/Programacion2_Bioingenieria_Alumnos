@@ -13,6 +13,7 @@ winNuevo::~winNuevo()
     delete ui;
 }
 
+// Slots de ventana secundaria - responde con señales basicas a mainwindow
 void winNuevo::on_btnQuiero_clicked()
 {
     accept();
