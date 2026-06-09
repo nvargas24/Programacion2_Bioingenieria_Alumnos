@@ -5,9 +5,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    // Se utiliza nullptr para que sea una ventana independiente de la mainwindow
     win2 = new winNuevo(nullptr); // Inicializo puntero con espacio de memoria dinamica para ventana
     win3 = new winAuxiliar(nullptr); // Inicializo puntero con espacio de memoria dinamiza para otra ventana
+    win4 = new winCalibracion(nullptr);
     ui->setupUi(this);
 }
 
@@ -38,5 +38,19 @@ void MainWindow::on_btnControl_clicked()
 {
     win3->show();
     win3->raise();
+}
+
+
+void MainWindow::on_btnCalibrar_clicked()
+{
+    QList<int> configRGB;
+
+    win4->show();
+    win4->raise();
+
+    if(win4->exec() == QDialog::Accepted){
+        configRGB = win4->getRGB();
+        qDebug()<< "[Mainwindow] Importa RGB: " << configRGB;
+    }
 }
 
