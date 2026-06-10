@@ -5,35 +5,29 @@ QPushButton
     color: white;                /* Color del texto */
     border: 2px solid #2980b9;   /* Borde */
     border-radius: 8px;          /* Bordes redondeados */
-
     padding: 8px 16px;           /* Espaciado interno */
 }
 
-/* BOTON AL PASAR EL MOUSE */
-QPushButton:hover
+QPushButton:hover   /* Cambio de color al pasar el mouse sobre Button */
 {
     background-color: #5dade2;
 }
 
-/* BOTON PRESIONADO */
-QPushButton:pressed
+QPushButton:pressed /* Cambio de color y espacio izquierdo- superior al clickear Button */
 {
     background-color: #21618c;
-
     padding-left: 10px;
     padding-top: 10px;
 }
 
-/* BOTON DESHABILITADO */
-QPushButton:disabled
+QPushButton:disabled /* Cambio de color al deshabilitar Button */
 {
     background-color: #bdc3c7;
     color: #7f8c8d;
     border: 2px solid #95a5a6;
 }
 
-/* BOTON CON FOCO */
-QPushButton:focus
+QPushButton:focus  /* Cambio de color de foco al borde de Button */
 {
     border: 3px solid orange;
 }
