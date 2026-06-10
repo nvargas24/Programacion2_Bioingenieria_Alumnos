@@ -57,11 +57,17 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
        <property name="maximum">
         <number>255</number>
        </property>
        <property name="pageStep">
         <number>1</number>
+       </property>
+       <property name="value">
+        <number>0</number>
        </property>
        <property name="tracking">
         <bool>true</bool>
@@ -97,6 +103,9 @@
        <property name="pageStep">
         <number>1</number>
        </property>
+       <property name="value">
+        <number>0</number>
+       </property>
        <property name="notchTarget">
         <double>10.000000000000000</double>
        </property>
@@ -130,6 +139,9 @@
        </property>
        <property name="segmentStyle">
         <enum>QLCDNumber::SegmentStyle::Flat</enum>
+       </property>
+       <property name="value" stdset="0">
+        <double>0.000000000000000</double>
        </property>
       </widget>
      </item>
@@ -167,6 +179,9 @@
        <property name="pageStep">
         <number>1</number>
        </property>
+       <property name="value">
+        <number>0</number>
+       </property>
        <property name="tracking">
         <bool>true</bool>
        </property>
@@ -201,6 +216,9 @@
        <property name="pageStep">
         <number>1</number>
        </property>
+       <property name="value">
+        <number>0</number>
+       </property>
        <property name="notchTarget">
         <double>10.000000000000000</double>
        </property>
@@ -234,6 +252,12 @@
        </property>
        <property name="segmentStyle">
         <enum>QLCDNumber::SegmentStyle::Flat</enum>
+       </property>
+       <property name="value" stdset="0">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="intValue" stdset="0">
+        <number>0</number>
        </property>
       </widget>
      </item>
@@ -271,6 +295,9 @@
        <property name="pageStep">
         <number>1</number>
        </property>
+       <property name="value">
+        <number>0</number>
+       </property>
        <property name="tracking">
         <bool>true</bool>
        </property>
@@ -305,6 +332,9 @@
        <property name="pageStep">
         <number>1</number>
        </property>
+       <property name="value">
+        <number>0</number>
+       </property>
        <property name="notchTarget">
         <double>10.000000000000000</double>
        </property>
@@ -338,6 +368,12 @@
        </property>
        <property name="segmentStyle">
         <enum>QLCDNumber::SegmentStyle::Flat</enum>
+       </property>
+       <property name="value" stdset="0">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="intValue" stdset="0">
+        <number>0</number>
        </property>
       </widget>
      </item>
