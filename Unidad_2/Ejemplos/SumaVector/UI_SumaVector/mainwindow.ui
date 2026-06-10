@@ -6,22 +6,39 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>220</height>
+    <width>467</width>
+    <height>224</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>14</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>40</number>
+    </property>
+    <property name="topMargin">
+     <number>15</number>
+    </property>
+    <property name="rightMargin">
+     <number>40</number>
+    </property>
+    <property name="bottomMargin">
+     <number>15</number>
+    </property>
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,3,1">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,3,2">
       <item>
        <widget class="QLabel" name="label">
         <property name="font">
          <font>
-          <pointsize>14</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="layoutDirection">
@@ -53,7 +70,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="x_vecA"/>
+              <widget class="QLineEdit" name="x_vecA">
+               <property name="inputMask">
+                <string>999</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -67,7 +88,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="y_vecA"/>
+              <widget class="QLineEdit" name="y_vecA">
+               <property name="inputMask">
+                <string>999</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -90,7 +115,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="x_vecB"/>
+              <widget class="QLineEdit" name="x_vecB">
+               <property name="inputMask">
+                <string>999</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -104,7 +133,11 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="y_vecB"/>
+              <widget class="QLineEdit" name="y_vecB">
+               <property name="inputMask">
+                <string>999</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -144,7 +177,13 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,1">
+       <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,2">
+        <property name="leftMargin">
+         <number>100</number>
+        </property>
+        <property name="rightMargin">
+         <number>100</number>
+        </property>
         <item>
          <widget class="QLabel" name="label_6">
           <property name="font">
@@ -153,19 +192,34 @@
            </font>
           </property>
           <property name="text">
-           <string>&lt;span&gt;A&amp;#x20D7;&lt;/span&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A⃗+B⃗=&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="resultadoSuma">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="font">
            <font>
             <pointsize>14</pointsize>
            </font>
           </property>
+          <property name="frameShape">
+           <enum>QFrame::Shape::WinPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Raised</enum>
+          </property>
           <property name="text">
            <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -175,7 +229,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
