@@ -53,7 +53,7 @@ Diseñe e implemente una interfaz gráfica de usuario, considerando lo siguiente
     * Su funcionamiento deberá ser idéntico al del Grupo de control N.º 1, manteniendo la sincronización entre los widgets del grupo.
 - Indicador de progreso
     * Incorporar un **QProgressBar** que represente un porcentaje entre **0 % y 100 %**.
-    * El valor mostrado por este control deberá calcularse a partir de la combinación de los valores de ambos **QLCDNumber**, de manera que represente el porcentaje alcanzado respecto del valor máximo posible.
+    * El valor mostrado por este control deberá calcularse a partir de la combinación de los valores de ambos **Grupos de control**, de manera que represente el porcentaje alcanzado respecto del valor máximo posible.
     * Cualquier modificación en los controles de los grupos anteriores deberá actualizar automáticamente este indicador.
 
         - Ejemplo
@@ -75,6 +75,7 @@ Diseñe e implemente una interfaz gráfica de usuario, considerando lo siguiente
             ```
 
             donde **200** corresponde a la suma máxima posible cuando ambos grupos alcanzan su valor máximo (100).
+        > **Advertencia**: **QprogressBar** solo acepta del tipo `int`, por lo tanto, se debera truncar el decimal. Para esto utilice `static_cast<int>(per)`, siendo `per` el valor decimal.  
 
 > **UI base** :  UI_genericos -> ControlValue -> mainwindow.ui  
 > **Respuesta** : Ejemplos -> ControlCarga

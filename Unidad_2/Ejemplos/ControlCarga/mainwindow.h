@@ -1,0 +1,42 @@
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QDebug>
+
+QT_BEGIN_NAMESPACE
+namespace Ui {
+class MainWindow;
+}
+QT_END_NAMESPACE
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+private slots:
+    void on_sliderCarga1_valueChanged(int value);
+
+    void on_dialCarga1_valueChanged(int value);
+
+    void on_sboxCarga1_valueChanged(int value);
+
+    void on_sliderCarga2_valueChanged(int value);
+
+    void on_dialCarga2_valueChanged(int value);
+
+    void on_sboxCarga2_valueChanged(int value);
+
+private:
+    Ui::MainWindow *ui;
+    int maxGeneral; // suma de ambos grupos de control
+
+    int valueCarga1;
+    int valueCarga2;
+    double per;
+};
+#endif // MAINWINDOW_H
