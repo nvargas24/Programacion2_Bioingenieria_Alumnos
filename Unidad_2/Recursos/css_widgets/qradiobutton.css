@@ -1,0 +1,36 @@
+/* ESTILO GENERAL DEL QRADIOBUTTON */
+QRadioButton
+{
+    spacing: 8px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+/* INDICADOR VISUAL (El círculo) */
+QRadioButton::indicator
+{
+    width: 18px;
+    height: 18px;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px; /* Redondeado total para ser un círculo */
+    background-color: white;
+}
+
+/* ESTADOS DEL CÍRCULO */
+QRadioButton::indicator:hover
+{
+    border-color: #3498db;
+}
+
+QRadioButton::indicator:checked
+{
+    background-color: white;
+    border-color: #3498db;
+    image: url(radio_dot.png); /* O usar un sub-control interno */
+}
+
+QRadioButton:disabled
+{
+    color: #95a5a6;
+}

@@ -1,0 +1,27 @@
+/* ESTILO GENERAL DEL QGROUPBOX */
+QGroupBox
+{
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    margin-top: 12px; /* Margen superior para no encimar el título */
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2980b9;
+}
+
+/* EL TÍTULO DEL CONTENEDOR */
+QGroupBox::title
+{
+    subcontrol-origin: margin;
+    subcontrol-position: top left; /* Ubicación superior izquierda */
+    padding: 0px 5px;
+    left: 10px;
+}
+
+/* ESTADOS DEL QGROUPBOX */
+QGroupBox:disabled
+{
+    border-color: #d5dbdb;
+    color: #95a5a6;
+}

@@ -1,0 +1,43 @@
+/* ESTILO GENERAL DEL QCHECKBOX */
+QCheckBox
+{
+    spacing: 8px; /* Espacio entre el cuadro y el texto */
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+/* INDICADOR VISUAL (El cuadro) */
+QCheckBox::indicator
+{
+    width: 18px;
+    height: 18px;
+    border: 2px solid #bdc3c7;
+    border-radius: 4px;
+    background-color: white;
+}
+
+/* ESTADOS DEL CUADRO */
+QCheckBox::indicator:hover
+{
+    border-color: #3498db;
+}
+
+QCheckBox::indicator:checked
+{
+    background-color: #3498db;
+    border-color: #2980b9;
+    image: url(check_mark.png); /* Imagen o icono de verificación */
+}
+
+QCheckBox:disabled
+{
+    color: #95a5a6;
+}
+
+QCheckBox::indicator:disabled
+{
+    background-color: #ecf0f1;
+    border-color: #d5dbdb;
+}
+

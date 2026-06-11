@@ -1,0 +1,42 @@
+/* ESTILO GENERAL DEL QTABLEWIDGET */
+QTableWidget
+{
+    background-color: #ffffff;
+    color: #2c3e50;
+    border: 2px solid #bdc3c7;
+    gridline-color: #ecf0f1; /* Líneas divisorias internas */
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 13px;
+}
+
+/* CELDAS INTERNAS */
+QTableWidget::item
+{
+    padding: 6px;
+}
+
+QTableWidget::item:hover
+{
+    background-color: #ebf5fb;
+}
+
+QTableWidget::item:selected
+{
+    background-color: #3498db;
+    color: white;
+}
+
+/* ENCABEZADOS DE LA TABLA (Columnas y Filas) */
+QHeaderView::section
+{
+    background-color: #3498db;
+    color: white;
+    padding: 6px;
+    font-weight: bold;
+    border: 1px solid #2980b9;
+}
+
+QHeaderView::section:horizontal
+{
+    border-top-left-radius: 0px;
+}

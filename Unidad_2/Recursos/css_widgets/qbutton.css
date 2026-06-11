@@ -1,33 +1,72 @@
 /* ESTILO GENERAL DEL QPushButton */
 QPushButton
 {
-    background-color: #3498db;   /* Color de fondo */
-    color: white;                /* Color del texto */
-    border: 2px solid #2980b9;   /* Borde */
-    border-radius: 8px;          /* Bordes redondeados */
-    padding: 8px 16px;           /* Espaciado interno */
+    /* Color y Fondo */
+    background-color: #3498db;   
+    color: white;                
+    
+    /* Bordes y Estructura */
+    border: 2px solid #2980b9;   
+    border-radius: 8px;          
+    
+    /* Espaciado de la Caja */
+    padding: 8px 16px;           /* Arriba/Abajo Izquierda/Derecha */
+    margin: 4px;                 /* Espacio exterior alrededor del botón */
+    
+    /* Propiedades de Texto y Fuente */
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;           /* normal, bold, 600, etc. */
+    text-transform: uppercase;   /* uppercase, lowercase, none */
+    text-align: center;          /* left, center, right */
 }
 
-QPushButton:hover   /* Cambio de color al pasar el mouse sobre Button */
+/* ESTADOS DEL QPushButton */
+/* Cambio de color al pasar el mouse por encima */
+QPushButton:hover   
 {
     background-color: #5dade2;
+    cursor: pointer;             /* Nota: El cursor cambia en algunas plataformas */
 }
 
-QPushButton:pressed /* Cambio de color y espacio izquierdo- superior al clickear Button */
+/* Cambio de comportamiento al hacer clic */
+QPushButton:pressed 
 {
-    background-color: #21618c;
-    padding-left: 10px;
-    padding-top: 10px;
+    /* Fondo con gradiente lineal avanzado (Inicio a Fin) */
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                      stop:0 #21618c, stop:1 #1b4f72);
+    border-color: #154360;
+    
+    /* Efecto de hundimiento ajustando el padding */
+    padding-left: 11px;
+    padding-top: 11px;
 }
 
-QPushButton:disabled /* Cambio de color al deshabilitar Button */
+/* Estado deshabilitado (Botón inactivo) */
+QPushButton:disabled 
 {
     background-color: #bdc3c7;
     color: #7f8c8d;
     border: 2px solid #95a5a6;
 }
 
-QPushButton:focus  /* Cambio de color de foco al borde de Button */
+/* Estado cuando el botón tiene el foco del teclado */
+QPushButton:focus  
 {
-    border: 3px solid orange;
+    border: 2px solid #e67e22;   /* Borde naranja de foco */
+    outline: none;                /* Quita la línea punteada nativa del sistema */
+}
+
+/* Estado Activo (Cuando está seleccionado/marcado si es Checkable) */
+QPushButton:checked 
+{
+    background-color: #27ae60;   /* Color verde para botones activos */
+    border-color: #1e8449;
+    color: #ffffff;
+}
+
+/* Estado Combinado: Pasar el mouse sobre un botón que ya está marcado */
+QPushButton:checked:hover 
+{
+    background-color: #2ecc71;
 }

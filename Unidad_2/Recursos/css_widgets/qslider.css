@@ -1,0 +1,48 @@
+/* ESTILO GENERAL DEL QSLIDER HORIZONTAL */
+QSlider:horizontal 
+{
+    height: 30px;
+    margin: 4px;
+}
+
+/* El canal/pista por donde se desliza el control */
+QSlider::groove:horizontal 
+{
+    border: 1px solid #bdc3c7;
+    height: 8px;
+    background: #ecf0f1;
+    border-radius: 4px;
+}
+
+/* El control deslizante (Manejo/Botón) */
+QSlider::handle:horizontal 
+{
+    background: #3498db;
+    border: 2px solid #2980b9;
+    width: 18px;
+    margin-top: -6px; /* Centra el control sobre la pista */
+    margin-bottom: -6px;
+    border-radius: 9px;
+}
+
+/* ESTADOS DEL QSLIDER */
+QSlider::handle:horizontal:hover 
+{
+    background: #5dade2;
+}
+
+QSlider::handle:horizontal:pressed 
+{
+    background: #21618c;
+}
+
+QSlider::groove:horizontal:disabled 
+{
+    background: #d5dbdb;
+}
+
+QSlider::handle:horizontal:disabled 
+{
+    background: #bdc3c7;
+    border-color: #95a5a6;
+}

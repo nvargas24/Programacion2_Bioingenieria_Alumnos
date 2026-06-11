@@ -1,36 +1,35 @@
 /* ESTILO GENERAL DEL QLineEdit */
 QLineEdit
 {
-    background-color: white;      /* Fondo */
-    color: black;                 /* Color texto */
-    border: 2px solid #3498db;    /* Borde */
-    border-radius: 6px;           /* Bordes redondeados */
-    padding: 6px;                 /* Espaciado interno */
-    selection-background-color: #3498db; /* Color seleccion */
-    selection-color: white;              /* Texto seleccionado */
+    background-color: #ffffff;
+    color: #2c3e50;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
 }
 
-QLineEdit:hover   /* AL PASAR EL MOUSE */
+/* ESTADOS DEL QLineEdit */
+QLineEdit:hover
 {
-    border: 2px solid #5dade2;
+    border: 2px solid #3498db;
 }
 
-QLineEdit:focus   /* CUANDO TIENE FOCO */
+QLineEdit:focus
 {
-    border: 2px solid orange;
-    background-color: #fcf3cf;
+    border: 2px solid #2980b9;
+    background-color: #f8fbfd;
 }
 
-QLineEdit:disabled    /* DESHABILITADO */
+QLineEdit:disabled
 {
     background-color: #ecf0f1;
-    color: #7f8c8d;
-    border: 2px solid #bdc3c7;
+    color: #95a5a6;
+    border: 2px solid #d5dbdb;
 }
 
-QLineEdit:read-only    /* SOLO LECTURA */
+QLineEdit:read-only
 {
     background-color: #f4f6f7;
-    color: #2c3e50;
-    border: 2px dashed #95a5a6;
 }

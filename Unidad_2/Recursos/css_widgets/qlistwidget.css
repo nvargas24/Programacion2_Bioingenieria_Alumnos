@@ -1,0 +1,38 @@
+/* ESTILO GENERAL DEL QLISTWIDGET */
+QListWidget
+{
+    background-color: #ffffff;
+    color: #2c3e50;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 5px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* ELEMENTOS INTERNOS DEL QLISTWIDGET */
+QListWidget::item
+{
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+}
+
+/* ESTADOS DE LOS ELEMENTOS */
+QListWidget::item:hover
+{
+    background-color: #ebf5fb;
+    color: #2980b9;
+}
+
+QListWidget::item:selected
+{
+    background-color: #3498db;
+    color: white;
+}
+
+QListWidget:focus
+{
+    border: 2px solid #3498db;
+    outline: none;
+}

@@ -1,0 +1,15 @@
+/* ESTILO GENERAL DEL QLABEL */
+QLabel
+{
+    color: #2c3e50;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    background-color: transparent; /* Por defecto transparente */
+    padding: 2px;
+}
+
+/* ESTADOS OPCIONALES DEL QLABEL */
+QLabel:disabled
+{
+    color: #95a5a6;
+}
