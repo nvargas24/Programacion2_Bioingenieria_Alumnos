@@ -98,7 +98,7 @@ Partiendo de la GUI desarrollada en el **Problema 1**, incorpore las siguientes 
 
     * **Color**: Cambio de color   
     Mientras el botón permanezca presionado, el **QGroupBox** al que pertenece deberá cambiar su color de fondo al valor: #A89499
-    Al liberar el botón, el color original deberá restaurarse #E1E1E1
+    Al liberar el botón, el color original deberá restaurarse #F3F3F3
 
 - Agregue un segundo **QGroupBox** que contenga tres **QCheckBox**.  
 

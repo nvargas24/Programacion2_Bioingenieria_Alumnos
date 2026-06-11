@@ -15,6 +15,15 @@ public:
     explicit Modos(QWidget *parent = nullptr);
     ~Modos();
 
+    // getter
+    QString getModo();
+
+    // setter
+    void setModo(QString mode);
+
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Modos *ui;
 };

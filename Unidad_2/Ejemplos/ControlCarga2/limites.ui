@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>229</width>
-    <height>137</height>
+    <width>270</width>
+    <height>142</height>
    </rect>
   </property>
   <property name="font">
@@ -16,7 +16,10 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Limites de control</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="QIcon::ThemeIcon::DriveHarddisk"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="leftMargin">
@@ -32,7 +35,7 @@
     <number>15</number>
    </property>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,2">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,8">
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
@@ -48,12 +51,15 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
       </widget>
      </item>
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,2">
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="5,8">
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
@@ -68,6 +74,9 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="maximum">
+        <number>255</number>
        </property>
       </widget>
      </item>

@@ -15,8 +15,19 @@ public:
     explicit Limites(QWidget *parent = nullptr);
     ~Limites();
 
+    // getters  ; opcional: podria obtener los valores por separado.
+    QList<int> getLimites();
+
+    // setters
+    void setLimites(QList<int> rango);
+
+private slots:
+    void on_btnAceptar_clicked();
+
 private:
     Ui::Limites *ui;
+    int valueMin;
+    int valueMax;
 };
 
 #endif // LIMITES_H
