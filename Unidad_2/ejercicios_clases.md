@@ -76,11 +76,11 @@ Diseñe e implemente una interfaz gráfica de usuario, considerando lo siguiente
 
             donde **200** corresponde a la suma máxima posible cuando ambos grupos alcanzan su valor máximo (100).
 
-> **UI base** :  UI_genericos -> configValue -> mainwindow.ui  
+> **UI base** :  UI_genericos -> ControlValue -> mainwindow.ui  
 > **Respuesta** : Ejemplos -> ControlCarga
 
 #### Problema 2
-Partiendo de la GUI desarrollada en el **Problema 1**, incorpore las siguientes funcionalidades.
+Partiendo de la GUI desarrollada en el **Problema 1**, incorpore las siguientes funcionalidades:
 - Agregue un **QGroupBox** que contenga tres **QPushButton**.   
     * **Modo**: Configuración del modo de operación  
     Al presionarlo, deberá abrir una ventana secundaria que contenga tres **QRadioButton**, agrupados mediante un **QButtonGroup**, para seleccionar el modo de operación del **QProgressBar**.
