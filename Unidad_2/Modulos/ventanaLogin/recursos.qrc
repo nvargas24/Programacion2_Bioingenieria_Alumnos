@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/imagenes">
+        <file>fondo_win11.jpg</file>
+        <file>fondo_main.jpg</file>
+        <file>user.png</file>
+    </qresource>
+</RCC>
