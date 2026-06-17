@@ -40,7 +40,7 @@ Diseñe una GUI para el ejemplo `stack3.cpp` que sea responsive. Recuerde implem
 
 > **Respuesta** : Ejemplos -> RegistroAcciones
 
-## Clase 10
+## Clase 11
 #### Problema 1
 Diseñe e implemente una interfaz gráfica de usuario, considerando lo siguiente:
 
