@@ -79,9 +79,6 @@ void MainWindow::on_btnLimites_clicked()
     uiLimites->setLimites(rangoLimites); // se carga en ventana secundaria
 
     // Muestra ventana secundaria
-    uiLimites->show();
-    uiLimites->raise();
-
     // Importa datos de ventana secundaria
     if(uiLimites->exec() == QDialog::Accepted){  // Confirmado por ventana secundaria se importa datos
         rangoLimites = uiLimites->getLimites();  // (min , max)
