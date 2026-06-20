@@ -31,10 +31,16 @@ private slots:
 
     void on_btnStatusG_toggled(bool checked);
 
+    void closeEvent(QCloseEvent *event) override;
+
+    void addMovimientos(QString msj);
+
 private:
     Ui::MainWindow *ui;
     Parametros* uiWinParametros;
     Modelos* uiWinModelos;
+
+    QList<QString> movimientos; // listado de movimientos en GUI
 
     /* Datos de ventanas secundarias*/
     QVector<QString> modeloSelect;

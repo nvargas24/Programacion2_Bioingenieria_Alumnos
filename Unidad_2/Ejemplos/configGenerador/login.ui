@@ -35,13 +35,12 @@
    <iconset theme="QIcon::ThemeIcon::ContactNew"/>
   </property>
   <property name="windowOpacity">
-   <double>0.900000000000000</double>
+   <double>1.000000000000000</double>
   </property>
   <property name="styleSheet">
-   <string notr="true">#login{
-	image: url(:/Imagenes/Recursos/fondo1.jpg) 0 0 0 0 stretch stretch;
-}
-/*background-color: rgba(0, 0, 0, .1);*/</string>
+   <string notr="true">#Login{
+border-image: url(:/imagenes/Imagenes/fondoLogin.jfif);
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="leftMargin">
@@ -60,8 +59,9 @@
     <widget class="QGroupBox" name="groupBox">
      <property name="styleSheet">
       <string notr="true">#groupBox{
-   border: none;
-	background-color: rgba(250, 250, 250, 220);
+    border: none;
+	border-radius: 20px;
+	background-color: rgba(220, 220, 220, 220);
 }</string>
      </property>
      <property name="title">
@@ -79,14 +79,14 @@
         <item>
          <widget class="QLabel" name="imageLogin">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="styleSheet">
            <string notr="true">#imageLogin{
-	background-color: rgb(245, 245, 245);
+	background-color: rgba(250, 250, 250,0);
     border-radius: 70px;
 }</string>
           </property>
@@ -99,8 +99,14 @@
           <property name="textFormat">
            <enum>Qt::TextFormat::MarkdownText</enum>
           </property>
+          <property name="pixmap">
+           <pixmap resource="resources.qrc">:/imagenes/Imagenes/user.png</pixmap>
+          </property>
           <property name="scaledContents">
            <bool>true</bool>
+          </property>
+          <property name="margin">
+           <number>20</number>
           </property>
           <property name="indent">
            <number>0</number>
@@ -124,7 +130,7 @@
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>Usuario: </string>
@@ -177,7 +183,7 @@
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>Contraseña: </string>
@@ -261,6 +267,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

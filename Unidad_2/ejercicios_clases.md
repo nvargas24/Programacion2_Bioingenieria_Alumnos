@@ -40,8 +40,104 @@ Diseñe una GUI para el ejemplo `stack3.cpp` que sea responsive. Recuerde implem
 
 > **Respuesta** : Ejemplos -> RegistroAcciones
 
+## Clase 10
+#### Problema 1
+
+#### Problema 2
+
+
 ## Clase 11
 #### Problema 1
+Partiendo de la plantilla `configGerador.pro` y todos sus archivos (`.ui`, `.h`, `.cpp`), se solicita:
+
+- Las ventanas secundarias se deben mantener independientes de la ventana `MainWindow`, pero deben cerrarse al instante en que se cierre la ventana principal.
+- Codificar el getter y setter de la ventana secundaria `modelos` para que la ventana `MainWindow` realice:
+    - Carga de elementos del `QComboBox`.
+    - Lectura de fecha del `QDateEdit`.
+- Personalizar la ventana secundaria `Login`:
+    - Cambiar el fondo utilizando un archivo de recursos `.qrc`. Asegurar que la imagen se asigne únicamente al fondo de la ventana y que no afecte a los demás widgets.
+    - Cambiar la imagen del widget que representa la foto del usuario.
+- Modificar el proyecto para que al iniciar no se abra la ventana `MainWindow`, sino la ventana `Login`.
+- Implementar la validación de usuarios en `Login`. Utilizar `QHash` para cargar los usuarios válidos y verificar sus contraseñas:
+    ```cpp
+    // login.h
+    #include <QHash>
+    ...
+
+    private:
+        QHash<QString, QString> users;
+    ```
+    ```cpp
+    // login.cpp
+    /*--- Cargar usuarios válidos ---*/
+    // void QHash::insert(const Key &key, const Value &value);
+    users.insert("utn", "haedo");   // Usuario y contraseña
+
+    /*--- Verificar usuarios existentes ---*/
+    // bool QHash::contains(const Key &key) const;
+    users.contains("Felipe"); // Verifica si la CLAVE existe (falso en este ejemplo)
+
+    /*--- Si existe el usuario, se valida la contraseña ---*/
+    users.contains("utn");
+    ...
+    // const QString QHash::value(const Key &key) const;
+    if(users.value("utn") == pswLogin){}; // Obtiene el VALOR de la clave "utn" para compararlo
+    ```
+
+> **GUI base**: Plantillas -> configGenerador
+
+#### Problema 2
+Partiendo del `Problema 1`, se solicita:
+
+- Implementar el getter de la ventana secundaria `Parametros` para que la ventana `MainWindow` muestre en los `QLabel` `labelDatosG` y `labelParametrosG` la información obtenida de la ventana `Parametros`, con el siguiente formato:
+    ```cpp
+    // Por ejemplo:
+    Fuente: Tektronik 2020
+    Parametros: 12V - 1A
+    ```
+- Utilizar el `QPushButton` `btnStatusG` para cambiar el color del `QLabel` `ledStatusG` teniendo en cuenta lo siguiente:
+    - Utilizar la señal `toggled(bool)` para poder operar el `QPushButton` como se solicita. Asegurar que la propiedad `checkable` esté habilitada en Qt Designer para dicho widget.
+    - Color `rojo`: salida deshabilitada --> al presionar el `QPushButton`.
+    - Color `verde`: salida habilitada --> al presionar otra vez el `QPushButton`.
+    Para el cambio de color del `QLabel`, utilizar el método `ui->ledStatusG->setStyleSheet(QString);`:
+    ```cpp
+    // Ejemplo color rojo
+    ui->ledStatusG->setStyleSheet(
+        "#ledStatusG{ "
+        "background-color: rgb(255, 0, 0); "
+        "border-radius: 19px; "
+        "border: 2px solid black;}"
+    );
+    // Ejemplo color verde
+    ui->ledStatusG->setStyleSheet(
+        "#ledStatusG{ "
+        "background-color: rgb(0, 255, 0); "
+        "border-radius: 19px; "
+        "border: 2px solid black;}"
+    );
+    ```
+    >**Importante**: Tener en cuenta que, dependiendo de la resolución de la pantalla, los valores en `px` de los parámetros `border-radius` y `border` deben modificarse para poder visualizar correctamente los bordes.
+
+- Utilizando el mismo `QPushButton` `btnStatusG`, modificar su texto para que cambie a la par del `QLabel` `ledStatusG`:
+    - Color `rojo`: cambia el texto a `Habilitar salida` --> al presionar el `QPushButton`.
+    - Color `verde`: cambia el texto a `Deshabilitar salida` --> al presionar otra vez el `QPushButton`.
+
+- Registrar cada movimiento o acción realizada en la GUI dentro del `QListWidget` `listMovimientos`:
+    ```cpp
+    // Ejemplo
+    "[INFO] Abre ventana 'Parametros'"
+    "[INFO] Cierra ventana 'Parametros'"
+    "[INFO] Actualiza datos de fuente"
+    "[INFO] Actualiza parametros de fuente"
+    "[ADVERTENCIA] Habilita salida"
+    "[ADVERTENCIA] Deshabilita salida"
+    ...
+    ```
+ 
+> **GUI base** :  Plantillas -> configGenerador  
+> **Respuesta** : Ejemplos -> configGenerador
+
+#### Problema extra 1
 Diseñe e implemente una interfaz gráfica de usuario, considerando lo siguiente:
 
 - Grupo de control N.º 1:
@@ -80,7 +176,7 @@ Diseñe e implemente una interfaz gráfica de usuario, considerando lo siguiente
 > **UI base** :  UI_genericos -> ControlValue -> mainwindow.ui  
 > **Respuesta** : Ejemplos -> ControlCarga
 
-#### Problema 2
+#### Problema extra 2
 Partiendo de la GUI desarrollada en el **Problema 1**, incorpore las siguientes funcionalidades:
 - Agregue un **QGroupBox** que contenga tres **QPushButton**.   
     * **Modo**: Configuración del modo de operación  

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/imagenes">
+        <file>Imagenes/fondoLogin.jfif</file>
+        <file>Imagenes/logotipoutn.png</file>
+        <file>Imagenes/user.png</file>
+    </qresource>
+</RCC>

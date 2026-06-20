@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>700</width>
     <height>270</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
+    <width>700</width>
     <height>270</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
+    <width>700</width>
     <height>270</height>
    </size>
   </property>
@@ -28,13 +28,13 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Generador de señales arbitrarias</string>
+   <string>Generador</string>
   </property>
   <property name="windowIcon">
    <iconset theme="QIcon::ThemeIcon::DriveHarddisk"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,4" columnstretch="5,1,5,1,5">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,4" columnstretch="5,1,5,1,9">
     <property name="leftMargin">
      <number>50</number>
     </property>
@@ -173,42 +173,6 @@
       </layout>
      </widget>
     </item>
-    <item row="2" column="4">
-     <widget class="QListView" name="listMovimientos">
-      <property name="font">
-       <font>
-        <pointsize>8</pointsize>
-       </font>
-      </property>
-      <property name="autoScrollMargin">
-       <number>5</number>
-      </property>
-      <property name="alternatingRowColors">
-       <bool>true</bool>
-      </property>
-      <property name="updateThreshold">
-       <number>200</number>
-      </property>
-      <property name="resizeMode">
-       <enum>QListView::ResizeMode::Adjust</enum>
-      </property>
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="gridSize">
-       <size>
-        <width>1</width>
-        <height>1</height>
-       </size>
-      </property>
-      <property name="viewMode">
-       <enum>QListView::ViewMode::ListMode</enum>
-      </property>
-      <property name="uniformItemSizes">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0" colspan="2">
      <widget class="QGroupBox" name="gboxUsuario">
       <property name="title">
@@ -233,8 +197,20 @@
     </item>
     <item row="0" column="2" colspan="3">
      <widget class="QLabel" name="logotipo">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imagenes/Imagenes/logotipoutn.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -319,9 +295,41 @@
       </layout>
      </widget>
     </item>
+    <item row="2" column="4">
+     <widget class="QListWidget" name="listMovimientos">
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="autoScrollMargin">
+       <number>5</number>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="updateThreshold">
+       <number>200</number>
+      </property>
+      <property name="resizeMode">
+       <enum>QListView::ResizeMode::Adjust</enum>
+      </property>
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="viewMode">
+       <enum>QListView::ViewMode::ListMode</enum>
+      </property>
+      <property name="uniformItemSizes">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

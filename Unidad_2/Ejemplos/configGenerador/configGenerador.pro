@@ -9,7 +9,6 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    ../../Recursos/qcustom/qcustomplot.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -17,7 +16,6 @@ SOURCES += \
     parametros.cpp
 
 HEADERS += \
-    ../../Recursos/qcustom/qcustomplot.h \
     login.h \
     mainwindow.h \
     modelos.h \
@@ -33,3 +31,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc
