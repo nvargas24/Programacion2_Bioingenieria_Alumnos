@@ -40,12 +40,6 @@ Diseñe una GUI para el ejemplo `stack3.cpp` que sea responsive. Recuerde implem
 
 > **Respuesta** : Ejemplos -> RegistroAcciones
 
-## Clase 10
-#### Problema 1
-
-#### Problema 2
-
-
 ## Clase 11
 #### Problema 1
 Partiendo de la plantilla `configGerador.pro` y todos sus archivos (`.ui`, `.h`, `.cpp`), se solicita:
