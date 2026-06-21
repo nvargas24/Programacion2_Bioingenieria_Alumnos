@@ -143,6 +143,11 @@ Diseñe e implemente una interfaz gráfica de usuario, considerando lo siguiente
     * Su funcionamiento deberá ser idéntico al del Grupo de control N.º 1, manteniendo la sincronización entre los widgets del grupo.
 - Indicador de progreso
     * Incorporar un **QProgressBar** que represente un porcentaje entre **0 % y 100 %**.
+        ```cpp
+        /*--- cargar valor a QProgressBar ---*/
+        // void QProgressBar::setValue(int );
+        ui->miBarraProgreso->setValue(value);
+        ```
     * El valor mostrado por este control deberá calcularse a partir de la combinación de los valores de ambos **Grupos de control**, de manera que represente el porcentaje alcanzado respecto del valor máximo posible.
     * Cualquier modificación en los controles de los grupos anteriores deberá actualizar automáticamente este indicador.
 
