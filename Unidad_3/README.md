@@ -11,19 +11,11 @@ Se analizan las características principales de estos sistemas y su diferencia c
 - Comprender qué es un sistema embebido
 - Identificar las características de un microcontrolador
 - Reconocer aplicaciones típicas de sistemas embebidos
+- Reconocer capas de abstracción
 
 ## Contenidos
 
-- Definición de sistema embebido
-- Microcontroladores vs microprocesadores
-- Aplicaciones en la industria
+- Caracteristicas de placas de desarrollo
 - Herramientas de desarrollo
-- Flujo básico de desarrollo de firmware
-
-## Estructura de los ejemplos
-
-Los ejemplos incluyen:
-
-- Primer programa en un microcontrolador
-- Configuración básica del entorno de desarrollo
-- Ejecución de firmware simple
+- Ejercicios de selección de Microcontrolador
+- Ejercicios de capas de abtracción
