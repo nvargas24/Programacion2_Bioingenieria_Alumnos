@@ -3,7 +3,7 @@ Un glucómetro digital de uso doméstico fue diseñado inicialmente para leer da
 
 Sin embargo, para cumplir con las nuevas normativas de salud pública, se requiere actualizar el dispositivo para que utilice un sensor electroquímico de alta precisión con un bus de salida de datos de 12 bits y, además, transmita las lecturas automáticamente al teléfono del paciente por Wi-Fi.
 
-1. Determine cual de las siguientes placas de desarrollo es la adecuada para testear este nuevo periferico a su maximo rendimiento, justifique adecuadamente.  
+1. Determine cual de las siguientes placas de desarrollo es la adecuada para testear este nuevo periferico, justifique adecuadamente.  
     - Arduino UNO (ATMega328P AVR - 8bits)
     - ESP32 (Espressif - 32bits)
     - LPC845BRK (ARM Cortex-M0+ - 32bits)
@@ -27,7 +27,7 @@ Un reloj inteligente utiliza un sensor PPG en la muñeca para calcular el ritmo 
 Para la versión avanzada, se monta un sensor de grado médico que transmite ráfagas constantes de datos con un ancho de bus de 16 bits por canal, requiriendo algoritmos de Procesamiento Digital de Señales (DSP) a alta velocidad.
 
 El hardware de desarrollo anterior se cuelga inmediatamente al intentar procesar la matriz de datos de 16 bits en tiempo real.
-1. Determine cual de las siguientes placas de desarrollo es la adecuada para testear este nuevo periferico a su maximo rendimiento, justifique adecuadamente.  
+1. Determine cual de las siguientes placas de desarrollo es la adecuada para testear este nuevo periferico, justifique adecuadamente.  
     - Bluepill (STM32F103C8T6 - ARM Cortex-M3 de 32 bits)
     - LPC845BRK (ARM Cortex-M0+ - 32 bits)
     - Arduino Portenta (STM32H7 - Dual Core ARM Cortex-M7/M4 de 32 bits)
@@ -59,7 +59,7 @@ La arquitectura de 8 bits genera demoras críticas (latencia) al fragmentar lso 
  - EDU-CIAA-NXP (LPC4337 - Dual-Core ARM Cortex-M4/M0 de 32 bits)  
  - Arduino Q
 
-1. Determine cual puede garantizar un optimo control, evitando desperciar recursor de procesamiento de los datos. Justifique adecuadamente.
+1. Determine cual puede garantizar un optimo control, evitando desperdiciar recursor de procesamiento de los datos. Justifique adecuadamente.
 2. Para el testeo del sensor, una de las modificaciones a realizar es la logica en las condiciones que deben actuar los perifericos, para esto se implemento:
     ```cpp
     float temperatura_actual = Obtener_Temperatura_Promedio();
@@ -78,7 +78,7 @@ Un prototipo de electromiógrafo portátil (mide pulsos electricos generados por
 Para la nueva versión deportiva de alto rendimiento, se integra un sensor analógico médico que procesa y transmite datos con un ancho de bus de 16 bits por canal, requiriendo algoritmos de transformada rápida de Fourier (FFT) en tiempo real para analizar la fatiga muscular.
 
 Al probar el nuevo sensor en el hardware anterior, el microcontrolador se cuelga inmediatamente al intentar fragmentar los datos de 16 bits del bus y realizar los cálculos matemáticos simultáneos. Se requiere cambiar la placa por una de bajo costo pero con una arquitectura de 32 bits eficiente para procesar aritmética de enteros sin desbordamientos.
-1. Determine cual de las siguientes placas de desarrollo es la adecuada para testear este nuevo periferico a su maximo rendimiento, justifique adecuadamente.  
+1. Determine cual de las siguientes placas de desarrollo es la adecuada para testear este nuevo periferico, justifique adecuadamente.  
     - Arduino UNO (ATMega328P AVR - 8 bits)
     - LPC845BRK (ARM Cortex-M0+ - 32 bits)
     - Bluepill (STM32F103C8T6 - ARM Cortex-M3 de 32 bits)
