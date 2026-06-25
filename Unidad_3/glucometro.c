@@ -18,14 +18,14 @@ void HAL_ADC_Init(void) {
 }
 
 uint16_t HAL_ADC_Read_Raw(void) {
-    ESP32_ADC1->CTRL |= (1 << 1); // Inicia conversión por hardware
-    while ((ESP32_ADC1->CTRL & (1 << 2)) == 0); // Espera que termine (polling flag)
+    ESP32_ADC1->CTRL |= (1 << 1); // Conversión por hardware
+    while ((ESP32_ADC1->CTRL & (1 << 2)) == 0); // Polling flag
     return (uint16_t)(ESP32_ADC1->DATA & 0x0FFF); // Enmascara el bus a 12 bits
 }
 
 /*--- CAPA DE DRIVERS ---*/
 uint16_t Driver_Glucometer_GetAdcReading(void) {
-    // El driver sabe en qué canal físico específico está soldada la tira reactiva
+    // El driver sabe que GPIO esta conectado el sensor
     return HAL_ADC_Read_Raw();
 }
 

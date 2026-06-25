@@ -1,5 +1,10 @@
 #include <stdint.h>
 
+typedef struct {
+    uint16_t red;
+    uint16_t ir;
+} PulseOx_Data_t;
+
 /* --- CAPA DE REGISTROS ---*/
 #define PERIPHERAL_BASE_ADDR   0x40012400
 #define SENSOR_DATA_REG_OFFSET 0x0C
@@ -13,35 +18,33 @@ typedef struct {
 /* --- CAPA HAL --- */
 uint16_t HAL_Read_Optical_Buffer(uint8_t channel) {
     if (channel == 0) {
-        return SENSOR_HARDWARE->RED_CHANNEL; // Acceso directo a registro físico
+        return SENSOR_HARDWARE->RED_CHANNEL; // Acceso directo a registro
     } else {
         return SENSOR_HARDWARE->IR_CHANNEL;
     }
 }
 
 /* --- CAPA DE DRIVERS --- */ 
-typedef struct {
-    uint16_t red;
-    uint16_t ir;
-} PulseOx_Data_t;
-
 PulseOx_Data_t Driver_PulseOx_GetSamples(void) {
     PulseOx_Data_t samples;
-    // El driver sabe que el oxímetro necesita combinar ambas lecturas ópticas
+    // Combinacion de ambas lecturas fragmentadas
     samples.red = HAL_Read_Optical_Buffer(0);
     samples.ir  = HAL_Read_Optical_Buffer(1);
+
     return samples;
 }
 
 /* --- CAPA DE SERVICIO --- */
 float Servicio_Calcular_SpO2(PulseOx_Data_t data) {
+    float r_ratio, spo2;
     if (data.ir == 0) return 0.0f;
     
-    // Algoritmo matemático para aproximar la saturación de oxígeno (R Ratio)
-    float r_ratio = ((float)data.red) / ((float)data.ir);
-    float spo2 = 110.0f - (25.0f * r_ratio); // Ecuación de calibración estándar
+    // Algoritmopara aproximar la saturación de oxígeno
+    r_ratio = ((float)data.red) / ((float)data.ir);
+    spo2 = 110.0f - (25.0f * r_ratio); // Ecuación de calibración estándar
     
     if (spo2 > 100.0f) spo2 = 100.0f;
+    
     return spo2;
 }
 

@@ -7,7 +7,7 @@
 #define LPC845_GPIO ((GPIO_LPC845_Type *) GPIO_BASE_ADDR)
 
 typedef struct {
-    volatile uint32_t DIR;  // Registro de dirección (Entrada/Salida)
+    volatile uint32_t DIR;  // Registro de dirección
     volatile uint32_t PIN;  // Registro de lectura/escritura de datos
 } GPIO_LPC845_Type;
 
@@ -18,9 +18,9 @@ void HAL_GPIO_SetPinAsOutput(uint8_t pin) {
 
 void HAL_GPIO_WritePin(uint8_t pin, uint8_t state) {
     if (state) {
-        LPC845_GPIO->PIN |= (1 << pin);  // Enciende
+        LPC845_GPIO->PIN |= (1 << pin);  // ON
     } else {
-        LPC845_GPIO->PIN &= ~(1 << pin); // Apaga
+        LPC845_GPIO->PIN &= ~(1 << pin); // OFF
     }
 }
 
@@ -36,13 +36,12 @@ void Driver_Calefactor_SetEstado(uint8_t encendido) {
 
 /*--- CAPA DE SERVICIO ---*/
 float Servicio_Obtener_Temperatura_Promedio(void) {
-    // Lectura del bus de la termocupla de 16 bit y estabilizacion de señal
+    // Lectura del bus de la termocupla de 16 bit
     return 36.8f; 
 }
 
 /*--- CAPA DE APLICACIÓN ---*/
 int main(void) {
-    // Inicialización del Driver
     Driver_Calefactor_Init();
     
     float temperatura_actual;
