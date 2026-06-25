@@ -60,7 +60,7 @@ La arquitectura de 8 bits genera demoras críticas (latencia) al fragmentar lso 
  - Arduino Q
 
 1. Determine cual puede garantizar un optimo control, evitando desperciar recursor de procesamiento de los datos. Justifique adecuadamente.
-2. Para el testeo del sensor, una de las modificaciones a realizar es la logica de las condiciones que deben actuar los perifericos, para esto se implemento:
+2. Para el testeo del sensor, una de las modificaciones a realizar es la logica en las condiciones que deben actuar los perifericos, para esto se implemento:
     ```cpp
     float temperatura_actual = Obtener_Temperatura_Promedio();
     
@@ -71,3 +71,33 @@ La arquitectura de 8 bits genera demoras críticas (latencia) al fragmentar lso 
     ```
     ¿En qué capa de la arquitectura del software debe insertarse este bloque de código para minimizar el impacto en la lógica de funcionamiento global del proyecto?  
     Justifique desde el punto de vista de capas de abstracción.
+
+#### Problema 4
+Un prototipo de electromiógrafo portátil (mide pulsos electricos generados por los músculos) fue diseñado usando un microcontrolador básico para capturar señales analógicas a través de un canal lento. 
+
+Para la nueva versión deportiva de alto rendimiento, se integra un sensor analógico médico que procesa y transmite datos con un ancho de bus de 16 bits por canal, requiriendo algoritmos de transformada rápida de Fourier (FFT) en tiempo real para analizar la fatiga muscular.
+
+Al probar el nuevo sensor en el hardware anterior, el microcontrolador se cuelga inmediatamente al intentar fragmentar los datos de 16 bits del bus y realizar los cálculos matemáticos simultáneos. Se requiere cambiar la placa por una de bajo costo pero con una arquitectura de 32 bits eficiente para procesar aritmética de enteros sin desbordamientos.
+1. Determine cual de las siguientes placas de desarrollo es la adecuada para testear este nuevo periferico a su maximo rendimiento, justifique adecuadamente.  
+    - Arduino UNO (ATMega328P AVR - 8 bits)
+    - LPC845BRK (ARM Cortex-M0+ - 32 bits)
+    - Bluepill (STM32F103C8T6 - ARM Cortex-M3 de 32 bits)
+2. Para el testeo del sensor, una de las modificaciones a realizar es la logica del en las condiciones que deben actuar los perifericos, para esto se implemento:
+```cpp
+#include "hal_adc_interface.h"
+#define REG_EMG_CHANNEL_1  0x3A
+
+uint16_t Adquirir_Muestra_Muscular(void) {
+    uint8_t buffer_bytes[2];
+    uint16_t muestra_combinada;
+
+    // Solicita a la HAL la lectura secuencial de los 2 bytes
+    HAL_Read_Peripheral_Registers(REG_EMG_CHANNEL_1, buffer_bytes, 2);   
+    
+    // Se reconstruye el ancho de bus nativo de 16 bits del sensor
+    muestra_combinada = (buffer_bytes[0] << 8) | buffer_bytes[1];
+    
+    return muestra_combinada;
+}
+```
+
