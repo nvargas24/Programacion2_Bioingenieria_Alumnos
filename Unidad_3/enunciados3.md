@@ -141,13 +141,13 @@ int main(){
 Justifique desde el punto de vista de capas de abstracción.
 
 #### Problema 6
-Se esta desarrollando un sistema portatil de telemetria medica para el monitores de pacientes cardiorrespiratorios. El dispositivo utiliza un Oximetro (sensor de oximetris de pulso y frecuencia cardiaca) que se comunica por I2C. El sistema debe procesar las señales de forma local y transmitir los datos de manera inalambrica a una central.
-1.  Determine cuál de las siguientes placas de desarrollo es la adecuada para testear el periferico y sin desperdiciar recursos.Justifique adecuadamente su elección:
+Se está desarrollando un sistema portátil de telemetría médica para el monitoreo de pacientes cardiorrespiratorios. El dispositivo utiliza un oxímetro (sensor de oximetría de pulso y frecuencia cardíaca) que se comunica mediante el protocolo I2C. El sistema procesa las señales de forma local y transmite los datos de manera inalámbrica a una central.
+1.  Determine cuál de las siguientes placas de desarrollo es la adecuada para testear el periférico sin desperdiciar recursos. Justifique adecuadamente su elección:
     -   Bluepill (STM32F103C8T6 - ARM Cortex-M3 de 32 bits)
     -   EDU-CIAA NXP (ARM Cortex-M4 de 32 bits - LPC4337)
     -   ESP32 (Dual-Core Xtensa de 32 bits)
 
-2. La arquitectura del software se mantiene reutilizando capas de abstraccion. Debido a desperfecto en los pines I2C del microcontrolador, deben seleccionarse el otro par de pines. Para esto se realizo la siguiente modificacion:
+2. La arquitectura del software se mantiene mediante la reutilización de capas de abstracción. Debido a un desperfecto en los pines I2C del microcontrolador, se debió seleccionar el otro par de pines disponibles. Para esto, se realizó la siguiente modificación::
     ```cpp
     #define I2C_SDA_PIN   GPIO_NUM_18 
     #define I2C_SCL_PIN   GPIO_NUM_19
@@ -161,17 +161,16 @@ Se esta desarrollando un sistema portatil de telemetria medica para el monitores
         i2c_param_config(I2C_NUM_0, &conf);
     }
     ```
-Determine a que capa se esta afecta al realizar el cambio de pines fisicos, bajo el punto de vista de placas de abstraccion.
+Determine qué capa se ve afectada al realizar el cambio de pines físicos, desde el punto de vista de las capas de abstracción.
 
 #### Problema 7
-Se esta desarrollando un exoesqueleto robotico para rehabilitacion de pacientes con lesiones. El sistema utiliza sensores de angulo de efecto Hall de valor absoluto, colocados en las articulaciones para medir la flexo-extension. Debido a la geometria mecanica del exoesqueleto se requiere emplear un calculo preciso para calcular el angulo, esto se logra mediante el metodo numerico Newton-Raphson. Por motivos de seguridad está prohibido usar conexiones inalámbricas (Wi-Fi/Bluetooth) para evitar interferencias. El sistema exige enviar los datos a un software de análisis clínico instaldo en una PC de manera cableada, robusta y con aislamiento (tipo industrial).
-1.  Determine cuál de las siguientes placas de desarrollo es la adecuada para testear los periféricos y cumplir con las necesidades del sistema sin desperdiciar recursos. Justifique adecuadamente su elección:
+Se está desarrollando un exoesqueleto robótico para la rehabilitación de pacientes con lesiones. El sistema utiliza sensores de ángulo de efecto Hall de valor absoluto, colocados en las articulaciones para medir la flexo-extensión. Debido a la geometría mecánica del exoesqueleto, se requiere un cálculo preciso para obtener el ángulo, lo cual se logra mediante el método numérico de Newton-Raphson. Por motivos de seguridad, está prohibido usar conexiones inalámbricas (como Wi-Fi o Bluetooth) para evitar interferencias. El sistema exige enviar los datos a un software de análisis clínico instalado en una PC de manera cableada, robusta y con aislamiento de tipo industrial.
+1.   Determine cuál de las siguientes placas de desarrollo es la adecuada para testear los periféricos y cumplir con las necesidades del sistema sin desperdiciar recursos. Justifique adecuadamente su elección:
     -   Bluepill (STM32F103C8T6 - ARM Cortex-M3 de 32 bits)
     -   EDU-CIAA NXP (ARM Cortex-M4/M0 Dual Core - LPC4337)
     -   ESP32 (Dual-Core Xtensa de 32 bits)
 
-2.  El firmware está estructurado bajo una arquitectura de capas de abstracción. Para procesar los datos magnéticos crudos del sensor y convertirlos en grados sexagesimales de la articulación, se implementó el método de Newton-Raphson. Determine y justifique a qué capa pertenece este algoritmo:
-
+2. El firmware está estructurado bajo una arquitectura de capas de abstracción. Para procesar los datos magnéticos crudos del sensor y convertirlos en grados sexagesimales de la articulación, se implementó el método de Newton-Raphson. Determine y justifique a qué capa pertenece este algoritmo:
     ```cpp
     #include "service_kinematics.h"
     #include "hal_sensors.h" 
@@ -201,13 +200,12 @@ Se esta desarrollando un exoesqueleto robotico para rehabilitacion de pacientes 
     ```
 
 #### Problema 8
-Se está desarrollando un chaleco corrector de postura inteligente para fisioterapia para prevenir lesiones lumbares en trabajadores de almacén. El sistema utiliza un goniométmetro digital de eje único (un sensor que mide la flexión de la espalda). Este sensor integra su propio convertidor interno y entrega la información angular directamente de forma digital en un ancho de bus de 8 bits.
-Al tratarse de un vestible de monitoreo biomecánico preventivo, no requiere procesamiento en tiempo real de alta velocidad.
+Se está desarrollando un chaleco corrector de postura inteligente para fisioterapia, destinado a prevenir lesiones lumbares en trabajadores de almacén. El sistema utiliza un goniómetro digital de eje único (mide ángulos de forma precisa) para registrar la flexión de la espalda. Este sensor integra su propio convertidor interno y entrega la información angular directamente en formato digital a través de un bus de 8 bits. Al tratarse de un dispositivo vestible de monitoreo biomecánico preventivo, no requiere un procesamiento en tiempo real de alta velocidad.
 1.  Determine cuál de las siguientes placas de desarrollo es la adecuada para testear el periféricosin desperdiciar recursos. Justifique adecuadamente su elección:
     -   Arduino UNO (ATMega328P AVR - 8 bits)
     -   LPC845BRK (ARM Cortex-M0+ - 32 bits)
     -   ESP32 (Dual-Core Xtensa de 32 bits)     
-2.  Originalmente, el chaleco solo emitía un pitido cuando el usuario se agachaba de forma incorrecta (flexión mayor a 60°). Sin embargo, se solicita modificar la lógica del proyecto para implementar una alerta de fatiga por postura estática. Si el usuario permanece agachado por más de 10 segundos continuos, el chaleco debe activar un motor de vibración con un patrón intermitente. Considerando que se estructuro implementando capas de abstraccion determine qué capa se ve afectada principalmente por este cambio en la lógica del proyecto, si la logica se cambio a:
+2.  Originalmente, el chaleco emitía un pitido si el usuario se agachaba mal (más de 60°). Ahora se debe agregar una alerta por postura estática, si permanece agachado más de 10 segundos continuos, se debe activar un motor de vibración intermitente. Sabiendo que el sistema se implemento utilzando capas de abstracción, determine qué capa se ve afectada por este cambio.:
 
     ```cpp
     #include "services_goniometer.h" 
@@ -258,3 +256,28 @@ Al tratarse de un vestible de monitoreo biomecánico preventivo, no requiere pro
         return 0;
     }
     ```
+#### Problema 9
+Un implante auditivo de conducción ósea activo utiliza un sensor de vibración piezoeléctrico para detectar las ondas acústicas del entorno. Debido a que el implante opera con una microbatería, el microcontrolador utilizado debe permanecer la mayor parte del tiempo en modo de bajo consumo y activarse únicamente mediante una ISR cuando se supera cierto umbral. Tras ejecutar la lectura, el microcontrolador debe volver a apagarse.
+1.  Determine cuál de las siguientes placas de desarrollo es la adecuada para testear este periférico sin desperdiciar recursos y priorizando el ultra bajo consumo. Justifique adecuadamente su elección:
+    -   Arduino UNO (ATMega328P AVR - 8 bits)
+    -   LPC845BRK (ARM Cortex-M0+ - 32 bits)
+    -   ESP32 (Dual-Core Xtensa de 32 bits)
+2.  Para lograr que la corriente de reposo baje a niveles de nanoamperios, se deben habilitar y deshabilitar varias configuraciones del microcontrolador. Determine qué capa se ve afectada principalmente por esta optimización extrema de energía, teniendo en cuenta el siguiente fragmento de código:
+    ```cpp
+    #define BASE_SYSCON ((uint32_t*)0x40048000)
+    #define BASE_PMU    ((uint32_t*)0x40020000)
+    #define OFFSET_PCON (0x00 / 4) // Control de potencia
+    #define OFFSET_SYSAHBCLK0   (0x30 / 4) // Habilitación de relojes
+
+    void DisablePeripheralsClock(void) {
+        *(BASE_SYSCON + OFFSET_SYSAHBCLK0) &= ~((1 << 10) | (1 << 5));
+    }
+
+    void SetDeepPowerDownBits(void) {
+        *(BASE_PMU + OFFSET_PCON) |= (3 << 0); 
+
+        // Habilita el bit de retención de estado de pines en ultra bajo consumo
+        *(BASE_PMU + OFFSET_PCON) |= (1 << 10); 
+    }
+    ```
+Justifique desde el punto de vista de capas de abstracción.
