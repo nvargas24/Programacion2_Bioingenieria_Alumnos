@@ -2,13 +2,17 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QQueue>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
 }
 QT_END_NAMESPACE
+
+struct Curso{
+    QString apellido;
+    float promedio;
+};
 
 class MainWindow : public QMainWindow
 {
@@ -18,20 +22,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void updateEspera();
-    void addHistorial(QString);
+    QString statusEstudiante();
+
 private slots:
-    void on_btnAgregar_clicked();
-
-    void on_btnOnSiguiente_clicked();
-
-    void on_inputPaciente_textChanged(const QString &arg1);
+    void on_btnCalcular_clicked();
 
 private:
     Ui::MainWindow *ui;
-    QQueue<QString> pacientes;
-    int numPaciente;
-
-    QList<QString> msjHistorial;
+    Curso estudiante;
+    Curso* ptr;
 };
 #endif // MAINWINDOW_H

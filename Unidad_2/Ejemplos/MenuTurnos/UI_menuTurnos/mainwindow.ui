@@ -165,7 +165,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit">
+              <widget class="QLineEdit" name="inputPaciente">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -231,6 +231,12 @@
               <height>181</height>
              </rect>
             </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="textElideMode">
+             <enum>Qt::TextElideMode::ElideLeft</enum>
+            </property>
            </widget>
           </widget>
          </item>
@@ -273,18 +279,24 @@
                <property name="text">
                 <string/>
                </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
               </widget>
              </item>
              <item>
               <widget class="QLabel" name="labelPaciente">
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>18</pointsize>
                  <bold>true</bold>
                 </font>
                </property>
                <property name="text">
                 <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
               </widget>
              </item>
