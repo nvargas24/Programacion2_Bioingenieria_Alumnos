@@ -110,34 +110,34 @@ Se está desarrollando un control mioeléctrico (un sistema que utiliza señales
     -   Bluepill (STM32F103C8T6 - ARM Cortex-M3 de 32 bits)   
 
 2.  El firmware para este sensor se desarrolló en C y, para garantizar su reutilización, se implementaron capas de abstracción. Si se requiere modificar la lógica principal del proyecto, ¿cuál capa se vería afectada principalmente?
-```cpp
-#define UMBRAL_FUERZA
+    ```cpp
+    #define UMBRAL_FUERZA
 
-int main(){
-    sytem_init();
+    int main(){
+        sytem_init();
 
-    float fuerza_actual = 0.0f;
+        float fuerza_actual = 0.0f;
 
-    while(1){
-        if(SERVICE_system_isTickReady()){
-            fuerza_actual = SERVICE_FSR_GetForce();
+        while(1){
+            if(SERVICE_system_isTickReady()){
+                fuerza_actual = SERVICE_FSR_GetForce();
 
-            switch(estado_actiual){
-                case PROTESIS_REPOSO:
-                    // Detener motor
-                    break;
-                case PROTESIS_CERRANDO:
-                    // Mover motores para cerrar
-                    break;
-                case PROTESIS_SUJETANDO:
-                    // Mantener torque y posicion  
-                    break;
+                switch(estado_actiual){
+                    case PROTESIS_REPOSO:
+                        // Detener motor
+                        break;
+                    case PROTESIS_CERRANDO:
+                        // Mover motores para cerrar
+                        break;
+                    case PROTESIS_SUJETANDO:
+                        // Mantener torque y posicion  
+                        break;
+                }
             }
         }
+        return 0;
     }
-    return 0;
-}
-```
+    ```
 Justifique desde el punto de vista de capas de abstracción.
 
 #### Problema 6
@@ -281,3 +281,5 @@ Un implante auditivo de conducción ósea activo utiliza un sensor de vibración
     }
     ```
 Justifique desde el punto de vista de capas de abstracción.
+
+#### Problema 10
