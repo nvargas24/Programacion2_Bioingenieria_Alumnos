@@ -1,7 +1,7 @@
 #ifndef APP_CONFIG_H_
 #define APP_CONFIG_H_
 
-#define BLINK_PERIOD_MS 500
+#define BLINK_PERIOD_MS 3000
 
 typedef enum {
     LED_OFF,
