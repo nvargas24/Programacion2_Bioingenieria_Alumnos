@@ -52,12 +52,12 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../hal/hal_gpio.c"
 "${ProjDirPath}/../registros/device_startup/board.h"
 "${ProjDirPath}/../registros/device_startup/board.c"
-"${ProjDirPath}/../registros/board_config/clock_config.h"
-"${ProjDirPath}/../registros/board_config/clock_config.c"
-"${ProjDirPath}/../registros/board_config/pin_mux.c"
-"${ProjDirPath}/../registros/board_config/pin_mux.h"
-"${ProjDirPath}/../registros/board_config/hardware_init.c"
-"${ProjDirPath}/../registros/board_config/hardware_init.h"
+"${ProjDirPath}/../registros/board/clock_config.h"
+"${ProjDirPath}/../registros/board/clock_config.c"
+"${ProjDirPath}/../registros/board/pin_mux.c"
+"${ProjDirPath}/../registros/board/pin_mux.h"
+"${ProjDirPath}/../registros/board/hardware_init.c"
+"${ProjDirPath}/../registros/board/hardware_init.h"
 "${ProjDirPath}/../mcux_config.h"
 )
 
@@ -69,7 +69,7 @@ target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
     "${ProjDirPath}/../hal"
     "${ProjDirPath}/../registros"
     "${ProjDirPath}/../registros/device_startup"
-    "${ProjDirPath}/../registros/board_config"
+    "${ProjDirPath}/../registros/board"
 )
 
 
