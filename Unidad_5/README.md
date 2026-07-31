@@ -23,4 +23,3 @@ Los ejemplos incluyen:
 
 - Programa "Blink LED"
 - Lectura de pulsadores
-- Control básico de dispositivos digitales
