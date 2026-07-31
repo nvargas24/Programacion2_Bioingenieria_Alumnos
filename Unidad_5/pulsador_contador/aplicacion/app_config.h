@@ -4,11 +4,12 @@
 #define ANTIREBOTE
 
 typedef enum {
-    STATE_LED_OFF,    // Todo apagado (Estado inicial)
-    STATE_LED_RED,    // Color Rojo
-    STATE_LED_GREEN,  // Color Verde
-    STATE_LED_BLUE,   // Color Azul
-    STATE_LED_WHITE   // Color Blanco
+    READ_BTN, // Estado de lectura del pulsador
+    LED_OFF,        // Todo apagado (Estado inicial)
+    LED_RED,        // Color Rojo
+    LED_GREEN,      // Color Verde
+    LED_BLUE,       // Color Azul
+    LED_WHITE       // Color Blanco
 } app_state_t;
 
 #endif
