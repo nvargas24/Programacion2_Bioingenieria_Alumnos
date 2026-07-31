@@ -1,10 +1,11 @@
 #include "hardware_init.h"
 #include "sys_time.h"
+#include "sys_timer.h"
 #include "driver_led.h"
 #include "app_config.h"
 
 int main(){
-    uint32_t lastToggleTick = 0;
+    sw_timer_t blinkTimer;
     app_state_t currentState = LED_OFF;
 
     BSP_Hardware_Init();
@@ -12,22 +13,20 @@ int main(){
     Driver_LED_Init(LED_RED_PORT, LED_RED_PIN);
     Driver_LED_Off(LED_RED_PORT, LED_RED_PIN);
 
-    lastToggleTick = sysTime_getTicks();
+    timerStart(&blinkTimer, BLINK_PERIOD_MS);
 
     while(1){
         switch (currentState)
         {
         case LED_OFF:
-            if(sysTime_hasElapsed(lastToggleTick, BLINK_PERIOD_MS)){
+            if(timer_isExpired(&blinkTimer)){
                 Driver_LED_On(LED_RED_PORT, LED_RED_PIN);
-                lastToggleTick = sysTime_getTicks();
                 currentState = LED_ON;
             }
             break;
         case LED_ON:
-            if(sysTime_hasElapsed(lastToggleTick, BLINK_PERIOD_MS)){
+            if(timer_isExpired(&blinkTimer)){
                 Driver_LED_Off(LED_RED_PORT, LED_RED_PIN);
-                lastToggleTick = sysTime_getTicks();
                 currentState = LED_OFF;
             }
             break;
