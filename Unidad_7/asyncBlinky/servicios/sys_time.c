@@ -13,7 +13,3 @@ void sysTime_updateTick(){
 uint32_t sysTime_getTicks(){
     return g_systemTickCount;
 }
-
-bool sysTime_hasElapsed(uint32_t startTick, uint32_t periodMs){
-    return ((g_systemTickCount - startTick) >= periodMs);
-}

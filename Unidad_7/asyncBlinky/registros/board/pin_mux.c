@@ -67,8 +67,6 @@ pin_labels:
 /* clang-format on */
 
 #include "fsl_common.h"
-#include "fsl_gpio.h"
-#include "fsl_iocon.h"
 #include "pin_mux.h"
 
 /* FUNCTION ************************************************************************************************************
@@ -88,10 +86,8 @@ void BOARD_InitBootPins(void)
 BOARD_InitPins:
 - options: {callFromInitBoot: 'true', prefix: BOARD_, coreID: core0, enableClock: 'true'}
 - pin_list:
-  - {pin_num: '16', peripheral: GPIO, signal: 'PIO1, 2', pin_signal: PIO1_2/CAPT_X3, direction: OUTPUT, mode: pullUp, invert: disabled, hysteresis: enabled, opendrain: disabled,
-    smode: bypass, clkdiv: div0}
-  - {pin_num: '14', peripheral: GPIO, signal: 'PIO1, 1', pin_signal: PIO1_1/CAPT_X2}
   - {pin_num: '11', peripheral: GPIO, signal: 'PIO1, 0', pin_signal: PIO1_0/CAPT_X1}
+  - {pin_num: '16', peripheral: GPIO, signal: 'PIO1, 2', pin_signal: PIO1_2/CAPT_X3}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -105,32 +101,6 @@ BOARD_InitPins:
 /* Function assigned for the Cortex-M0P */
 void BOARD_InitPins(void)
 {
-    /* Enables clock for IOCON.: enable */
-    CLOCK_EnableClock(kCLOCK_Iocon);
-    /* Enables the clock for the GPIO1 module */
-    CLOCK_EnableClock(kCLOCK_Gpio1);
-
-    gpio_pin_config_t LED_RED_config = {
-        .pinDirection = kGPIO_DigitalOutput,
-        .outputLogic = 0U,
-    };
-    /* Initialize GPIO functionality on pin PIO1_2 (pin 16)  */
-    GPIO_PinInit(BOARD_LED_RED_GPIO, BOARD_LED_RED_PORT, BOARD_LED_RED_PIN, &LED_RED_config);
-
-    const uint32_t LED_RED = (/* Selects pull-up function */
-                              IOCON_PIO_MODE_PULLUP |
-                              /* Enable hysteresis */
-                              IOCON_PIO_HYS_EN |
-                              /* Input not invert */
-                              IOCON_PIO_INV_DI |
-                              /* Disables Open-drain function */
-                              IOCON_PIO_OD_DI |
-                              /* Bypass input filter */
-                              IOCON_PIO_SMODE_BYPASS |
-                              /* IOCONCLKDIV0 */
-                              IOCON_PIO_CLKDIV0);
-    /* PIO1 PIN2 (coords: 16) is configured as GPIO, PIO1, 2. */
-    IOCON_PinMuxSet(IOCON, IOCON_INDEX_PIO1_2, LED_RED);
 }
 /***********************************************************************************************************************
  * EOF

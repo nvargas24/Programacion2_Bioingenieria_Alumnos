@@ -1,73 +1,73 @@
-#include "hardware_init.h" 
-#include "sys_time.h"
-#include "driver_led.h"
-#include "app_config.h"
+// src/app/main.c
+#include "hardware_init.h"  
+#include "sys_timer.h"       
+#include "driver_led.h"     
+#include "app_config.h"     
 
 int main(void) {
-    uint32_t lastToggleTick = 0;
-    app_state_t currentState = STATE_COLOR_RED;
-
     BSP_Hardware_Init();
-
-    // Inicializa los tres GPIO independiente 
-    Driver_LED_Init(LED_BLUE_PORT,  LED_BLUE_PIN);
-    Driver_LED_Init(LED_RED_PORT,   LED_RED_PIN);
-    Driver_LED_Init(LED_GREEN_PORT, LED_GREEN_PIN);
-
-    // Asegura un estado inicial apagado para todo el conjunto RGB
-    Driver_LED_Off(LED_BLUE_PORT,  LED_BLUE_PIN);
-    Driver_LED_Off(LED_RED_PORT,   LED_RED_PIN);
-    Driver_LED_Off(LED_GREEN_PORT, LED_GREEN_PIN);
-
-    // Enciende el primer color de la secuencia para arrancar ordenadamente
-    Driver_LED_On(LED_RED_PORT, LED_RED_PIN);
     
-    lastToggleTick = sysTime_getTicks();
+    Driver_LED_Init(LED_GREEN_PORT, LED_GREEN_PIN);
+    Driver_LED_Init(LED_RED_PORT,   LED_RED_PIN);
+
+    Driver_LED_Off(LED_GREEN_PORT, LED_GREEN_PIN);
+    Driver_LED_Off(LED_RED_PORT,   LED_RED_PIN);
+
+    // Modo Normal (Verde Fijo)
+    Driver_LED_On(LED_GREEN_PORT, LED_GREEN_PIN);
+    estado_sistema_t estadoActual = ESTADO_NORMAL;
+
+    // Declaramos dos temporizadores 
+    sw_timer_t timer_ritmo_rojo;
+    sw_timer_t timer_duracion_alerta;
+
+    // Iniciamos un temporizador general de 3 segundos para forzar la primera alerta
+    timerStart(&timer_duracion_alerta, DURACION_TOTAL_ALERTA_MS);
 
     while (1) {
-        // Máquina de estados
-        switch (currentState) {
-            case STATE_COLOR_RED:
-                if (sysTime_hasElapsed(lastToggleTick, COLOR_ROTATION_PERIOD_MS)) {
-                    // Transición: Apaga Rojo y enciende Verde
-                    Driver_LED_Off(LED_RED_PORT, LED_RED_PIN);
+        
+        switch (estadoActual) {
+            
+            case ESTADO_NORMAL:
+                // El LED Verde está encendido fijo. 
+                // Espera que expiren los 3 segundos.
+                if (timer_isExpired(&timer_duracion_alerta)) {
+                    
+                    // TRANSICIÓN: Apagamos Verde
+                    Driver_LED_Off(LED_GREEN_PORT, LED_GREEN_PIN);
+                    Driver_LED_On(LED_RED_PORT,   LED_RED_PIN); // Prende Rojo
+                    
+                    // Activa temporizadores para la alerta:
+                    timerStart(&timer_ritmo_rojo, TIEMPO_PARPADEO_ALERTA_MS); 
+                    timerStart(&timer_duracion_alerta, DURACION_TOTAL_ALERTA_MS);
+                    
+                    estadoActual = ESTADO_ALERTA;
+                }
+                break;
+
+            case ESTADO_ALERTA:
+                // TAREA ASÍNCRONA 1: Rojo destellar rápidamente
+                if (timer_isExpired(&timer_ritmo_rojo)) {
+                    Driver_LED_Toggle(LED_RED_PORT, LED_RED_PIN);
+                }
+
+                // TAREA ASÍNCRONA 2: Evaluar si ya se cumplieron los 3 segundos
+                if (timer_isExpired(&timer_duracion_alerta)) {
+                    Driver_LED_Off(LED_RED_PORT,   LED_RED_PIN);
                     Driver_LED_On(LED_GREEN_PORT, LED_GREEN_PIN);
                     
-                    lastToggleTick = sysTime_getTicks();
-                    currentState = STATE_COLOR_GREEN;
-                }
-                break;
-
-            case STATE_COLOR_GREEN:
-                if (sysTime_hasElapsed(lastToggleTick, COLOR_ROTATION_PERIOD_MS)) {
-                    // Transición: Apaga Verde y enciende Azul
-                    Driver_LED_Off(LED_GREEN_PORT, LED_GREEN_PIN);
-                    Driver_LED_On(LED_BLUE_PORT, LED_BLUE_PIN);
+                    // Apagamos el temporizador de ritmo 
+                    timerStop(&timer_ritmo_rojo);
                     
-                    lastToggleTick = sysTime_getTicks();
-                    currentState = STATE_COLOR_BLUE;
-                }
-                break;
-
-            case STATE_COLOR_BLUE:
-                if (sysTime_hasElapsed(lastToggleTick, COLOR_ROTATION_PERIOD_MS)) {
-                    // Transición: Apaga Azul y vuelve a empezar en Rojo
-                    Driver_LED_Off(LED_BLUE_PORT, LED_BLUE_PIN);
-                    Driver_LED_On(LED_RED_PORT, LED_RED_PIN);
+                    // Reiniciamos el reloj de 3 segundos
+                    timerStart(&timer_duracion_alerta, DURACION_TOTAL_ALERTA_MS);
                     
-                    lastToggleTick = sysTime_getTicks();
-                    currentState = STATE_COLOR_RED;
+                    estadoActual = ESTADO_NORMAL;
                 }
                 break;
 
             default:
-                // Estado de recuperación ante fallos de memoria o corrupción de estado
-                Driver_LED_Off(LED_GREEN_PORT, LED_GREEN_PIN);
-                Driver_LED_Off(LED_BLUE_PORT,  LED_BLUE_PIN);
-                Driver_LED_On(LED_RED_PORT,   LED_RED_PIN);
-                
-                lastToggleTick = sysTime_getTicks();
-                currentState = STATE_COLOR_RED;
+                estadoActual = ESTADO_NORMAL;
                 break;
         }
     }

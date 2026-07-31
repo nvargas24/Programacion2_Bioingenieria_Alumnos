@@ -98,31 +98,10 @@
                         <data>true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="SWComponent" resourceId="platform.drivers.lpc_gpio" description="Pins initialization requires the LPC_GPIO Driver in the project." problem_level="2" source="Pins:BOARD_InitPins">
-                     <feature name="enabled" evaluation="equal" configuration="core0">
-                        <data>true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="SWComponent" resourceId="platform.drivers.lpc_iocon_lite" description="Pins initialization requires the LPC_IOCON_LITE Driver in the project." problem_level="2" source="Pins:BOARD_InitPins">
-                     <feature name="enabled" evaluation="equal" configuration="core0">
-                        <data>true</data>
-                     </feature>
-                  </dependency>
                </dependencies>
                <pins>
-                  <pin peripheral="GPIO" signal="PIO1, 2" pin_num="16" pin_signal="PIO1_2/CAPT_X3">
-                     <pin_features>
-                        <pin_feature name="direction" value="OUTPUT"/>
-                        <pin_feature name="mode" value="pullUp"/>
-                        <pin_feature name="invert" value="disabled"/>
-                        <pin_feature name="hysteresis" value="enabled"/>
-                        <pin_feature name="opendrain" value="disabled"/>
-                        <pin_feature name="smode" value="bypass"/>
-                        <pin_feature name="clkdiv" value="div0"/>
-                     </pin_features>
-                  </pin>
-                  <pin peripheral="GPIO" signal="PIO1, 1" pin_num="14" pin_signal="PIO1_1/CAPT_X2"/>
                   <pin peripheral="GPIO" signal="PIO1, 0" pin_num="11" pin_signal="PIO1_0/CAPT_X1"/>
+                  <pin peripheral="GPIO" signal="PIO1, 2" pin_num="16" pin_signal="PIO1_2/CAPT_X3"/>
                </pins>
             </function>
          </functions_list>

@@ -1,12 +1,12 @@
 #ifndef APP_CONFIG_H_
 #define APP_CONFIG_H_
 
-#define COLOR_ROTATION_PERIOD_MS 500
+#define TIEMPO_PARPADEO_ALERTA_MS   150   // El ritmo rápido del LED Rojo
+#define DURACION_TOTAL_ALERTA_MS    3000  // La alerta dura exactamente 3 segundos
 
 typedef enum {
-    STATE_COLOR_RED,
-    STATE_COLOR_GREEN,
-    STATE_COLOR_BLUE
-} app_state_t;
+    ESTADO_NORMAL,
+    ESTADO_ALERTA
+} estado_sistema_t;
 
 #endif
