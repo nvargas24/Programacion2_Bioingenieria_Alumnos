@@ -17,8 +17,13 @@ int main() {
         {
             case STATE_LED_OFF:
                 // Polling: Si el pulsador es presionado
-                if (Driver_Pulsador_Read(PULSADOR_PORT, PULSADOR_PIN)) {     
+                if (Driver_Pulsador_Read(PULSADOR_PORT, PULSADOR_PIN)) {
+                    
                     Driver_LED_On(LED_RED_PORT, LED_RED_PIN); // Encendemos el LED
+                    
+                    #ifdef ANTIREBOTE
+                    while (Driver_Pulsador_Read(PULSADOR_PORT, PULSADOR_PIN));
+                    #endif
                     // Al soltar el pulsador, cambiamos de estado
                     currentState = STATE_LED_ON;
                 }
@@ -27,7 +32,12 @@ int main() {
             case STATE_LED_ON:
                 // Polling: Si se vuelve a presionar el pulsador
                 if (Driver_Pulsador_Read(PULSADOR_PORT, PULSADOR_PIN)) {
+                    
                     Driver_LED_Off(LED_RED_PORT, LED_RED_PIN); // Apagamos el LED
+                    
+                    #ifdef ANTIREBOTE
+                    while (Driver_Pulsador_Read(PULSADOR_PORT, PULSADOR_PIN));
+                    #endif
                     // Al soltar el pulsador, regresamos al estado inicial
                     currentState = STATE_LED_OFF;
                 }
