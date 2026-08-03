@@ -13,3 +13,9 @@ void sysTime_updateTick(){
 uint32_t sysTime_getTicks(){
     return g_systemTickCount;
 }
+
+void sysTime_delay_ms(uint32_t delay_ms){
+    uint32_t startTick = sysTime_getTicks();
+
+    while((sysTime_getTicks() - startTick) < delay_ms){}
+}

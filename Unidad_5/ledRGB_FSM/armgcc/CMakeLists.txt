@@ -45,8 +45,6 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../aplicacion/main.c"
 "${ProjDirPath}/../servicios/sys_time.c"
 "${ProjDirPath}/../servicios/sys_time.h"
-"${ProjDirPath}/../servicios/sys_timer.c"
-"${ProjDirPath}/../servicios/sys_timer.h"
 "${ProjDirPath}/../drivers/driver_led.c"
 "${ProjDirPath}/../drivers/driver_led.h"
 "${ProjDirPath}/../hal/hal_defs.h"

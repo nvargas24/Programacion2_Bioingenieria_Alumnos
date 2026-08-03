@@ -3,10 +3,12 @@
 
 #define COLOR_ROTATION_PERIOD_MS 500
 
+// Estados posibles
 typedef enum {
-    STATE_COLOR_RED,
-    STATE_COLOR_GREEN,
-    STATE_COLOR_BLUE
+    LEDS_OFF,
+    COLOR_ROJO,
+    COLOR_VERDE,
+    COLOR_AZUL
 } app_state_t;
 
 #endif
