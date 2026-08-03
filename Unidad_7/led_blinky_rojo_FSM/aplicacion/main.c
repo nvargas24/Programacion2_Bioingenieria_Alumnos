@@ -1,30 +1,34 @@
 #include "hardware_init.h"
 #include "sys_time.h"
+#include "sys_timer.h"
 #include "driver_led.h"
 #include "app_config.h"
 
 int main(){
-    app_state_t currentState = LED_OFF; // Variable para cambio de estados
+    sw_timer_t blinkTimer;
+    app_state_t currentState = LED_OFF;
 
-    /* Inicializacion de hardware */
     BSP_Hardware_Init();
 
     Driver_LED_Init(LED_RED_PORT, LED_RED_PIN);
     Driver_LED_Off(LED_RED_PORT, LED_RED_PIN);
 
-    /* Bucle */
+    timerStart(&blinkTimer, BLINK_PERIOD_MS);
+
     while(1){
         switch (currentState)
         {
         case LED_OFF:
-                Driver_LED_Off(LED_RED_PORT, LED_RED_PIN);
-                sysTime_delay_ms(BLINK_PERIOD_MS);
+            if(timer_isExpired(&blinkTimer)){
+                Driver_LED_On(LED_RED_PORT, LED_RED_PIN);
                 currentState = LED_ON;
+            }
             break;
         case LED_ON:
-                Driver_LED_On(LED_RED_PORT, LED_RED_PIN);
-                sysTime_delay_ms(BLINK_PERIOD_MS);
+            if(timer_isExpired(&blinkTimer)){
+                Driver_LED_Off(LED_RED_PORT, LED_RED_PIN);
                 currentState = LED_OFF;
+            }
             break;
         
         default:
