@@ -1,0 +1,23 @@
+# Ignore build artifacts and generated files
+armgcc/debug/
+armgcc/debug/**
+*.elf
+*.bin
+*.map
+*.ninja*
+CMakeCache.txt
+CMakeFiles/
+compile_commands.json
+cmake_install.cmake
+.cmake/
+
+# Ignore project/IDE generated files not relevant to source architecture
+*.xml
+__repo__/
+
+# Ignore other temporary or tool-generated files
+*.log
+*.tmp
+*.obj
+*.o
+*.d
