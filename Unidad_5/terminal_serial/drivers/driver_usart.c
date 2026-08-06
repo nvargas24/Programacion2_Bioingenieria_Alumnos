@@ -1,18 +1,25 @@
-#include "driver_led.h"
-#include "hal_gpio.h"
+#include "driver_usart.h"
+#include "hal_uart.h"
+#include <stddef.h>
 
-void Driver_LED_Init(uint8_t port, uint8_t pin){
-    HAL_GPIO_InitPin(port, pin, HAL_GPIO_OUTPUT);
+
+void Driver_USART_Init(const hal_usart_config_t* config_uart){
+    if (config_uart==NULL) return;
+    HAL_UART_Init(config_uart->usart_id, config_uart->baudrate);
 }
 
-void Driver_LED_On(uint8_t port, uint8_t pin){
-    HAL_GPIO_WritePin(port, pin, HAL_GPIO_LOW);
+void Driver_USART_WriteString(const hal_usart_config_t* config_uart, const char* str){
+    if(config_uart==NULL || str == NULL) return;
+
+    // Se lee string y "descomprime" en byte 
+    while(*str !='\0'){
+        HAL_UART_WriteByte(config_uart->usart_id, (uint8_t)(*str));
+        str++;
+    }
 }
 
-void Driver_LED_Off(uint8_t port, uint8_t pin){
-    HAL_GPIO_WritePin(port, pin, HAL_GPIO_HIGH);
-}
-
-void Driver_LED_Toggle(uint8_t port, uint8_t pin){
-    HAL_GPIO_TogglePin(port, pin); 
+bool Driver_USART_ReadChar(const hal_usart_config_t* config_uart, char* out_char){
+    if(config_uart==NULL || out_char == NULL) return false;
+    
+    return HAL_UART_ReadByte(config_uart->usart_id, (uint8_t*)out_char);
 }

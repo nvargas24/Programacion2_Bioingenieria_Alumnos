@@ -11,8 +11,4 @@
 #ifndef APP_CONFIG_H_
 #define APP_CONFIG_H_
 
-#define BLINK_PERIOD_MS 200 // Tiempo de pausa bloqueante
-#define LED_PORT LED_BLUE_PORT // Puerto de pin LED AZUL
-#define LED_PIN LED_BLUE_PIN // Pin de pin LED AZUL
-
 #endif

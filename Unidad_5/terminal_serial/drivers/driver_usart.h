@@ -1,15 +1,10 @@
-/**
- * Prototipos de funciones que estan disponibles
- * por defecto para el LED
- */
-#ifndef DRIVER_LED_H_
-#define DRIVER_LED_H_
+#ifndef DRIVER_TERMINAL_H_
+#define DRIVER_TERMINAL_H_
 
-#include <stdint.h>
+#include "hal_defs.h"
 
-void Driver_LED_Init(uint8_t port, uint8_t pin);
-void Driver_LED_On(uint8_t port, uint8_t pin);
-void Driver_LED_Off(uint8_t port, uint8_t pin);
-void Driver_LED_Toggle(uint8_t port, uint8_t pin);
+void Driver_USART_Init(const hal_usart_config_t* config_uart);
+void Driver_USART_WriteString(const hal_usart_config_t* config_uart, const char* str);
+bool Driver_USART_ReadChar(const hal_usart_config_t* config_uart, char* out_char);
 
 #endif
