@@ -3,6 +3,7 @@
 #include "sys_log.h"
 #include "driver_usart.h"
 #include "app_config.h"
+#include <string.h>
 
 int main(void)
 {
@@ -12,18 +13,32 @@ int main(void)
     BSP_Hardware_Init();
     sysLog_Init();
 
-    printLPC("--- Terminal USART LPC Listo ---\r\n");
-    printLPC("Escriba un mensaje y presione Enter:\r\n");
+    sysTerminal_write("[LPC845] --- Terminal USART Listo ---\r\n");
 
-    while (1)
+    while(true)
     {
-        if (readLPC(received_buffer, sizeof(received_buffer)))
-        {
-            printLPC("Recibido: ");
-            printLPC(received_buffer);
-            printLPC("\r\n");
+        if (sysTerminal_read(received_buffer, sizeof(received_buffer))){
+            sysTerminal_write("[LPC845] Recibo: ");
+            sysTerminal_write(received_buffer);
+            sysTerminal_write("\r\n");
         }
-        printLPC("Devuelta en bucle\n");
-        sysTime_delay_ms(10); // debe ser breve - es bloqueante - se puede llegar a perder info
+
+        if (received_buffer[0] != '\0')
+        {
+            if (strcmp(received_buffer, "hola") == 0){
+                sysTerminal_write("[LPC845] Enviaste: un saludo\r\n");
+            }
+            else if (strcmp(received_buffer, "chau") == 0){
+                sysTerminal_write("[LPC845] Enviaste: una despedida\r\n");
+            }    
+            else {
+                sysTerminal_write("[LPC845] No reconozco palabra\r\n");
+            }
+            
+            received_buffer[0] = '\0';  // vacio buffer
+        }
+
+        //sysTime_delay_ms(1000); // es bloqueante - se puede llegar a perder info
+        //sysTerminal_write("Devuelta en bucle\n");
     }
 }

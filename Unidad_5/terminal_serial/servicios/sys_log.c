@@ -12,13 +12,13 @@ void sysLog_Init(){
     Driver_USART_Init(&gsk_cosole_hardware);
 }
 
-void printLPC(const char* str){
+void sysTerminal_write(const char* str){
     if(str == NULL) return;
 
     Driver_USART_WriteString(&gsk_cosole_hardware, str);
 }
 
-bool readLPC(char* buffer, unsigned int buffer_size)
+bool sysTerminal_read(char* buffer, unsigned int buffer_size)
 {
     // Llama al driver bloqueante; se quedará aquí hasta completar el string con Enter
     return Driver_USART_ReadString(&gsk_cosole_hardware, buffer, buffer_size);

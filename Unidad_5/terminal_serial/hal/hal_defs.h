@@ -8,7 +8,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define TIMEOUT_READ 1000U
+#define TIMEOUT_READ 10U
 
 typedef enum{
     HAL_USART_0,
