@@ -24,6 +24,6 @@ int main(void)
             printLPC("\r\n");
         }
         printLPC("Devuelta en bucle\n");
-        sysTime_delay_ms(1000);
+        sysTime_delay_ms(10); // debe ser breve - es bloqueante - se puede llegar a perder info
     }
 }
