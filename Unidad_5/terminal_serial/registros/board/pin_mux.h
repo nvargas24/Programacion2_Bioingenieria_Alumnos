@@ -32,39 +32,19 @@ void BOARD_InitBootPins(void);
 #define IOCON_PIO_OD_DI 0x00u        /*!<@brief Disables Open-drain function */
 #define IOCON_PIO_SMODE_BYPASS 0x00u /*!<@brief Bypass input filter */
 
-/*! @name PIO1_2 (number 16), LD1[2]/CN1[29]/PIO1_2/CAPT_X3
+/*! @name PIO0_24 (number 20), CN1[10]/PIO0_24
   @{ */
+#define BOARD_DEBUG_UART_RX_PORT 0U                   /*!<@brief PORT device index: 0 */
+#define BOARD_DEBUG_UART_RX_PIN 24U                   /*!<@brief PORT pin number */
+#define BOARD_DEBUG_UART_RX_PIN_MASK (1U << 24U)      /*!<@brief PORT pin mask */
+                                                      /* @} */
 
-/* Symbols to be used with GPIO driver */
-#define BOARD_LED_RED_GPIO GPIO                /*!<@brief GPIO peripheral base pointer */
-#define BOARD_LED_RED_INIT_GPIO_VALUE 0U       /*!<@brief GPIO output initial state */
-#define BOARD_LED_RED_GPIO_PIN_MASK (1U << 2U) /*!<@brief GPIO pin mask */
-#define BOARD_LED_RED_PORT 1U                  /*!<@brief PORT device index: 1 */
-#define BOARD_LED_RED_PIN 2U                   /*!<@brief PORT pin number */
-#define BOARD_LED_RED_PIN_MASK (1U << 2U)      /*!<@brief PORT pin mask */
-                                               /* @} */
-
-/*! @name PIO1_1 (number 14), LD1[4]/CN1[30]/PIO1_1/CAPT_X2
+/*! @name PIO0_25 (number 19), CN1[11]/PIO0_25
   @{ */
-
-/* Symbols to be used with GPIO driver */
-#define BOARD_LED_BLUE_GPIO GPIO                /*!<@brief GPIO peripheral base pointer */
-#define BOARD_LED_BLUE_GPIO_PIN_MASK (1U << 1U) /*!<@brief GPIO pin mask */
-#define BOARD_LED_BLUE_PORT 1U                  /*!<@brief PORT device index: 1 */
-#define BOARD_LED_BLUE_PIN 1U                   /*!<@brief PORT pin number */
-#define BOARD_LED_BLUE_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
-                                                /* @} */
-
-/*! @name PIO1_0 (number 11), LD1[3]/CN1[31]/PIO1_0/CAPT_X1
-  @{ */
-
-/* Symbols to be used with GPIO driver */
-#define BOARD_LED_GREEN_GPIO GPIO                /*!<@brief GPIO peripheral base pointer */
-#define BOARD_LED_GREEN_GPIO_PIN_MASK (1U << 0U) /*!<@brief GPIO pin mask */
-#define BOARD_LED_GREEN_PORT 1U                  /*!<@brief PORT device index: 1 */
-#define BOARD_LED_GREEN_PIN 0U                   /*!<@brief PORT pin number */
-#define BOARD_LED_GREEN_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
-                                                 /* @} */
+#define BOARD_DEBUG_UART_TX_PORT 0U                   /*!<@brief PORT device index: 0 */
+#define BOARD_DEBUG_UART_TX_PIN 25U                   /*!<@brief PORT pin number */
+#define BOARD_DEBUG_UART_TX_PIN_MASK (1U << 25U)      /*!<@brief PORT pin mask */
+                                                      /* @} */
 
 /*!
  * @brief Configures pin routing and optionally pin electrical features.
