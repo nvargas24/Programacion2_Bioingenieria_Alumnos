@@ -1,6 +1,5 @@
 #include "hardware_init.h"
 #include "sys_time.h"
-#include "sys_timer.h"
 #include "driver_led.h"
 #include "app_config.h"
 
