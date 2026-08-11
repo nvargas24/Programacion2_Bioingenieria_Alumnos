@@ -124,37 +124,37 @@ Representa el número decimal `18.5` directamente en formato hexadecimal de 32 b
 ## Problema 1
 Desarrolla un programa que calcule el costo real de un viaje que dio como resultado $25.678 pesos. Utiliza truncamiento numérico para forzar al sistema a quedarse únicamente con un dígito decimal (el resultado final en pantalla debe ser $25.6).
 
-> **Ejemplo base**: aproximaciones2.cpp
+> **Ejemplo base**: aproximaciones2.cpp  
 > **Respuesta**: truncamiento1.cpp
 
 ## Problema 2
 Un vehiculo consume un promedio exacto de 4.12395 litros por vuelta. Escribe un algoritmo que procese este valor y, mediante truncamiento matemático, lo reduzca a exactamente tres dígitos decimales (4.123)
 
-> **Ejemplo base**: aproximaciones2.cpp
+> **Ejemplo base**: aproximaciones2.cpp  
 > **Respuesta**: truncamiento2.cpp
 
 ## Problema 3
 La tasa de interés diaria de un cliente genera un saldo de ganancia de $0.054391 dólares. Crea un programa que procese dicho monto y aplique el truncamiento necesario para conservar únicamente cuatro dígitos decimales (0.0543).
 
-> **Ejemplo base**: aproximaciones2.cpp
+> **Ejemplo base**: aproximaciones2.cpp  
 > **Respuesta**: truncamiento3.cpp
 
 ## Problema 4
 Un cliente compra un artículo cuyo total con impuestos da $18.3461 dólares. Si se trunca a 18.34, la tienda pierde dinero; si se aproxima correctamente al centavo más cercano, debe cobrarse $18.35. Diseña el programa que realice este redondeo estándar a dos decimales.
 
-> **Ejemplo base**: aproximaciones3.cpp
+> **Ejemplo base**: aproximaciones3.cpp  
 > **Respuesta**: redondeo1.cpp
 
 ## Problema 5
 Un paquete de libros pesa exactamente 4.12 kg. Aunque el decimal .12 es muy bajo, las reglas de la aerolínea exigen redondear hacia arriba para cobrar por 5 kg enteros. Desarrolla el algoritmo utilizando la función de techo (ceil) para calcular los kilogramos a facturar.
 
-> **Ejemplo base**: aproximaciones3.cpp
+> **Ejemplo base**: aproximaciones3.cpp  
 > **Respuesta**: redondeo2.cpp
 
 ## Problema 6
 Un cliente realiza una compra de $87.90 dólares. Al dividir entre 10, el resultado es 8.79 puntos. A pesar de estar muy cerca de los 9 puntos, el cliente no ha gastado los $90.0 requeridos, por lo que el sistema debe redondear hacia abajo de forma matemática utilizando la función de piso (floor) para otorgar únicamente 8 puntos.
 
-> **Ejemplo base**: aproximaciones3.cpp
+> **Ejemplo base**: aproximaciones3.cpp  
 > **Respuesta**: redondeo3.cpp
 
 ## Problema 7
