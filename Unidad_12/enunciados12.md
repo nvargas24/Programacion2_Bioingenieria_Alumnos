@@ -1,0 +1,121 @@
+# Sistemas númericos
+## Ejercicio 1 
+Convierte el número decimal 45 a binario.
+> **Solución**: 101101₂ (45 en binario)
+
+## Ejercicio 2
+Convierte el número binario 101101 a decimal.
+> **Solución**: 45₁₀ (101101 en decimal)
+
+## Ejercicio 3
+Convierte el número decimal 255 a hexadecimal.
+> **Solución**: FF₁₆ (255 en hexadecimal)
+
+## Ejercicio 4
+Convierte el número hexadecimal 3A a decimal.
+> **Solución**: 58₁₀ (3A en hexadecimal)
+
+## Ejercicio 5
+Convierte el número binario 1101101 a hexadecimal.
+> **Solución**: 6D₁₆ (1101101 en binario agrupado de 4 en 4)
+
+## Ejercicio 6
+Convierte el número hexadecimal B5 a binario.
+> **Solución**: 10110101₂ (B5 en binario)
+
+## Ejercicio 7
+Convierte el número decimal 128 a binario.
+> **Solución**: 10000000₂ (128 en binario)
+
+## Ejercicio 8
+Convierte el número binario 1001111 a hexadecimal.
+> **Solución**: 4F₁₆ (1001111 en binario)
+
+## Ejercicio 9
+Convierte el número hexadecimal CF a decimal.
+> **Solución**: 207₁₀ (CF en hexadecimal)
+
+## Ejercicio 10
+Convierte el número decimal 98 a hexadecimal.
+> **Solución**: 62₁₆ (98 en hexadecimal)
+
+# Aritmetica binaria
+## Ejercicio 1
+Realiza la suma binaria de los números enteros `00101000` (40) y `00010100` (20).
+> **Solución**: `00111100` (60 en decimal).
+
+## Ejercicio 2
+Calcula la resta binaria de los números enteros `01011000` (88) menos `00110100` (52).
+> **Solución**: `00100100` (36 en decimal).
+
+## Ejercicio 3
+Aplica un desplazamiento lógico a la izquierda de 2 bits (<< 2) al registro entero `00010100` (20).
+> **Solución**: `01010000` (80 en decimal).
+
+## Ejercicio 4
+Aplica un desplazamiento lógico a la derecha de 1 bit (>> 1) al registro entero `01101100` (108).
+> **Solución**: `00110110` (54 en decimal).
+
+## Ejercicio 5
+Realiza la operación lógica AND (&) bit a bit entre los valores enteros `01011100` y `00111010`.
+> **Solución**: `00011000` (24 en decimal).
+
+## Ejercicio 6
+Realiza la operación lógica OR (|) bit a bit entre los valores enteros `01000010` y `00111000`.
+> **Solución**: `01111010` (122 en decimal).
+
+## Ejercicio 7
+Efectúa la suma de enteros con signo utilizando complemento a 2 entre los números `00011000` (24) y `11110100` (-12).
+> **Solución**: `00001100` (12 en decimal).
+
+## Ejercicio 8
+Efectúa la resta de enteros con signo utilizando complemento a 2 de `00010000` (16) menos `11111000` (-8).
+> **Solución**: `00011000` (24 en decimal).
+
+## Ejercicio 9
+Determina el resultado de aplicar la operación AND (&) seguida de un desplazamiento a la derecha de 2 bits (>> 2) a los números enteros `11001100` y `11110000`.
+> **Solución**: `00110000` (48 en decimal; operación intermedia AND: `11000000`).
+
+## Ejercicio 10
+Determina el resultado de aplicar la operación OR (|) seguida de un desplazamiento a la izquierda de 1 bit (<< 1) a los números enteros `00100100` y `00010010`.
+> **Solución**: `01101100` (108 en decimal; operación intermedia OR: `00110116` o `00110110` binario).
+
+
+
+# Punto flotante
+## Ejercicio 1
+Convierte el número decimal `3.5` a binario de 32 bits (1 bit signo, 8 bits exponente con sesgo de 127, 23 bits mantisa).
+> **Solución**: `0 10000000 11000000000000000000000` (Hexadecimal: `0x40600000`).
+
+## Ejercicio 2
+Convierte el número decimal `-8.25` al formato binario de 32 bits.
+> **Solución**: `1 10000010 00010000000000000000000` (Hexadecimal: `0xC1040000`).
+
+## Ejercicio 3
+Pasa el código hexadecimal `0x40400000` a su representación decimal original.
+> **Solución**: `3.0` (Signo: `+`, Exponente: `1`, Mantisa: `1.1₂` en binario = `1.5` decimal).
+
+## Ejercicio 4
+Pasa el código hexadecimal `0xC1200000` a su representación decimal original.
+> **Solución**: `-10.0` (Signo: `-`, Exponente: `3`, Mantisa: `1.01₂` en binario = `1.25` decimal).
+
+## Ejercicio 5
+Convierte el número decimal `0.5` a binario de 32 bits.
+> **Solución**: `0 01111110 00000000000000000000000` (Hexadecimal: `0x3F000000`).
+
+## Ejercicio 6
+Representa el número decimal `-12.0` en formato binario de 32 bits y luego exprésalo en hexadecimal.
+> **Solución**: `0xC1400000` (Binario: `1 10000010 10000000000000000000000`).
+
+## Ejercicio 7
+Determina el valor decimal que corresponde a la secuencia binaria `0 10000010 01100000000000000000000`.
+> **Solución**: `6.75` (Signo: `+`, Exponente: `3`, Mantisa: `1.011₂` en binario = `1.375` decimal).
+
+## Ejercicio 8
+Convierte el número decimal `0.375` a la estructura binaria de 32 bits.
+> **Solución**: `0 01111101 10000000000000000000000` (Hexadecimal: `0x3EEC0000`).
+
+## Ejercicio 9
+Representa el número decimal `18.5` directamente en formato hexadecimal de 32 bits.
+> **Solución**: `0x41940000` (Binario: `0 10000011 00101000000000000000000`).
+
