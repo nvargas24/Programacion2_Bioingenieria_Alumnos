@@ -156,3 +156,18 @@ Un cliente realiza una compra de $87.90 dólares. Al dividir entre 10, el result
 
 > **Ejemplo base**: aproximaciones3.cpp
 > **Respuesta**: redondeo3.cpp
+
+## Problema 7
+Un módulo de automatización lee tres señales físicas consecutivas: primero, un actuador calcula 1.43 bares y requiere aproximar hacia arriba para garantizar la presión mínima de apertura; segundo, un sensor mide 4.5678 voltios y debe fijarse a dos decimales sin aumentar el valor por seguridad; y tercero, un transductor registra 11.77 pulsos, necesitando extraer únicamente la cantidad entera de ciclos completos realizados.
+
+> **Respuesta**: aproximacion4.cpp
+
+## Problema 8
+Un PLC procesa tres señales de una línea de ensamblaje: primero, un sensor de peso mide 8.124 kg y debe fijarse a dos decimales truncando el valor para no sobreestimar la carga real; segundo, un actuador neumático calcula 3.41 bares y requiere aproximar hacia arriba (techo) para asegurar la fuerza mínima de prensado; y tercero, un transductor de velocidad registra 24.56 Hz y debe redondearse al entero más cercano para sincronizar los motores de forma equitativa.
+
+> **Respuesta**: aproximacion5.cpp
+
+## Problema 9
+El firmware de un robot calibra sus subcomponentes: primero, un transductor de nivel calcula que un tanque tiene 14.89 litros y extrae la cantidad entera máxima de ciclos completos (truncando a entero) para evitar succionar aire; segundo, un sensor óptico registra 5.672 lúmenes y debe aproximarse al valor más cercano con dos decimales usando redondeo estándar; y tercero, un actuador lineal calcula que debe desplazarse 0.12 mm y requiere redondear hacia arriba para garantizar que venza la fricción estática del riel.
+
+> **Respuesta**: aproximacion6.cpp
