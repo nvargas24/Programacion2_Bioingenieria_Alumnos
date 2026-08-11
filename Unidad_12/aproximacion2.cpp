@@ -6,7 +6,6 @@
 using namespace std;
 
 int main() {
-
     double real, truncado, suma, error;
     int i;
 
