@@ -1,4 +1,4 @@
-// Ejemplo de aproximacion
+// Ejemplo de error
 #include <iostream>
 #include <iomanip>
 using namespace std;
