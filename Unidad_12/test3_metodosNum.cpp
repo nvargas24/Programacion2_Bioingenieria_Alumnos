@@ -2,7 +2,7 @@
 #include "metodos_numericos/interpolacionLineal.h"
 
 #define N_MUESTRAS 4
-#define CANTIDAD_PASOS 20
+#define CANTIDAD_PASOS 13
 #define LIMIT 6.0f
 
 const PuntoInterpolacion_t muestras_xy[N_MUESTRAS] = {
@@ -25,7 +25,7 @@ int main() {
 
     if (estado == 0) {
         // Imprimir únicamente los encabezados solicitados
-        printf("%-12s | %-15s | %-12s\n", "Entrada (x)", "Val. Estimado", "Error %");
+        printf("%-12s | %-15s | %-12s\n", "Entrada (v)", "Val. Estimado", "Error %");
         printf("-------------------------------------------------\n");
 
         // Recorrer el buffer e imprimir solo las tres variables deseadas

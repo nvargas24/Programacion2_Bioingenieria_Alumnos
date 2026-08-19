@@ -53,10 +53,10 @@ int8_t generar_tabla_estimaciones(const PuntoInterpolacion_t* tabla_nodos, uint1
             buffer_salida[i].error_porcentual = 0.0f; 
         } 
         else if (estimado > real) {
-            buffer_salida[i].error_porcentual = (error_abs / estimado) * 100.0f;
+            buffer_salida[i].error_porcentual = (error_abs / real) * 100.0f;
         } 
         else {
-            buffer_salida[i].error_porcentual = (error_abs / real) * 100.0f;
+            buffer_salida[i].error_porcentual = (error_abs / estimado) * 100.0f;
         }
     }
 
