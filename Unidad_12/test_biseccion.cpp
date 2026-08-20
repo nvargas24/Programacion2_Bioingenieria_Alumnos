@@ -38,7 +38,7 @@ int main() {
     // PRUEBA 2: Método de bisección por tolerancia de error verdadero
     // ------------------------------------------------------------------------
     resultado_biseccion = 0.0f; // Limpieza de variable para la siguiente prueba    
-    cout << ">>> PRUEBA 2: Biseccion por Tolerancia de Error Verdadero (Detener en <= " << ERROR_TOLERADO_OBJETIVO << "%)" << endl;
+    cout << ">>> PRUEBA 2: Biseccion por Tolerancia de Error Verdadero (Detener en <= " << ERROR_TOLERADO_OBJETIVO << "%) << ";
     
     estado = calcular_biseccion_por_error(funcion_test, 
                                           RANGO_INICIAL_A, 
