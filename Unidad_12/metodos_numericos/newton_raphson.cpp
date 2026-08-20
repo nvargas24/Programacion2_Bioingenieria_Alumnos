@@ -5,10 +5,6 @@
 
 using namespace std;
 
-// ============================================================================
-// FUNCIONES AUXILIARES INTERNAS
-// ============================================================================
-
 /**
  * Calcula la pendiente de la recta tangente usando Diferencias Centrales.
  */
