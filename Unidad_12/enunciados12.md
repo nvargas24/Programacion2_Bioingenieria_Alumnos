@@ -172,25 +172,60 @@ El firmware de un robot calibra sus subcomponentes: primero, un transductor de n
 
 > **Respuesta**: aproximacion6.cpp
 
-Determine el valor exacto de sumar $0.1$ al sumar de forma 
-consecutiva $10000$ veces con `float` y con `double`, ¿hay diferencia? De ser distinto al esperado determine el error porcentual con respecto al valor verdadero.
 
-Determine el valor exacto de sumar $0.2$ al sumar de forma 
-consecutiva $50000$ veces con `float`. De ser distinto al esperado determine el error porcentual con respecto al valor verdadero.
+# Metodos numericos
+## Problema 1
+La velocidad del flujo sanguíneo a través de una prótesis valvular cardíaca se modela mediante la función matemática: 
+$f(x) = x^3 - 5x^2 + 7x - 3$, donde la variable $x$ representa la apertura angular del disco de la válvula medida en grados. 
+Dentro del rango de operación segura de 0.4 a 1.8 grados, determine el punto de turbulencia exacto deteniendo el cálculo 
+cuando el error porcentual respecto a la raíz real de 1.0 grado sea menor o igual al 0.01%.
 
+> **Respuesta**: biseccion
 
+## Problema 2
+La concentración de un fármaco en el torrente sanguíneo tras su difusión se modela mediante la función matemática 
+$f(x) = x^3 - 6x^2 + 11x - 6$, donde la variable $x$ representa el tiempo transcurrido desde la aplicación medido 
+en horas. Dentro del intervalo de asimilación metabólica estable de 1.4 a 2.7 horas, determine el instante de 
+equilibrio exacto deteniendo el cálculo cuando el error porcentual respecto a la raíz real de 2.0 horas sea menor 
+o igual al 0.05%.
 
+> **Respuesta**: biseccion
 
-| Número Original (`x`) | `trunc(x)` <br>*(Trunca hacia cero)* | `floor(x)` <br>*(Hacia abajo / -∞)* | `ceil(x)` <br>*(Hacia arriba / +∞)* | `round(x)` <br>*(Al más cercano)* |
-| :--- | :--- | :--- | :--- | :--- |
-| **2.3** | 2.0 | 2.0 | 3.0 | 2.0 |
-| **2.5** | 2.0 | 2.0 | 3.0 | 3.0 |
-| **2.7** | 2.0 | 2.0 | 3.0 | 3.0 |
-| **-2.3** | -2.0 | -3.0 | -2.0 | -2.0 |
-| **-2.7** | -2.0 | -3.0 | -2.0 | -3.0 |
-| **0.5** | 0.0 | 0.0 | 1.0 | 1.0 |
-| **-0.5** | -0.0 | -1.0 | -0.0 | -1.0 |
-| **-2.345** | -2.000 | -3.000 | -2.000 | -2.000 |
-| **-2.500** | -2.000 | -3.000 | -2.000 | -3.000 |
-| **-2.789** | -2.000 | -3.000 | -2.000 | -3.000 |
-| **0.567** | 0.000 | 0.000 | 1.000 | 1.000 |
+## Problema 3
+La presión de aire dentro de un pulmón artificial durante un ciclo de respiración controlada se modela mediante 
+la función matemática exponencial: $f(x) = e^{-0.5x} - 0.2x$, donde la variable $x$ representa el volumen de 
+aire insuflado medido en litros. Dentro del rango de volumen seguro de 1.0 a 3.0 litros, determine el punto 
+exacto de equilibrio de presión ejecutando el cálculo durante exactamente 8 iteraciones frente al valor real 
+de 1.7564 litros.
+
+> **Respuesta**: biseccion
+
+## Problema 4
+La cantidad de oxígeno que absorbe un tejido artificial en un laboratorio se modela mediante la 
+función matemática exponencial: $f(x) = e^{-0.2x} - 0.4x$, donde la variable x representa el 
+tiempo de maduración medido en semanas. Tomando una lectura inicial de prueba de 0.5 semanas 
+dentro del rango de control de 0.0 a 4.0 semanas. Determine el tiempo exacto en el que el tejido 
+se estabiliza interrumpiendo el cálculo en el instante en que el error porcentual respecto al valor 
+real de 0.8526 semanas sea menor o igual al 0.05%.
+
+> **Respuesta**: Newton-Raphson
+
+## Problema 5
+El flujo de líquido nutritivo a través de un canal de cultivo celular se modela mediante 
+la función matemática: $f(x) = 0.5x³ - 4x + 2$, donde la variable x representa la velocidad de 
+bombeo medida en mililitros por minuto. Partiendo de una estimación inicial de 1.0 mililitros 
+por minuto dentro de los márgenes de operación de 0.0 a 3.0 mililitros por minuto. Calcule el 
+punto exacto de equilibrio del flujo ejecutando el proceso durante exactamente 6 iteraciones 
+frente al valor real de 0.5175 mililitros por minuto.
+
+> **Respuesta**: Newton-Raphson
+
+## Problema 6
+La señal eléctrica que genera un marcapasos para estimular el corazón se modela mediante la 
+función matemática $f(x) = x^3 - 3x^2 + 2x - 0.5$, donde la variable $x$ representa la 
+amplitud medida en voltios. Partiendo únicamente de una lectura inicial de arranque de 2.5 
+voltios dentro de los límites de seguridad de 1.0 a 4.0 voltios. Determine tensión exacta 
+de activación, deteniendo el cálculo de forma inmediata en cuanto el error 
+porcentual respecto al valor real de 2.3247 voltios sea menor o igual al 0.01%.
+
+> **Respuesta**: Newton-Raphson
