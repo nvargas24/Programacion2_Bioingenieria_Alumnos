@@ -7,33 +7,52 @@ using namespace std;
 #define ITERACIONES_SOLICITADAS 5
 #define RANGO_INFERIOR          0.0f
 #define RANGO_SUPERIOR          5.0f
-#define RAIZ_TEORICA     1.133107f // Raíz real suave del polinomio introductorio
+#define RAIZ_TEORICA            2.4236f // Raíz real suave del polinomio introductorio
 
-// Envoltura limpia para pasar la función matemática como puntero
-float evaluar_sensor(float x) {
+#define ERROR_TOLERADO 0.01f     // Detener cuando el Error % Verdadero sea <= 0.01%
+
+float funcion_test(float x) {
     // f(x) = 0.2*x^3 - 2*x + 2
     return ((0.2f * (x) * (x) * (x)) - (2.0f * (x)) + 2.0f);  
 }
 
 int main() {
-    // Declaración única de las variables de estado al principio del bloque
-    float resultado_sensor;
+    float resultado;
     int estado_modulo;
 
-    resultado_sensor = 0.0f;
+    resultado = 0.0f;
 
-    cout << "Valor inicial enviado: " << VALOR_INICIAL << "\n";
+    cout << "=== CONFIGURACION INICIAL DE NEWTON-RAPHSON ===\n";
+    cout << "Valor inicial: " << VALOR_INICIAL << "\n";
     cout << "Limites operacionales: [" << RANGO_INFERIOR << " a " << RANGO_SUPERIOR << "]\n";
-    cout << "Raiz teorica configurada: " << RAIZ_TEORICA << "\n\n";
+    cout << "Raiz teorica: " << RAIZ_TEORICA << endl << endl;
 
-    estado_modulo = calcular_newton_raphson(evaluar_sensor, 
+    // ------------------------------------------------------------------------
+    // PRUEBA 1: Newton-Raphson por Iteraciones Fijas
+    // ------------------------------------------------------------------------
+    cout << ">>> PRUEBA 1: Newton-Raphson por Iteraciones Fijas (" << ITERACIONES_SOLICITADAS << endl;
+    
+    estado_modulo = calcular_newton_raphson(funcion_test, 
                                             VALOR_INICIAL, 
                                             ITERACIONES_SOLICITADAS, 
                                             RANGO_INFERIOR, 
                                             RANGO_SUPERIOR, 
                                             RAIZ_TEORICA, 
-                                            &resultado_sensor);
+                                            &resultado);
 
+    // ------------------------------------------------------------------------
+    // PRUEBA 2: Newton-Raphson por Tolerancia de Error
+    // ------------------------------------------------------------------------
+    resultado = 0.0f; // Reinicio de variable para la siguiente prueba
+    cout << ">>> PRUEBA 2: Newton-Raphson por Error Objetivo (Detener en <= " << ERROR_TOLERADO << "%) <<<\n";
+    
+    estado_modulo = calcular_newton_raphson_por_error(funcion_test, 
+                                                      VALOR_INICIAL, 
+                                                      ERROR_TOLERADO, 
+                                                      RANGO_INFERIOR, 
+                                                      RANGO_SUPERIOR, 
+                                                      RAIZ_TEORICA, 
+                                                      &resultado);
 
     return 0;
 }
