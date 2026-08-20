@@ -128,25 +128,25 @@ Desarrolla un programa que calcule el costo real de un viaje que dio como result
 > **Respuesta**: truncamiento1.cpp
 
 ## Problema 2
-Un vehiculo consume un promedio exacto de 4.12395 litros por vuelta. Escribe un algoritmo que procese este valor y, mediante truncamiento matemático, lo reduzca a exactamente tres dígitos decimales (4.123)
+Un vehiculo consume un promedio exacto de 4.12395 litros por vuelta. Escribe un algoritmo que procese este valor y, mediante truncamiento matemático, lo reduzca a exactamente tres dígitos decimales.
 
 > **Ejemplo base**: aproximaciones2.cpp  
 > **Respuesta**: truncamiento2.cpp
 
 ## Problema 3
-La tasa de interés diaria de un cliente genera un saldo de ganancia de $0.054391 dólares. Crea un programa que procese dicho monto y aplique el truncamiento necesario para conservar únicamente cuatro dígitos decimales (0.0543).
+La tasa de interés diaria de un cliente genera un saldo de ganancia de $ $0.054391 $ dólares. Códifica un programa que procese dicho monto y aplique el truncamiento necesario para conservar únicamente cuatro dígitos decimales.
 
 > **Ejemplo base**: aproximaciones2.cpp  
 > **Respuesta**: truncamiento3.cpp
 
 ## Problema 4
-Un cliente compra un artículo cuyo total con impuestos da $18.3461 dólares. Si se trunca a 18.34, la tienda pierde dinero; si se aproxima correctamente al centavo más cercano, debe cobrarse $18.35. Diseña el programa que realice este redondeo estándar a dos decimales.
+Un cliente compra un artículo cuyo total con impuestos da $ $18.3461 $ dólares. Si se trunca a  $ $18.34 $, la tienda pierde dinero; si se aproxima correctamente al centavo más cercano, debe cobrarse $ $18.35 $. Diseña el programa que realice este redondeo estándar a dos decimales.
 
 > **Ejemplo base**: aproximaciones3.cpp  
 > **Respuesta**: redondeo1.cpp
 
 ## Problema 5
-Un paquete de libros pesa exactamente 4.12 kg. Aunque el decimal .12 es muy bajo, las reglas de la aerolínea exigen redondear hacia arriba para cobrar por 5 kg enteros. Desarrolla el algoritmo utilizando la función de techo (ceil) para calcular los kilogramos a facturar.
+Un paquete de libros pesa exactamente $4.12kg$. Aunque el decimal $0.12$ es muy bajo, las reglas de la aerolínea exigen redondear hacia arriba para cobrar por $5kg$ enteros. Desarrolla el código para calcular los kilogramos a facturar.
 
 > **Ejemplo base**: aproximaciones3.cpp  
 > **Respuesta**: redondeo2.cpp
@@ -171,3 +171,26 @@ Un PLC procesa tres señales de una línea de ensamblaje: primero, un sensor de 
 El firmware de un robot calibra sus subcomponentes: primero, un transductor de nivel calcula que un tanque tiene 14.89 litros y extrae la cantidad entera máxima de ciclos completos (truncando a entero) para evitar succionar aire; segundo, un sensor óptico registra 5.672 lúmenes y debe aproximarse al valor más cercano con dos decimales usando redondeo estándar; y tercero, un actuador lineal calcula que debe desplazarse 0.12 mm y requiere redondear hacia arriba para garantizar que venza la fricción estática del riel.
 
 > **Respuesta**: aproximacion6.cpp
+
+Determine el valor exacto de sumar $0.1$ al sumar de forma 
+consecutiva $10000$ veces con `float` y con `double`, ¿hay diferencia? De ser distinto al esperado determine el error porcentual con respecto al valor verdadero.
+
+Determine el valor exacto de sumar $0.2$ al sumar de forma 
+consecutiva $50000$ veces con `float`. De ser distinto al esperado determine el error porcentual con respecto al valor verdadero.
+
+
+
+
+| Número Original (`x`) | `trunc(x)` <br>*(Trunca hacia cero)* | `floor(x)` <br>*(Hacia abajo / -∞)* | `ceil(x)` <br>*(Hacia arriba / +∞)* | `round(x)` <br>*(Al más cercano)* |
+| :--- | :--- | :--- | :--- | :--- |
+| **2.3** | 2.0 | 2.0 | 3.0 | 2.0 |
+| **2.5** | 2.0 | 2.0 | 3.0 | 3.0 |
+| **2.7** | 2.0 | 2.0 | 3.0 | 3.0 |
+| **-2.3** | -2.0 | -3.0 | -2.0 | -2.0 |
+| **-2.7** | -2.0 | -3.0 | -2.0 | -3.0 |
+| **0.5** | 0.0 | 0.0 | 1.0 | 1.0 |
+| **-0.5** | -0.0 | -1.0 | -0.0 | -1.0 |
+| **-2.345** | -2.000 | -3.000 | -2.000 | -2.000 |
+| **-2.500** | -2.000 | -3.000 | -2.000 | -3.000 |
+| **-2.789** | -2.000 | -3.000 | -2.000 | -3.000 |
+| **0.567** | 0.000 | 0.000 | 1.000 | 1.000 |
