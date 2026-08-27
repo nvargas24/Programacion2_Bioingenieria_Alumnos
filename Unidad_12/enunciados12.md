@@ -172,6 +172,38 @@ El firmware de un robot calibra sus subcomponentes: primero, un transductor de n
 
 > **Respuesta**: aproximacion6.cpp
 
+## Problema 10
+Un contador digital registra el volumen de sangre procesado en un equipo de diálisis acumulando de forma 
+continua porciones muy pequeñas de $0.00005$ litros sobre una base inicial grande de $2048.0$ litros. 
+Si el programa del sensor almacena los datos en variables de tipo `float` y repite la operación 
+exactamente $40,000$ veces, determine el error generado en la medición final frente al valor teórico 
+esperado de $2050.0$ litros debido al truncamiento de decimales que sufre el procesador al intentar 
+sumar un número tan pequeño a uno tan grande.
+
+> **Ejemplo base**: aproximacion5.cpp 
+> **Respuesta**: Error por limitación de punto flotante (Truncamiento/pérdida de datos por diferencia de escala)
+
+## Problema 11
+Para calibrar el voltaje de disparo de un marcapasos, un programa en C++ calcula el valor crítico 
+dividiendo sucesivamente un potencial base de $5.0$ voltios entre $3.0$ en cada ciclo. Al evaluar 
+el estado en la octava división consecutiva, determine el error absoluto inducido en el sistema 
+comparando el resultado obtenido al usar una variable de precisión simple (`float`) frente a una 
+de precisión doble (`double`), debido al redondeo forzado de las fracciones infinitas.
+
+> **Ejemplo base**: aproximacion5.cpp
+> **Respuesta**: Error por redondeo aritmético en la representación del tipo de dato
+
+## Problema 12
+Un sistema informático para análisis de proteínas procesa señales sumando la masa de una macromolécula 
+grande de $16777216.0$ unidades con pequeños fragmentos individuales de $1.0$ unidad cada uno. Si el 
+código implementa un bucle que añade uno a uno 100 de estos fragmentos utilizando variables tipo `float`, 
+determine el error total acumulado al finalizar las iteraciones debido a la incapacidad física de la 
+variable para registrar el incremento unitario frente a una cifra de gran magnitud.
+
+> **Ejemplo base**: aproximacion5.cpp
+> **Respuesta**: Error por limitación de punto flotante (Pérdida total de precisión por diferencia 
+crítica de magnitud)
+
 
 # Metodos numericos
 ## Problema 1
