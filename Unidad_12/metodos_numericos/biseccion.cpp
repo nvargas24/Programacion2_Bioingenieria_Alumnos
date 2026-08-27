@@ -88,7 +88,7 @@ int calcular_biseccion(FuncionMatematica f, float lim_inf, float lim_sup,
          << setw(15) << "a_n(izq)" 
          << setw(15) << "b_n(der)" 
          << setw(15) << "c_n(Medio)" 
-         << setw(15) << "Error%" << "\n";
+         << setw(15) << "e_v%" << "\n";
     cout << string(60, '-') << "\n";
 
     for (iteracion = 0; iteracion <= max_iteraciones; iteracion++) {
@@ -139,7 +139,7 @@ int calcular_biseccion_por_error(FuncionMatematica f, float lim_inf, float lim_s
          << setw(15) << "a_n(izq)" 
          << setw(15) << "b_n(der)" 
          << setw(15) << "c_n(Medio)" 
-         << setw(15) << "Error%" << "\n";
+         << setw(15) << "e_v%" << "\n";
     cout << string(60, '-') << "\n";
 
     while (true) {

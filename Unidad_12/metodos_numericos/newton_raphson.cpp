@@ -90,7 +90,7 @@ int calcular_newton_raphson(FuncionMatematica f, float valor_inicial, int max_it
          << setw(15) << "x_n" 
          << setw(15) << "f(x_n)" 
          << setw(15) << "x_{n+1}" 
-         << setw(15) << "Error %" << "\n";
+         << setw(15) << "e_v%" << "\n";
     cout << string(75, '-') << "\n";
 
     for (iteracion = 0; iteracion <= max_iteraciones; iteracion++) {
@@ -148,7 +148,7 @@ int calcular_newton_raphson_por_error(FuncionMatematica f, float valor_inicial, 
          << setw(15) << "x_n" 
          << setw(15) << "f(x_n)" 
          << setw(15) << "x_{n+1}" 
-         << setw(15) << "Error %" << "\n";
+         << setw(15) << "e_v%" << "\n";
     cout << string(75, '-') << "\n";
 
     while (true) {

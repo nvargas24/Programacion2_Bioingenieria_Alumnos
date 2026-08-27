@@ -47,5 +47,7 @@ int main() {
                                           RAIZ_TEORICA, 
                                           &resultado_biseccion);
 
+    cout << "Estado al utilizar metodo: " << estado;
+
     return 0;
 }
