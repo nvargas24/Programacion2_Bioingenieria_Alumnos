@@ -109,7 +109,7 @@ Representa el número decimal `-12.0` en formato binario de 32 bits y luego expr
 
 ## Ejercicio 7
 Determina el valor decimal que corresponde a la secuencia binaria `0 10000010 01100000000000000000000`.
-> **Solución**: `6.75` (Signo: `+`, Exponente: `3`, Mantisa: `1.011₂` en binario = `1.375` decimal).
+> **Solución**: `11.0` (Signo: `+`, Exponente: `3`, Mantisa: `1.011₂` en binario = `1.375` decimal).
 
 ## Ejercicio 8
 Convierte el número decimal `0.375` a la estructura binaria de 32 bits.
