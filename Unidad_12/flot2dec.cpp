@@ -6,7 +6,8 @@
 using namespace std;
 
 int main() {
-    uint32_t bits_entrada = 0b11000000110100000000000000000000u;
+
+    uint32_t bits_entrada = 0b11000000110100000000000000000000;
 
     uint32_t signo;
     uint32_t exponente_sesgado;
@@ -29,12 +30,14 @@ int main() {
     for (i = 1; i <= 23; ++i) {
         bit_actual = (mantisa_bits >> (23 - i)) & 0x1;
         if (bit_actual == 1) {
-            mantisa_fraccionaria += pow(2, -i);
+            // Corrección C++11: Se usa 2.0 (double) en lugar de 2 (int) 
+            // para evitar ambigüedades en la sobrecarga de la función std::pow
+            mantisa_fraccionaria += pow(2.0, -i);
         }
     }
 
     valor_mantisa_completa = 1.0 + mantisa_fraccionaria;
-    resultado_final = pow(-1, signo) * valor_mantisa_completa * pow(2, exponente_real);
+    resultado_final = pow(-1.0, signo) * valor_mantisa_completa * pow(2.0, exponente_real);
 
     cout << "Trama binaria analizada: " << bitset<32>(bits_entrada) << endl << endl;
     

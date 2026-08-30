@@ -15,6 +15,7 @@ int main() {
     uint32_t mantisa;
 
     memcpy(&bits, &numero_decimal, sizeof(float));
+    
     signo = (bits >> 31) & 0x1;
     exponente_sesgado = (bits >> 23) & 0xFF;
     exponente_real = (int)exponente_sesgado - 127;
@@ -24,7 +25,8 @@ int main() {
     cout << "Trama completa (32 bits)  : " << bitset<32>(bits) << endl << endl;
 
     cout << "--- Desglose por partes ---" << endl;
-    cout << "Signo (1 bit)       : " << bitset<1>(signo) << endl;
+
+    cout << "Signo (1 bit)       : " << bitset<1>(static_cast<unsigned long long>(signo)) << endl;
     cout << "Exponente (8 bits)  : " << bitset<8>(exponente_sesgado) << endl;
     cout << "  > Exponente Sesgado (en trama): " << exponente_sesgado << endl;
     cout << "  > Exponente Real (matematico) : " << exponente_real << "  (Formula: " << exponente_sesgado << " - 127)" << endl;
