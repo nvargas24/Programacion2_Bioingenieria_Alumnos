@@ -24,14 +24,19 @@ int main() {
                                                CANTIDAD_PASOS, LIMIT, curva_real_sensor);
 
     if (estado == 0) {
-        // Imprimir únicamente los encabezados solicitados
-        printf("%-12s | %-15s | %-12s\n", "Entrada (v)", "Val. Estimado", "Error %");
-        printf("-------------------------------------------------\n");
+        // Encabezados modificados para incluir el Valor Real (Imagen de f(x))
+        printf("%-12s | %-15s | %-15s | %-12s\n", "Muestra", "Val. Real", "Val. Estimado", "Error %");
+        printf("-------------------------------------------------------------------------\n");
 
-        // Recorrer el buffer e imprimir solo las tres variables deseadas
+        // Recorrer el buffer e imprimir incluyendo la imagen real
         for (uint16_t i = 0; i < CANTIDAD_PASOS; i++) {
-            printf("%-12.2f | %-15.4f | %-11.2f%%\n",
-                   mi_tabla[i].valor_entrada,
+            float x_actual = mi_tabla[i].valor_entrada;
+            // Evaluamos la función para obtener la imagen real que se utilizó en el cálculo
+            float valor_real = curva_real_sensor(x_actual);
+
+            printf("%-12.2f | %-15.4f | %-15.4f | %-11.2f%%\n",
+                   x_actual,
+                   valor_real,
                    mi_tabla[i].valor_estimado,
                    mi_tabla[i].error_porcentual);
         }
