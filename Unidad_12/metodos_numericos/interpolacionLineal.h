@@ -1,3 +1,7 @@
+/**
+ * Libreria de interpolacion para comparar con una funcion real
+ */
+
 #ifndef INTERPOLACION_TRAMOS_H
 #define INTERPOLACION_TRAMOS_H
 
