@@ -12,7 +12,7 @@
  ******************************************************************************/
 /*${macro:start}*/
 #define APP_BOARD_TEST_LED_PORT 1U
-#define APP_BOARD_TEST_LED_PIN  0U
+#define APP_BOARD_TEST_LED_PIN  1U
 #define APP_SW_PORT             BOARD_K3_GPIO_PORT
 #define APP_SW_PIN              BOARD_K3_GPIO_PIN
 

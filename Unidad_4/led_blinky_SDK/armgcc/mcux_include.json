@@ -13,7 +13,8 @@
         "SdkRootDirPath": "c:/Users/nahue/Documents/Workspace/sdks_LPC845/sdks/lpc845breakout_SDK_sdk",
         "POSTPROCESS_UTILITY": "C:/Users/nahue/.mcuxpressotools/mcux-fixelf-14.2.2/mcux-fixelf.exe",
         "MCUX_VENV_PATH": "C:/Users/nahue/.mcuxpressotools/.venv_3_11/Scripts",
-        "PATH": "$env{MCUX_VENV_PATH}${pathListSep}$penv{PATH}"
+        "PATH": "$env{MCUX_VENV_PATH}${pathListSep}$penv{PATH}",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       },
       "cacheVariables": {}
     },
@@ -26,7 +27,8 @@
         "SdkRootDirPath": "c:/Users/nahue/Documents/Workspace/sdks_LPC845/sdks/lpc845breakout_SDK_sdk",
         "POSTPROCESS_UTILITY": "C:/Users/nahue/.mcuxpressotools/mcux-fixelf-14.2.2/mcux-fixelf.exe",
         "MCUX_VENV_PATH": "C:/Users/nahue/.mcuxpressotools/.venv_3_11/Scripts",
-        "PATH": "$env{MCUX_VENV_PATH}${pathListSep}$penv{PATH}"
+        "PATH": "$env{MCUX_VENV_PATH}${pathListSep}$penv{PATH}",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       },
       "cacheVariables": {}
     }

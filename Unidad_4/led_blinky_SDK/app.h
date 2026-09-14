@@ -15,8 +15,8 @@
  * Definitions
  ******************************************************************************/
 /*${macro:start}*/
-#define BOARD_LED_PORT BOARD_LED_RED_PORT
-#define BOARD_LED_PIN  BOARD_LED_RED_PIN
+#define BOARD_LED_PORT BOARD_LED_BLUE_PORT
+#define BOARD_LED_PIN  BOARD_LED_BLUE_PIN
 /*${macro:end}*/
 
 /*******************************************************************************
