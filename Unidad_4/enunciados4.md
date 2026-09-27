@@ -12,3 +12,8 @@
 #### Problema 2
 1- Cambiar funcionamiento de ejemplo **\led_blinky_lpc** a un LED externo conectado a **PIO_08**    
 2- Utilizando el ejemplo **\led_blinky_lpc** , testear comportamiento del LED de LPC845BRK y de LED externo, al cambiar de resistores: **220Ω**, **1𝑘Ω** 𝑦 **10𝑘Ω**. ¿cambia comportamiento entre un LED y otro?
+
+#### Problema 3
+- Cambiar funcionamiento de ejemplo **\lpc_gpio_led_output** a un pulsador externo conectado a **PIO0_16** en configuración pull-up.
+- Utilizando el ejemplo **\lpc_gpio_led_output**, al pin anterior cambiar a pull-down.
+¿que cambio es necesario en software para que el cambio de configuración no afecte a la lógica del proyecto?
