@@ -3,9 +3,26 @@
 
 #include <stdint.h>
 
-/* Tick de 1 ms configurado por BSP_Hardware_Init. */
-void sysTime_init(void); /* Reinicia el contador. */
-void sysTime_updateTick(void); /* Incrementar desde SysTick_Handler, una vez por tick. */
-uint32_t sysTime_getTicks(void); /* Devuelve el total acumulado de ticks. */
+/**
+ * @brief Inicializa el servicio de tiempo del sistema.
+ *
+ * Reinicia a cero el contador interno de ticks. Depende directamente del tick
+ * de 1 ms configurado previamente por BSP_Hardware_Init().
+ */
+void sysTime_init(void);
 
+/**
+ * @brief Incrementa el contador interno de tiempo.
+ *
+ * @warning Esta función debe ser invocada obligatoriamente dentro de la
+ *          interrupción SysTick_Handler(), exactamente una vez por cada milisegundo.
+ */
+void sysTime_updateTick(void);
+
+/**
+ * @brief Obtiene el tiempo transcurrido desde el inicio del sistema.
+ *
+ * @return uint32_t Cantidad total de ticks acumulados (milisegundos).
+ */
+uint32_t sysTime_getTicks(void);
 #endif

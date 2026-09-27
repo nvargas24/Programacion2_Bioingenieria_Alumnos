@@ -1,6 +1,6 @@
 /**
  * @file main.c
- * @brief Ejemplo de lectura de K3 y control del LED rojo.
+ * @brief Ejemplo de lectura de K3 y control del LED azul.
  * @details Para LPC845BRK y arquitectura de cinco capas. Inicializa la BSP y los
  *          drivers, luego lee K3 y enciende/apaga el LED segun el estado reportado.
  * @note Uso: importar en MCUXpresso, compilar para LPC845BRK y debuggear en la placa.
@@ -12,34 +12,29 @@
  */
 
 #include "hardware_init.h"
-#include "pin_mux.h"
 #include "driver_led.h"
 #include "driver_pulsador.h"
 #include "app_config.h"
-#include "driver_led.h"
-#include "driver_pulsador.h"
 
 
 int main() {
-    app_state_t currentState = STATE_READ_BTN;
+	/* Variables */
     pulsador_state_t state_btn = BTN_RELEASED;
 
-    /* Inicializa pines, clocks y SysTick de la placa; este ejercicio no usa el tick. */
-    BSP_Hardware_Init();
+    /* Setup - Configuracion HW*/
+    BSP_Hardware_Init(); //Inicializa pines, clocks y SysTick de la placa
 
-    Driver_LED_Init(BOARD_LED_RED_PORT, BOARD_LED_RED_PIN);
-    Driver_Pulsador_Init(BOARD_K3_PORT, BOARD_K3_PIN);
-
-    Driver_LED_Set(BOARD_LED_RED_PORT, BOARD_LED_RED_PIN, LED_OFF);
+    Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
     
+    /* Loop */
     while(1) {
-        state_btn = Driver_Pulsador_Read(PULSADOR_PORT, PULSADOR_PIN);
+        state_btn = Driver_Pulsador_Read(PULSADOR1_PORT, PULSADOR1_PIN);
 
         if (state_btn == BTN_PRESSED) {
-            Driver_LED_Set(LED_RED_PORT, LED_RED_PIN, LED_ON);
+            Driver_LED_Set(LED1_PORT, LED1_PIN, LED_ON);
         } 
         else {
-            Driver_LED_Set(LED_RED_PORT, LED_RED_PIN, LED_OFF);
+            Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
         }
     }
 }
