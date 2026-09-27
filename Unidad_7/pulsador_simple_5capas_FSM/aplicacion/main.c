@@ -33,13 +33,31 @@ int main() {
     Driver_LED_Set(BOARD_LED_RED_PORT, BOARD_LED_RED_PIN, LED_OFF);
     
     while(1) {
-        state_btn = Driver_Pulsador_Read(PULSADOR_PORT, PULSADOR_PIN);
+        switch (currentState) 
+        {
+        	case STATE_READ_BTN:
+        		state_btn = Driver_Pulsador_Read(BOARD_K3_PORT, BOARD_K3_PIN);
 
-        if (state_btn == BTN_PRESSED) {
-            Driver_LED_Set(LED_RED_PORT, LED_RED_PIN, LED_ON);
-        } 
-        else {
-            Driver_LED_Set(LED_RED_PORT, LED_RED_PIN, LED_OFF);
+        		if(state_btn == BTN_PRESSED){
+        			currentState = STATE_LED_ON;
+        		}
+        		else if(state_btn == BTN_RELEASED){
+        			currentState = STATE_LED_OFF;
+        		}
+        		break;
+            case STATE_LED_OFF:
+                	Driver_LED_Set(BOARD_LED_RED_PORT, BOARD_LED_RED_PIN, LED_OFF);
+                    currentState = STATE_READ_BTN;
+                break;
+            case STATE_LED_ON:
+                    Driver_LED_Set(BOARD_LED_RED_PORT, BOARD_LED_RED_PIN, LED_ON);
+                    currentState = STATE_READ_BTN;
+                break;
+            
+            default:
+                Driver_LED_Set(BOARD_LED_RED_PORT, BOARD_LED_RED_PIN, LED_OFF);
+                currentState = STATE_READ_BTN;
+                break;
         }
     }
 }
