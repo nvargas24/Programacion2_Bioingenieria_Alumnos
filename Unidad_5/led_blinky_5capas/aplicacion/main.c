@@ -17,8 +17,8 @@
 #include "app_config.h"
 
 int main(){
-	/* Inicializa pines, clocks y SysTick de la placa */
-    BSP_Hardware_Init(); 
+	/* Setup - Configuracion HW**/
+    BSP_Hardware_Init(); // Inicializa pines, clocks y SysTick de la placa
 
     Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
 

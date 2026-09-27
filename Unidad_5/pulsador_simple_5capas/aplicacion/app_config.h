@@ -6,7 +6,7 @@
 typedef enum {
     LED1_PORT = BOARD_LED_BLUE_PORT,
 	LED1_PIN = BOARD_LED_BLUE_PIN,
-} LEDs_t;
+} leds_t;
 
 typedef enum {
     PULSADOR1_PORT = BOARD_K3_PORT,
