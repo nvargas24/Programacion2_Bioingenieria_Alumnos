@@ -1,1 +1,28 @@
-/.metadata/
+# ==========================================
+# MCUXpresso Workspace / Carpetas del IDE
+# ==========================================
+.metadata/
+.mcuxpressoide_packages_support/
+
+# Logs de depuración de RTOS (Thread Awareness Debugging)
+AzureRTOS_TAD_logs/
+FreeRTOS_TAD_logs/
+ZephyrRTOS_TAD_logs/
+
+# ==========================================
+# Configuraciones locales de proyectos
+# ==========================================
+# Ignora archivos de compilación y lanzamiento dentro de CUALQUIER proyecto
+**/Debug/
+**/Release/
+**/*.launch
+
+# Archivos de depuración y salidas binarias
+**/*.elf
+**/*.bin
+**/*.hex
+**/*.axf
+**/*.map
+**/*.su
+**/*.o
+**/*.d
