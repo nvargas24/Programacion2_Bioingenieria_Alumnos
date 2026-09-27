@@ -1,14 +1,8 @@
 #ifndef HARDWARE_INIT_H_
 #define HARDWARE_INIT_H_
 
-#include "pin_mux.h"
+/* Inicializa pines ConfigTools, clocks y SysTick de 1 ms; llamar antes de drivers/servicios. */
 
-#define LED_RED_PORT BOARD_LED_RED_PORT
-#define LED_RED_PIN BOARD_LED_RED_PIN
-
-#define PULSADOR_PORT BOARD_K3_PORT
-#define PULSADOR_PIN BOARD_K3_PIN
-
-void BSP_Hardware_Init();
+void BSP_Hardware_Init(void);
 
 #endif

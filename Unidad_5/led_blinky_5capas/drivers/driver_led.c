@@ -5,12 +5,14 @@ void Driver_LED_Init(uint8_t port, uint8_t pin){
     HAL_GPIO_InitPin(port, pin, HAL_GPIO_OUTPUT);
 }
 
-void Driver_LED_On(uint8_t port, uint8_t pin){
-    HAL_GPIO_WritePin(port, pin, HAL_GPIO_LOW);
-}
-
-void Driver_LED_Off(uint8_t port, uint8_t pin){
-    HAL_GPIO_WritePin(port, pin, HAL_GPIO_HIGH);
+void Driver_LED_Set(uint8_t port, uint8_t pin, LED_state_t state){
+    /* El LED de la placa es activo en bajo: LOW lo enciende. */
+    if(state == LED_ON){
+        HAL_GPIO_WritePin(port, pin, HAL_GPIO_LOW);
+    }
+    else if(state == LED_OFF){
+        HAL_GPIO_WritePin(port, pin, HAL_GPIO_HIGH);
+    }
 }
 
 void Driver_LED_Toggle(uint8_t port, uint8_t pin){

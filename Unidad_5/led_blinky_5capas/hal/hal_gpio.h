@@ -1,6 +1,6 @@
 /**
- * Prototipos de funciones disponibles 
- * para interactuar con registros
+ * HAL GPIO: adapta las operaciones del SDK NXP a la interfaz del proyecto.
+ * HAL_GPIO_ReadPin conserva el nivel obtenido del SDK, sin invertirlo.
  */
 #ifndef HAL_GPIO_H_
 #define HAL_GPIO_H_

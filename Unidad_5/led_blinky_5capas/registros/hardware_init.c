@@ -1,5 +1,4 @@
 #include "pin_mux.h"
-#include "board.h"
 #include "hardware_init.h"
 #include "clock_config.h"
 #include "fsl_common.h"

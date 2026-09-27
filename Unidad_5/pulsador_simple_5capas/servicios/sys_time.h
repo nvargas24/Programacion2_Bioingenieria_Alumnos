@@ -3,8 +3,9 @@
 
 #include <stdint.h>
 
-void sysTime_init();
-void sysTime_updateTick();
-uint32_t sysTime_getTicks();
+/* Tick de 1 ms configurado por BSP_Hardware_Init. */
+void sysTime_init(void); /* Reinicia el contador. */
+void sysTime_updateTick(void); /* Incrementar desde SysTick_Handler, una vez por tick. */
+uint32_t sysTime_getTicks(void); /* Devuelve el total acumulado de ticks. */
 
 #endif

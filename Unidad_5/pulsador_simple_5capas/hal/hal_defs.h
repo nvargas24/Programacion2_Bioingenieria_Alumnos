@@ -5,6 +5,8 @@
 #ifndef HAL_DEFS_H_
 #define HAL_DEFS_H_
 
+/* Niveles y direcciones de la HAL; no son estados semanticos de LED o pulsador. */
+
 #include <stdint.h>
 #include <stdbool.h>
 

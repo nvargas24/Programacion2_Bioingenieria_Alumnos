@@ -1,8 +1,8 @@
 /**
  * @file app_config.h
- * @brief Macros y prototipos para ejemplo led_blinky_azul
- * @details Ejemplo base de SDK blinky migrado a arquitectura de 5 capas, 
- *          priorizando uso de configTools y delay (bloqueante)
+ * @brief Configuracion de la aplicacion blinky para el LED rojo.
+ * @details BLINK_PERIOD_MS define la duracion de cada fase encendida/apagada.
+ *          El pin se obtiene de pin_mux.h y el retardo es bloqueante.
  * @author Ing. Vargas Nahuel (nvargas@frh.utn.edu.ar)
  * @copyright 2026 Bioingenieria - UTN-FRH - Todos los derechos reservados
  * @version 1.0.0
@@ -11,8 +11,6 @@
 #ifndef APP_CONFIG_H_
 #define APP_CONFIG_H_
 
-#define BLINK_PERIOD_MS 2700 // Tiempo de pausa bloqueante
-#define LED_PORT LED_RED_PORT // Puerto de pin LED AZUL
-#define LED_PIN LED_RED_PIN // Pin de pin LED AZUL
+#define BLINK_PERIOD_MS 2700U // Duracion de cada fase del parpadeo, en ms.
 
 #endif

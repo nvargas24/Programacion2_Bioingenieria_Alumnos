@@ -1,15 +1,21 @@
 /**
- * Prototipos de funciones que estan disponibles
- * por defecto para el LED
+ * Driver de LED: ofrece estados semanticos y delega el acceso GPIO a la HAL.
  */
 #ifndef DRIVER_LED_H_
 #define DRIVER_LED_H_
 
 #include <stdint.h>
+#include "hal_defs.h"
 
+typedef enum{
+	LED_OFF = HAL_GPIO_LOW,
+	LED_ON = HAL_GPIO_HIGH
+}LED_state_t;
+/* Inicializa como salida el pin indicado por los macros BOARD_* de pin_mux.h. */
 void Driver_LED_Init(uint8_t port, uint8_t pin);
-void Driver_LED_On(uint8_t port, uint8_t pin);
-void Driver_LED_Off(uint8_t port, uint8_t pin);
+/* Traduce LED_ON/OFF al nivel electrico segun la polaridad del LED. */
+void Driver_LED_Set(uint8_t port, uint8_t pin, LED_state_t state);
+/* Invierte el nivel actual del pin. */
 void Driver_LED_Toggle(uint8_t port, uint8_t pin);
 
 #endif

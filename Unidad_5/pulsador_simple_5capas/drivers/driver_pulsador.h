@@ -1,6 +1,5 @@
 /**
- * Prototipos de funciones que estan disponibles
- * por defecto para el LED
+ * Driver de pulsador: convierte lecturas HAL a estados semanticos de boton.
  */
 #ifndef DRIVER_PULSADOR_H_
 #define DRIVER_PULSADOR_H_
@@ -13,7 +12,9 @@ typedef enum{
     BTN_PRESSED = HAL_GPIO_HIGH
 }pulsador_state_t;
 
+/* Configura el pin como entrada; el mux y las propiedades electricas son de la placa. */
 void Driver_Pulsador_Init(uint8_t port, uint8_t pin);
+/* Lee el estado actual, sin aplicar filtro ni antirrebote. */
 pulsador_state_t Driver_Pulsador_Read(uint8_t port, uint8_t pin);
 
 #endif

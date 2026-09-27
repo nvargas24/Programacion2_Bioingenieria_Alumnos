@@ -5,6 +5,8 @@
 #ifndef HAL_DEFS_H_
 #define HAL_DEFS_H_
 
+/* HAL_GPIO_LOW/HIGH son niveles; LED_ON/OFF son estados semanticos del driver. */
+
 #include <stdint.h>
 #include <stdbool.h>
 
