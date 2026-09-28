@@ -14,5 +14,5 @@ pulsador_state_t Driver_Pulsador_Read(uint8_t port, uint8_t pin){
 	else if(gpio_state == HAL_GPIO_HIGH){
 		return BTN_RELEASED;
 	}
-	return 0;
+	return BTN_RELEASED;
 }

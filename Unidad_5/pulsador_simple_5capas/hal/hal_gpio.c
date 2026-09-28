@@ -32,5 +32,5 @@ void HAL_GPIO_TogglePin(uint8_t port, uint8_t pin){
 /* Para pulsador */
 hal_gpio_state_t HAL_GPIO_ReadPin(uint8_t port, uint8_t pin){
     uint32_t pin_val = GPIO_PinRead(GPIO, port, pin);
-    return (pin_val) ? HAL_GPIO_LOW : HAL_GPIO_HIGH;
+    return (pin_val) ? HAL_GPIO_HIGH : HAL_GPIO_LOW;
 }

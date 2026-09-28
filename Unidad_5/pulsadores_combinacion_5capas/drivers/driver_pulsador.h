@@ -5,17 +5,17 @@
 #define DRIVER_PULSADOR_H_
 
 #include <stdint.h>
-#include "hal_defs.h"
 
 /**
- * @brief Estados lógicos posibles de un pulsador.
+ * @brief Estados semanticos posibles de un pulsador.
  *
- * Vincula el estado físico del botón con la lectura digital del hardware.
+ * No representan niveles GPIO. En esta placa, LOW indica pulsado y HIGH
+ * indica liberado.
  */
-typedef enum{
-    BTN_RELEASED = HAL_GPIO_HIGH,
-    BTN_PRESSED = HAL_GPIO_LOW
-}pulsador_state_t;
+typedef enum {
+    BTN_RELEASED = 0,
+    BTN_PRESSED = 1
+} pulsador_state_t;
 
 /**
  * @brief Configura un pin como entrada digital para un pulsador.

@@ -54,13 +54,10 @@ void HAL_GPIO_TogglePin(
 /**
  * @brief Lee el nivel lógico actual de un pin GPIO de entrada.
  *
- * @warning La implementación interna de esta función **invierte el nivel crudo**
- *          devuelto por el SDK de NXP para adaptarlo a la lógica del proyecto.
- *
  * @param port Identificador del puerto GPIO.
  * @param pin  Número de pin del puerto seleccionado.
  *
- * @return hal_gpio_state_t Nivel lógico normalizado (tras aplicar la inversión).
+ * @return hal_gpio_state_t Nivel logico leido, sin invertir.
  */
 hal_gpio_state_t HAL_GPIO_ReadPin(
     uint8_t port,
