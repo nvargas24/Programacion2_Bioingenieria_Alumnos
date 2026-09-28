@@ -7,10 +7,10 @@ void Driver_LED_Init(uint8_t port, uint8_t pin){
 
 void Driver_LED_Set(uint8_t port, uint8_t pin, LED_state_t state){
 	if(state == LED_ON){
-		HAL_GPIO_WritePin(port, pin, HAL_GPIO_HIGH);
+		HAL_GPIO_WritePin(port, pin, HAL_GPIO_LOW);
 	}
 	else if(state == LED_OFF){
-		HAL_GPIO_WritePin(port, pin, HAL_GPIO_LOW);
+		HAL_GPIO_WritePin(port, pin, HAL_GPIO_HIGH);
 	}
 }
 

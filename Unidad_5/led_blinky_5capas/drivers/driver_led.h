@@ -5,12 +5,15 @@
 #define DRIVER_LED_H_
 
 #include <stdint.h>
-#include "hal_defs.h"
 
-typedef enum{
-	LED_OFF = HAL_GPIO_LOW,
-	LED_ON = HAL_GPIO_HIGH
-}LED_state_t;
+/**
+ * Estados visuales, independientes de los niveles electricos del GPIO.
+ * En esta placa los LED son activos en bajo: LED_ON aplica LOW y LED_OFF HIGH.
+ */
+typedef enum {
+    LED_OFF = 0,
+    LED_ON = 1
+} LED_state_t;
 /* Inicializa como salida el pin indicado por los macros BOARD_* de pin_mux.h. */
 void Driver_LED_Init(uint8_t port, uint8_t pin);
 /* Traduce LED_ON/OFF al nivel electrico segun la polaridad del LED. */
