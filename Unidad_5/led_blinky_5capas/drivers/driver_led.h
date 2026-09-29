@@ -1,5 +1,6 @@
 /**
- * Driver de LED: ofrece estados semanticos y delega el acceso GPIO a la HAL.
+ * Prototipos de funciones que estan disponibles
+ * por defecto para el LED
  */
 #ifndef DRIVER_LED_H_
 #define DRIVER_LED_H_
@@ -7,18 +8,36 @@
 #include <stdint.h>
 
 /**
- * Estados visuales, independientes de los niveles electricos del GPIO.
- * En esta placa los LED son activos en bajo: LED_ON aplica LOW y LED_OFF HIGH.
+ * @brief Estados visuales posibles de un LED.
+ *
+ * Estos valores son semanticos, no niveles GPIO. En esta placa los LED son
+ * activos en bajo: el driver traduce LED_ON a HAL_GPIO_LOW y LED_OFF a HIGH.
  */
 typedef enum {
     LED_OFF = 0,
     LED_ON = 1
 } LED_state_t;
-/* Inicializa como salida el pin indicado por los macros BOARD_* de pin_mux.h. */
+
+/**
+ * @brief Configura como salida digital el pin del LED.
+ * @param port Identificador del puerto GPIO (ej. BOARD_LED_PORT).
+ * @param pin  Número de pin del puerto seleccionado (ej. BOARD_LED_PIN).
+ */
 void Driver_LED_Init(uint8_t port, uint8_t pin);
-/* Traduce LED_ON/OFF al nivel electrico segun la polaridad del LED. */
+
+/**
+ * @brief Aplica el estado visual solicitado al LED.
+ * @param port  Identificador del puerto GPIO.
+ * @param pin   Número de pin del puerto seleccionado.
+ * @param state Estado deseado para el LED (LED_ON o LED_OFF).
+ */
 void Driver_LED_Set(uint8_t port, uint8_t pin, LED_state_t state);
-/* Invierte el nivel actual del pin. */
+
+/**
+ * @brief Invierte el nivel lógico actual del pin del LED.
+ * @param port Identificador del puerto GPIO.
+ * @param pin  Número de pin del puerto seleccionado.
+ */
 void Driver_LED_Toggle(uint8_t port, uint8_t pin);
 
 #endif
