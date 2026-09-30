@@ -1,0 +1,19 @@
+# Excluir carpetas de compilación generadas por el IDE
+/Debug/
+/Release/
+
+# Archivos binarios e intermedios sueltos
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+*.axf
+
+# Historial de logs locales de depuración (LinkServer/Redlink)
+/redlink_*.log
+*.log
+
+# Configuraciones locales que se regeneran solas en cada PC
+.metadata/

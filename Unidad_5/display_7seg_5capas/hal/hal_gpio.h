@@ -1,0 +1,39 @@
+/**
+ * HAL GPIO: adapta las operaciones del SDK NXP a la interfaz del proyecto.
+ * HAL_GPIO_ReadPin conserva el nivel obtenido del SDK, sin invertirlo.
+ */
+#ifndef HAL_GPIO_H_
+#define HAL_GPIO_H_
+
+#include "hal_defs.h"
+
+void HAL_GPIO_InitPin(
+    uint8_t port, 
+    uint8_t pin, 
+    hal_gpio_dir_t direction
+);
+
+void HAL_GPIO_InitPinWithState(
+    uint8_t port,
+    uint8_t pin,
+    hal_gpio_dir_t direction,
+    hal_gpio_state_t initial_state
+);
+
+void HAL_GPIO_WritePin(
+    uint8_t port, 
+    uint8_t pin, 
+    hal_gpio_state_t state
+);
+
+void HAL_GPIO_TogglePin(
+    uint8_t port, 
+    uint8_t pin
+);
+
+hal_gpio_state_t HAL_GPIO_ReadPin(
+    uint8_t port,
+    uint8_t pin
+);
+
+#endif
