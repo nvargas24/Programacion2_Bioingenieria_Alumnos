@@ -18,6 +18,6 @@ typedef enum {
 	LED1_PIN = BOARD_LED_RED_PIN
 } leds_t;
 
-#define BLINK_PERIOD_MS 2700U // Duracion de cada fase del parpadeo, en ms.
+#define BLINK_PERIOD_MS 200U // Duracion de cada fase del parpadeo, en ms.
 
 #endif
