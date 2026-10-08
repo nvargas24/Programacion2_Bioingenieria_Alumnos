@@ -25,6 +25,10 @@ extern "C" {
  */
 void BOARD_InitBootPins(void);
 
+/*!
+ * @brief Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor enabled. */
+#define PIO1_2_MODE_PULL_UP 0x02u
+
 /*! @name PIO1_2 (number 16), LD1[2]/CN1[29]/PIO1_2/CAPT_X3
   @{ */
 

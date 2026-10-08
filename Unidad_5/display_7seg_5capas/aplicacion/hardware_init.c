@@ -21,7 +21,7 @@ const display_config_t g_display_config = {
     },
     .digit_count = DISPLAY_DIGIT_COUNT,
     .type = DISPLAY_TYPE,
-    .digit_select = DISPLAY_DIGIT_SELECT
+    .digit_select = DISPLAY_DIGIT_SELECT_DEFAULT
 };
 
 void BSP_Hardware_Init(void)

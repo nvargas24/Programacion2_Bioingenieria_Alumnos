@@ -29,7 +29,7 @@ pin_labels:
 - {pin_num: '10', pin_signal: SWDIO/PIO0_2, label: 'CN3[2]/CN1[37]/SWDIO/PIO0_2/TMS'}
 - {pin_num: '12', pin_signal: PIO0_11/I2C0_SDA, label: 'CN1[24]/PIO0_11/I2C0_SDA'}
 - {pin_num: '13', pin_signal: PIO0_10/I2C0_SCL, label: 'CN1[23]/PIO0_10/I2C0_SCL'}
-- {pin_num: '15', pin_signal: PIO0_16, label: 'CN1[1]/PIO0_16'}
+- {pin_num: '15', pin_signal: PIO0_16, label: 'CN1[1]/PIO0_16', identifier: LED_GREEN1}
 - {pin_num: '17', pin_signal: PIO0_27, label: 'CN1[13]/PIO0_27', identifier: BTN1}
 - {pin_num: '18', pin_signal: PIO0_26, label: 'CN1[12]/PIO0_26', identifier: btn2;BTN2}
 - {pin_num: '19', pin_signal: PIO0_25, label: 'CN1[11]/PIO0_25', identifier: DEBUG_UART_TX}
@@ -59,9 +59,9 @@ pin_labels:
 - {pin_num: '43', pin_signal: PIO0_22/ADC_4, label: 'CN1[7]/PIO0_22/ADC_4'}
 - {pin_num: '44', pin_signal: PIO0_21/ADC_5, label: 'CN1[6]/PIO0_21/ADC_5'}
 - {pin_num: '45', pin_signal: PIO0_20/ADC_6, label: 'CN1[5]/PIO0_20/ADC_6'}
-- {pin_num: '46', pin_signal: PIO0_19/ADC_7, label: 'CN1[4]/PIO0_19/ADC_7'}
-- {pin_num: '47', pin_signal: PIO0_18/ADC_8, label: 'CN1[3]/PIO0_18/ADC_8'}
-- {pin_num: '48', pin_signal: PIO0_17/ADC_9/DACOUT_0, label: 'CN1[2]/PIO0_17/ADC_9/DACOUT_0'}
+- {pin_num: '46', pin_signal: PIO0_19/ADC_7, label: 'CN1[4]/PIO0_19/ADC_7', identifier: PULSADOR2}
+- {pin_num: '47', pin_signal: PIO0_18/ADC_8, label: 'CN1[3]/PIO0_18/ADC_8', identifier: LED_GREEN2}
+- {pin_num: '48', pin_signal: PIO0_17/ADC_9/DACOUT_0, label: 'CN1[2]/PIO0_17/ADC_9/DACOUT_0', identifier: PULSADOR1}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -88,10 +88,10 @@ BOARD_InitPins:
 - options: {callFromInitBoot: 'true', prefix: BOARD_, coreID: core0, enableClock: 'true'}
 - pin_list:
   - {pin_num: '14', peripheral: GPIO, signal: 'PIO1, 1', pin_signal: PIO1_1/CAPT_X2, direction: OUTPUT, mode: inactive}
-  - {pin_num: '22', peripheral: GPIO, signal: 'PIO0, 15', pin_signal: PIO0_15, identifier: LED_GREEN1, direction: OUTPUT, mode: inactive}
-  - {pin_num: '37', peripheral: GPIO, signal: 'PIO0, 14', pin_signal: PIO0_14/ACMP_I3/ADC_2, identifier: LED_GREEN2, direction: OUTPUT, mode: inactive}
-  - {pin_num: '17', peripheral: GPIO, signal: 'PIO0, 27', pin_signal: PIO0_27, direction: INPUT, mode: pullUp}
-  - {pin_num: '18', peripheral: GPIO, signal: 'PIO0, 26', pin_signal: PIO0_26, identifier: BTN2, direction: INPUT, mode: pullUp}
+  - {pin_num: '15', peripheral: GPIO, signal: 'PIO0, 16', pin_signal: PIO0_16, direction: OUTPUT, mode: inactive}
+  - {pin_num: '47', peripheral: GPIO, signal: 'PIO0, 18', pin_signal: PIO0_18/ADC_8, direction: OUTPUT, mode: inactive}
+  - {pin_num: '48', peripheral: GPIO, signal: 'PIO0, 17', pin_signal: PIO0_17/ADC_9/DACOUT_0, direction: INPUT, mode: pullUp}
+  - {pin_num: '46', peripheral: GPIO, signal: 'PIO0, 19', pin_signal: PIO0_19/ADC_7, direction: INPUT, mode: pullUp}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -112,33 +112,33 @@ void BOARD_InitPins(void)
     /* Enables the clock for the GPIO1 module */
     CLOCK_EnableClock(kCLOCK_Gpio1);
 
-    gpio_pin_config_t LED_GREEN2_config = {
-        .pinDirection = kGPIO_DigitalOutput,
-        .outputLogic = 0U,
-    };
-    /* Initialize GPIO functionality on pin PIO0_14 (pin 37)  */
-    GPIO_PinInit(BOARD_LED_GREEN2_GPIO, BOARD_LED_GREEN2_PORT, BOARD_LED_GREEN2_PIN, &LED_GREEN2_config);
-
     gpio_pin_config_t LED_GREEN1_config = {
         .pinDirection = kGPIO_DigitalOutput,
         .outputLogic = 0U,
     };
-    /* Initialize GPIO functionality on pin PIO0_15 (pin 22)  */
+    /* Initialize GPIO functionality on pin PIO0_16 (pin 15)  */
     GPIO_PinInit(BOARD_LED_GREEN1_GPIO, BOARD_LED_GREEN1_PORT, BOARD_LED_GREEN1_PIN, &LED_GREEN1_config);
 
-    gpio_pin_config_t BTN2_config = {
+    gpio_pin_config_t PULSADOR1_config = {
         .pinDirection = kGPIO_DigitalInput,
         .outputLogic = 0U,
     };
-    /* Initialize GPIO functionality on pin PIO0_26 (pin 18)  */
-    GPIO_PinInit(BOARD_BTN2_GPIO, BOARD_BTN2_PORT, BOARD_BTN2_PIN, &BTN2_config);
+    /* Initialize GPIO functionality on pin PIO0_17 (pin 48)  */
+    GPIO_PinInit(BOARD_PULSADOR1_GPIO, BOARD_PULSADOR1_PORT, BOARD_PULSADOR1_PIN, &PULSADOR1_config);
 
-    gpio_pin_config_t BTN1_config = {
+    gpio_pin_config_t LED_GREEN2_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 0U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_18 (pin 47)  */
+    GPIO_PinInit(BOARD_LED_GREEN2_GPIO, BOARD_LED_GREEN2_PORT, BOARD_LED_GREEN2_PIN, &LED_GREEN2_config);
+
+    gpio_pin_config_t PULSADOR2_config = {
         .pinDirection = kGPIO_DigitalInput,
         .outputLogic = 0U,
     };
-    /* Initialize GPIO functionality on pin PIO0_27 (pin 17)  */
-    GPIO_PinInit(BOARD_BTN1_GPIO, BOARD_BTN1_PORT, BOARD_BTN1_PIN, &BTN1_config);
+    /* Initialize GPIO functionality on pin PIO0_19 (pin 46)  */
+    GPIO_PinInit(BOARD_PULSADOR2_GPIO, BOARD_PULSADOR2_PORT, BOARD_PULSADOR2_PIN, &PULSADOR2_config);
 
     gpio_pin_config_t LED_BLUE_config = {
         .pinDirection = kGPIO_DigitalOutput,
@@ -147,37 +147,37 @@ void BOARD_InitPins(void)
     /* Initialize GPIO functionality on pin PIO1_1 (pin 14)  */
     GPIO_PinInit(BOARD_LED_BLUE_GPIO, BOARD_LED_BLUE_PORT, BOARD_LED_BLUE_PIN, &LED_BLUE_config);
 
-    IOCON->PIO[18] = ((IOCON->PIO[18] &
+    IOCON->PIO[9] = ((IOCON->PIO[9] &
+                      /* Mask bits to zero which are setting */
+                      (~(IOCON_PIO_MODE_MASK)))
+
+                     /* Selects function mode (on-chip pull-up/pull-down resistor control).: Inactive. Inactive (no
+                      * pull-down/pull-up resistor enabled). */
+                     | IOCON_PIO_MODE(PIO0_16_MODE_INACTIVE));
+
+    IOCON->PIO[0] = ((IOCON->PIO[0] &
+                      /* Mask bits to zero which are setting */
+                      (~(IOCON_PIO_MODE_MASK)))
+
+                     /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
+                      * enabled. */
+                     | IOCON_PIO_MODE(PIO0_17_MODE_PULL_UP));
+
+    IOCON->PIO[30] = ((IOCON->PIO[30] &
                        /* Mask bits to zero which are setting */
                        (~(IOCON_PIO_MODE_MASK)))
 
                       /* Selects function mode (on-chip pull-up/pull-down resistor control).: Inactive. Inactive (no
                        * pull-down/pull-up resistor enabled). */
-                      | IOCON_PIO_MODE(PIO0_14_MODE_INACTIVE));
+                      | IOCON_PIO_MODE(PIO0_18_MODE_INACTIVE));
 
-    IOCON->PIO[10] = ((IOCON->PIO[10] &
-                       /* Mask bits to zero which are setting */
-                       (~(IOCON_PIO_MODE_MASK)))
-
-                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Inactive. Inactive (no
-                       * pull-down/pull-up resistor enabled). */
-                      | IOCON_PIO_MODE(PIO0_15_MODE_INACTIVE));
-
-    IOCON->PIO[22] = ((IOCON->PIO[22] &
+    IOCON->PIO[29] = ((IOCON->PIO[29] &
                        /* Mask bits to zero which are setting */
                        (~(IOCON_PIO_MODE_MASK)))
 
                       /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
                        * enabled. */
-                      | IOCON_PIO_MODE(PIO0_26_MODE_PULL_UP));
-
-    IOCON->PIO[21] = ((IOCON->PIO[21] &
-                       /* Mask bits to zero which are setting */
-                       (~(IOCON_PIO_MODE_MASK)))
-
-                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
-                       * enabled. */
-                      | IOCON_PIO_MODE(PIO0_27_MODE_PULL_UP));
+                      | IOCON_PIO_MODE(PIO0_19_MODE_PULL_UP));
 
     IOCON->PIO[37] = ((IOCON->PIO[37] &
                        /* Mask bits to zero which are setting */

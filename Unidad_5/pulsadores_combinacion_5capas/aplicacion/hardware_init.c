@@ -22,8 +22,8 @@ void BSP_Hardware_Init(void)
     Driver_LED_Init(LED3_PORT, LED3_PIN);
 
     /* Inicialización de los drivers para los Pines de entrada (Pulsadores) */
+    Driver_Pulsador_Init(PULSADOR1_PORT, PULSADOR1_PIN);
     Driver_Pulsador_Init(PULSADOR2_PORT, PULSADOR2_PIN);
-    Driver_Pulsador_Init(PULSADOR3_PORT, PULSADOR3_PIN);
 }
 
 void SysTick_Handler(){

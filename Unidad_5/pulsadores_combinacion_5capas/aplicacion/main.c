@@ -19,8 +19,8 @@
 
 int main() {
 	/* Variables */
+    pulsador_state_t btn1_state = BTN_RELEASED;
     pulsador_state_t btn2_state = BTN_RELEASED;
-    pulsador_state_t btn3_state = BTN_RELEASED;
 
     /* Setup - Configuracion HW*/
     BSP_Hardware_Init(); //Inicializa pines, clocks y SysTick de la placa
@@ -33,31 +33,31 @@ int main() {
     /* Loop */
     while(1) {
         /* Lectura inmediata de los pulsadores involucrados */
+        btn1_state = Driver_Pulsador_Read(PULSADOR1_PORT, PULSADOR1_PIN);
         btn2_state = Driver_Pulsador_Read(PULSADOR2_PORT, PULSADOR2_PIN);
-        btn3_state = Driver_Pulsador_Read(PULSADOR3_PORT, PULSADOR3_PIN);
 
-        /* CANAL A - CONTROL DIRECTO (LED2)                 */
-        if (btn2_state == BTN_PRESSED) {
-            Driver_LED_Set(LED2_PORT, LED2_PIN, LED_ON);
-        }
-        else {
-            Driver_LED_Set(LED2_PORT, LED2_PIN, LED_OFF);
-        }
-
-        /* CANAL B - LÓGICA INVERSA (LED3)                  */
-        if (btn3_state == BTN_PRESSED) {
-            Driver_LED_Set(LED3_PORT, LED3_PIN, LED_OFF);
-        }
-        else {
-            Driver_LED_Set(LED3_PORT, LED3_PIN, LED_ON);
-        }
-
-        /* CANAL C - VALIDACIÓN DE SEGURIDAD (LED1)      */
-        if ((btn2_state == BTN_PRESSED) && (btn3_state == BTN_PRESSED)) {
+        /* CANAL A - CONTROL DIRECTO (LED1)                 */
+        if (btn1_state == BTN_PRESSED) {
             Driver_LED_Set(LED1_PORT, LED1_PIN, LED_ON);
-        } 
+        }
         else {
             Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
+        }
+
+        /* CANAL B - LÓGICA INVERSA (LED2)                  */
+        if (btn2_state == BTN_PRESSED) {
+            Driver_LED_Set(LED2_PORT, LED2_PIN, LED_OFF);
+        }
+        else {
+            Driver_LED_Set(LED2_PORT, LED2_PIN, LED_ON);
+        }
+
+        /* CANAL C - VALIDACIÓN DE SEGURIDAD (LED3)      */
+        if ((btn1_state == BTN_PRESSED) && (btn2_state == BTN_PRESSED)) {
+            Driver_LED_Set(LED3_PORT, LED3_PIN, LED_ON);
+        } 
+        else {
+            Driver_LED_Set(LED3_PORT, LED3_PIN, LED_OFF);
         }
     }
 }

@@ -89,14 +89,14 @@ BOARD_InitPins:
 - pin_list:
   - {pin_num: '6', peripheral: GPIO, signal: 'PIO0, 4', pin_signal: PIO0_4/ADC_11, direction: INPUT}
   - {pin_num: '14', peripheral: GPIO, signal: 'PIO1, 1', pin_signal: PIO1_1/CAPT_X2, direction: OUTPUT}
-  - {pin_num: '18', peripheral: GPIO, signal: 'PIO0, 26', pin_signal: PIO0_26}
-  - {pin_num: '17', peripheral: GPIO, signal: 'PIO0, 27', pin_signal: PIO0_27}
-  - {pin_num: '7', peripheral: GPIO, signal: 'PIO0, 28', pin_signal: PIO0_28/WKTCLKIN}
-  - {pin_num: '38', peripheral: GPIO, signal: 'PIO0, 29', pin_signal: PIO0_29/DACOUT_1}
-  - {pin_num: '12', peripheral: GPIO, signal: 'PIO0, 11', pin_signal: PIO0_11/I2C0_SDA, identifier: MATRIX_COLUMN_0}
-  - {pin_num: '13', peripheral: GPIO, signal: 'PIO0, 10', pin_signal: PIO0_10/I2C0_SCL, identifier: MATRIX_COLUMN_1}
-  - {pin_num: '25', peripheral: GPIO, signal: 'PIO0, 9', pin_signal: PIO0_9/XTALOUT}
-  - {pin_num: '26', peripheral: GPIO, signal: 'PIO0, 8', pin_signal: PIO0_8/XTALIN}
+  - {pin_num: '18', peripheral: GPIO, signal: 'PIO0, 26', pin_signal: PIO0_26, direction: INPUT}
+  - {pin_num: '17', peripheral: GPIO, signal: 'PIO0, 27', pin_signal: PIO0_27, direction: INPUT}
+  - {pin_num: '7', peripheral: GPIO, signal: 'PIO0, 28', pin_signal: PIO0_28/WKTCLKIN, direction: INPUT}
+  - {pin_num: '38', peripheral: GPIO, signal: 'PIO0, 29', pin_signal: PIO0_29/DACOUT_1, direction: INPUT}
+  - {pin_num: '12', peripheral: GPIO, signal: 'PIO0, 11', pin_signal: PIO0_11/I2C0_SDA, identifier: MATRIX_COLUMN_0, direction: INPUT}
+  - {pin_num: '13', peripheral: GPIO, signal: 'PIO0, 10', pin_signal: PIO0_10/I2C0_SCL, identifier: MATRIX_COLUMN_1, direction: INPUT}
+  - {pin_num: '25', peripheral: GPIO, signal: 'PIO0, 9', pin_signal: PIO0_9/XTALOUT, direction: INPUT}
+  - {pin_num: '26', peripheral: GPIO, signal: 'PIO0, 8', pin_signal: PIO0_8/XTALIN, direction: INPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -121,6 +121,62 @@ void BOARD_InitPins(void)
     };
     /* Initialize GPIO functionality on pin PIO0_4 (pin 6)  */
     GPIO_PinInit(BOARD_K3_GPIO, BOARD_K3_PORT, BOARD_K3_PIN, &K3_config);
+
+    gpio_pin_config_t MATRIX_COLUMN_3_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_8 (pin 26)  */
+    GPIO_PinInit(BOARD_MATRIX_COLUMN_3_GPIO, BOARD_MATRIX_COLUMN_3_PORT, BOARD_MATRIX_COLUMN_3_PIN, &MATRIX_COLUMN_3_config);
+
+    gpio_pin_config_t MATRIX_COLUMN_2_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_9 (pin 25)  */
+    GPIO_PinInit(BOARD_MATRIX_COLUMN_2_GPIO, BOARD_MATRIX_COLUMN_2_PORT, BOARD_MATRIX_COLUMN_2_PIN, &MATRIX_COLUMN_2_config);
+
+    gpio_pin_config_t MATRIX_COLUMN_1_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_10 (pin 13)  */
+    GPIO_PinInit(BOARD_MATRIX_COLUMN_1_GPIO, BOARD_MATRIX_COLUMN_1_PORT, BOARD_MATRIX_COLUMN_1_PIN, &MATRIX_COLUMN_1_config);
+
+    gpio_pin_config_t MATRIX_COLUMN_0_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_11 (pin 12)  */
+    GPIO_PinInit(BOARD_MATRIX_COLUMN_0_GPIO, BOARD_MATRIX_COLUMN_0_PORT, BOARD_MATRIX_COLUMN_0_PIN, &MATRIX_COLUMN_0_config);
+
+    gpio_pin_config_t MATRIX_ROW_0_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_26 (pin 18)  */
+    GPIO_PinInit(BOARD_MATRIX_ROW_0_GPIO, BOARD_MATRIX_ROW_0_PORT, BOARD_MATRIX_ROW_0_PIN, &MATRIX_ROW_0_config);
+
+    gpio_pin_config_t MATRIX_ROW_1_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_27 (pin 17)  */
+    GPIO_PinInit(BOARD_MATRIX_ROW_1_GPIO, BOARD_MATRIX_ROW_1_PORT, BOARD_MATRIX_ROW_1_PIN, &MATRIX_ROW_1_config);
+
+    gpio_pin_config_t MATRIX_ROW_2_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_28 (pin 7)  */
+    GPIO_PinInit(BOARD_MATRIX_ROW_2_GPIO, BOARD_MATRIX_ROW_2_PORT, BOARD_MATRIX_ROW_2_PIN, &MATRIX_ROW_2_config);
+
+    gpio_pin_config_t MATRIX_ROW_3_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_29 (pin 38)  */
+    GPIO_PinInit(BOARD_MATRIX_ROW_3_GPIO, BOARD_MATRIX_ROW_3_PORT, BOARD_MATRIX_ROW_3_PIN, &MATRIX_ROW_3_config);
 
     gpio_pin_config_t LED_BLUE_config = {
         .pinDirection = kGPIO_DigitalOutput,
