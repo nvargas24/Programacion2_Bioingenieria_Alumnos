@@ -20,27 +20,33 @@ int main(void) {
                 Driver_LED_Off(LED_BLUE_PORT,  LED_BLUE_PIN);
                 Driver_LED_Off(LED_RED_PORT,   LED_RED_PIN);
                 Driver_LED_Off(LED_GREEN_PORT, LED_GREEN_PIN);      
-                currentState = COLOR_ROJO;         
+                currentState = COLOR_ROJO;
                 break;
 
             case COLOR_ROJO:
+                Driver_LED_Off(LED_BLUE_PORT, LED_BLUE_PIN);
+                Driver_LED_Off(LED_GREEN_PORT, LED_GREEN_PIN);
                 Driver_LED_On(LED_RED_PORT, LED_RED_PIN);
                 sysTime_delay_ms(COLOR_ROTATION_PERIOD_MS);
-                Driver_LED_Off(LED_RED_PORT, LED_RED_PIN);
+
                 currentState = COLOR_VERDE;
                 break;
 
             case COLOR_VERDE:
+                Driver_LED_Off(LED_BLUE_PORT, LED_BLUE_PIN);
+                Driver_LED_Off(LED_RED_PORT, LED_RED_PIN);
                 Driver_LED_On(LED_GREEN_PORT, LED_GREEN_PIN);
                 sysTime_delay_ms(COLOR_ROTATION_PERIOD_MS);
-                Driver_LED_Off(LED_GREEN_PORT, LED_GREEN_PIN);
+
                 currentState = COLOR_AZUL;
                 break;
 
             case COLOR_AZUL:
+                Driver_LED_Off(LED_RED_PORT, LED_RED_PIN);
+                Driver_LED_Off(LED_GREEN_PORT, LED_GREEN_PIN);
                 Driver_LED_On(LED_BLUE_PORT, LED_BLUE_PIN);
                 sysTime_delay_ms(COLOR_ROTATION_PERIOD_MS);
-                Driver_LED_Off(LED_BLUE_PORT, LED_BLUE_PIN);
+
                 currentState = COLOR_ROJO;
                 break;
 
