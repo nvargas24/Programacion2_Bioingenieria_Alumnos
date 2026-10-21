@@ -21,7 +21,7 @@ const display_config_t g_display_config = {
     },
     .digit_count = DISPLAY_DIGIT_COUNT,
     .type = DISPLAY_TYPE,
-    .digit_select = DISPLAY_DIGIT_SELECT_DEFAULT
+    .digit_select = DISPLAY_DIGIT_SELECT
 };
 
 void BSP_Hardware_Init(void)
@@ -29,12 +29,27 @@ void BSP_Hardware_Init(void)
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
 
-    SysTick_Config(SystemCoreClock / 1000U);
     sysTime_init();
     Driver_Display_Init(&g_display_config);
+    SysTick_Config(SystemCoreClock / 1000U);
+}
+
+bool BSP_Display_ShowNumber(uint8_t value)
+{
+    uint8_t max_value = (DISPLAY_DIGIT_COUNT == 2U) ? 99U : 9U;
+    if (value > max_value) {
+        return false;
+    }
+
+    Driver_Display_SetValue(value);
+    Driver_Display_Refresh();
+    return true;
 }
 
 void SysTick_Handler(void)
 {
     sysTime_updateTick();
+    if (DISPLAY_DIGIT_COUNT == 2U) {
+        Driver_Display_Refresh();
+    }
 }

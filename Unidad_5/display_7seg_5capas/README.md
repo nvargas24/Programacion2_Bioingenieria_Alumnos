@@ -14,7 +14,24 @@ En `aplicacion/app_config.h` se seleccionan el tipo electrico y la cantidad de d
 
 Use `DISPLAY_COMMON_ANODE` para un display de anodo comun y `DISPLAY_DIGIT_COUNT 1U` para un solo digito. El mapeo de pines esta centralizado en `registros/pin_mux.h`, en orden `a, b, c, d, e, f, g`; el digito `UNITS` es unidades/derecha y `TENS` decenas/izquierda. `registros/pin_mux.c` inicializa esos GPIO. Al cambiar el cableado, actualice las macros `BOARD_DISPLAY_*` y la configuracion de pines de MCUXpresso si corresponde.
 
-El ejemplo cuenta automaticamente de 0 a 9 o de 0 a 99. En una aplicacion propia se puede reemplazar ese contador y usar `Driver_Display_SetValue()`; para dos digitos, llamar a `Driver_Display_Refresh()` cada 1-2 ms mantiene el multiplexado.
+El ejemplo cuenta automaticamente de 0 a 9 o de 0 a 99. Para usar el display desde otra aplicacion, inicialice el hardware una vez y llame a `BSP_Display_ShowNumber()` cada vez que cambie el valor:
+
+```c
+#include "hardware_init.h"
+
+int main(void)
+{
+    BSP_Hardware_Init();
+    if (!BSP_Display_ShowNumber(42U)) {
+        return 1;
+    }
+
+    while (1) {
+    }
+}
+```
+
+La funcion devuelve `false` si el valor no cabe en la cantidad de digitos configurada (0-9 o 0-99). El `SysTick` mantiene automaticamente el refresco del multiplexado, por lo que no hace falta llamar a `Driver_Display_Refresh()` desde el bucle principal.
 
 ## Conexion
 

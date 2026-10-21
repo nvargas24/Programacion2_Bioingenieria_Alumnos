@@ -11,5 +11,6 @@ extern const display_config_t g_display_config;
  * Configura pines, clocks, SysTick y los drivers de los perifericos usados.
  */
 void BSP_Hardware_Init(void);
+bool BSP_Display_ShowNumber(uint8_t value);
 
 #endif
