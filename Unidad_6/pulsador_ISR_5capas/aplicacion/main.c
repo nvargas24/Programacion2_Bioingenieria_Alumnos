@@ -15,52 +15,55 @@
 #include "driver_led.h"
 #include "driver_pulsador.h"
 #include "app_config.h"
-#include "fsl_gpio.h"
 #include "fsl_pint.h"
 
 #include <stdint.h>
 
-volatile uint8_t g_btn_pressed_flag = 0;
+volatile uint8_t flag_btn = BTN_RELEASED;
 
 int main() {
-    /* Setup - Configuracion HW*/
-    BSP_Hardware_Init(); // Inicializa pines, clocks, SysTick, PINT y NVIC
+    estado_fsm_t estado_actual = ST_LED_OFF;
 
-    Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
-    
-    /* Loop */
-    while(1) {
-        /* Evaluamos directamente el estado reflejado por la interrupción */
-        if (g_btn_pressed_flag == 1U) {
-            Driver_LED_Set(LED1_PORT, LED1_PIN, LED_ON);  // Enciende si está presionado
-        }
-        else {
-            Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF); // Apaga si se soltó
+    BSP_Hardware_Init();
+
+    while (1) {
+        switch (estado_actual) {
+        case ST_LED_OFF:
+            Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
+            if (flag_btn == BTN_PRESSED) {
+                estado_actual = ST_LED_ON;
+            }
+            break;
+
+        case ST_LED_ON:
+            Driver_LED_Set(LED1_PORT, LED1_PIN, LED_ON);
+            if (flag_btn == BTN_RELEASED) {
+                estado_actual = ST_LED_OFF;
+            }
+            break;
         }
     }
 }
 
 /**
- * @brief Rutina de Servicio de Interrupción (ISR) para K3 (Canal 0 de PINT)
+ * @brief Rutina de Interrupción (ISR) para K3 (Canal 0 de PINT)
  * @details Se ejecuta de forma asíncrona e inmediata al presionar K3.
  *          Es ultra breve: levanta un flag y limpia el periférico.
  */
 void PIN_INT0_IRQHandler(void)
 {
-    uint32_t fall_flag = PINT_PinInterruptGetFallFlag(PINT, kPINT_PinInt0);
-    uint32_t rise_flag = PINT_PinInterruptGetRiseFlag(PINT, kPINT_PinInt0);
+    uint32_t flag_fall = PINT_PinInterruptGetFallFlag(PINT, kPINT_PinInt0);
+    uint32_t flag_rise = PINT_PinInterruptGetRiseFlag(PINT, kPINT_PinInt0);
 
-    if (fall_flag != 0U)
+    if (flag_fall) // Detecta flanco descendente de HIGH a LOW
     {
         PINT_PinInterruptClrFallFlag(PINT, kPINT_PinInt0);
+        flag_btn = BTN_PRESSED;
     }
-    if (rise_flag != 0U)
+    if (flag_rise) // Detecta flanco ascendente de LOW a HIGH
     {
         PINT_PinInterruptClrRiseFlag(PINT, kPINT_PinInt0);
-    }
-    if ((fall_flag != 0U) || (rise_flag != 0U))
-    {
-        g_btn_pressed_flag = (GPIO_PinRead(GPIO, PULSADOR1_PORT, PULSADOR1_PIN) == 0U) ? 1U : 0U;
+        flag_btn = BTN_RELEASED;
     }
 
     __DSB();

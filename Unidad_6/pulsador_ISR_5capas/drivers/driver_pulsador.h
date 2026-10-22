@@ -17,12 +17,6 @@ typedef enum {
     BTN_PRESSED = 1
 } pulsador_state_t;
 
-/**
- * @brief Configura un pin como entrada digital para un pulsador.
- * @param port Identificador del puerto GPIO (ej. PORT_A).
- * @param pin  Número de pin del puerto seleccionado.
- */
-void Driver_Pulsador_Init(uint8_t port, uint8_t pin);
 
 /**
  * @brief Lee el estado lógico actual del pulsador. Sin antirebote.

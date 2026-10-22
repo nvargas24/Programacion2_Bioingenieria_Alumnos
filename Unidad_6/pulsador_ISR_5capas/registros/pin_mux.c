@@ -87,8 +87,9 @@ void BOARD_InitBootPins(void)
 BOARD_InitPins:
 - options: {callFromInitBoot: 'true', prefix: BOARD_, coreID: core0, enableClock: 'true'}
 - pin_list:
+  - {pin_num: '14', peripheral: GPIO, signal: 'PIO1, 1', pin_signal: PIO1_1/CAPT_X2, direction: OUTPUT, gpio_init_state: 'true'}
   - {pin_num: '6', peripheral: GPIO, signal: 'PIO0, 4', pin_signal: PIO0_4/ADC_11, direction: INPUT}
-  - {pin_num: '14', peripheral: GPIO, signal: 'PIO1, 1', pin_signal: PIO1_1/CAPT_X2, direction: OUTPUT}
+  - {pin_num: '6', peripheral: PINT, signal: 'PINT, 0', pin_signal: PIO0_4/ADC_11, identifier: ''}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -116,10 +117,19 @@ void BOARD_InitPins(void)
 
     gpio_pin_config_t LED_BLUE_config = {
         .pinDirection = kGPIO_DigitalOutput,
-        .outputLogic = 0U,
+        .outputLogic = 1U,
     };
     /* Initialize GPIO functionality on pin PIO1_1 (pin 14)  */
     GPIO_PinInit(BOARD_LED_BLUE_GPIO, BOARD_LED_BLUE_PORT, BOARD_LED_BLUE_PIN, &LED_BLUE_config);
+
+    SYSCON->PINTSEL[0] = ((SYSCON->PINTSEL[0] &
+                           /* Mask bits to zero which are setting */
+                           (~(SYSCON_PINTSEL_INTPIN_MASK)))
+
+                          /* Pin number select for pin interrupt or pattern match engine input. (PIO0_0 to
+                           * PIO0_31correspond to numbers 0 to 31 and PIO1_0 to PIO1_31 correspond to numbers 32 to
+                           * 63).: 0x04u */
+                          | SYSCON_PINTSEL_INTPIN(0x04u));
 }
 /***********************************************************************************************************************
  * EOF

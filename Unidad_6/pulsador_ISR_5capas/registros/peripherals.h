@@ -6,9 +6,27 @@
 #ifndef _PERIPHERALS_H_
 #define _PERIPHERALS_H_
 
+/***********************************************************************************************************************
+ * Included files
+ **********************************************************************************************************************/
+#include "fsl_common.h"
+#include "fsl_pint.h"
+
 #if defined(__cplusplus)
 extern "C" {
 #endif /* __cplusplus */
+
+/***********************************************************************************************************************
+ * Definitions
+ **********************************************************************************************************************/
+/* Definitions for BOARD_InitPeripherals functional group */
+/* BOARD_InitPeripherals defines for PINT */
+/* Definition of peripheral ID */
+#define PINT_PERIPHERAL ((PINT_Type *) PINT_BASE)
+/* PINT interrupt vector ID (number). */
+#define PINT_PINT_0_IRQN PIN_INT0_IRQn
+/* Definition of PINT interrupt ID for interrupt 0  */
+#define PINT_INT_0 kPINT_PinInt0
 
 /***********************************************************************************************************************
  * Initialization functions

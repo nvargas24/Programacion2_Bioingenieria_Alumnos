@@ -25,6 +25,18 @@ extern "C" {
  */
 void BOARD_InitBootPins(void);
 
+/*! @name PIO1_1 (number 14), LD1[4]/CN1[30]/PIO1_1/CAPT_X2
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define BOARD_LED_BLUE_GPIO GPIO                /*!<@brief GPIO peripheral base pointer */
+#define BOARD_LED_BLUE_INIT_GPIO_VALUE 1U       /*!<@brief GPIO output initial state */
+#define BOARD_LED_BLUE_GPIO_PIN_MASK (1U << 1U) /*!<@brief GPIO pin mask */
+#define BOARD_LED_BLUE_PORT 1U                  /*!<@brief PORT device index: 1 */
+#define BOARD_LED_BLUE_PIN 1U                   /*!<@brief PORT pin number */
+#define BOARD_LED_BLUE_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
+                                                /* @} */
+
 /*! @name PIO0_4 (number 6), K3/CN1[35]/PIO0_4/ADC_11/TRSTN/WAKEUP
   @{ */
 
@@ -35,18 +47,6 @@ void BOARD_InitBootPins(void);
 #define BOARD_K3_PIN 4U                   /*!<@brief PORT pin number */
 #define BOARD_K3_PIN_MASK (1U << 4U)      /*!<@brief PORT pin mask */
                                           /* @} */
-
-/*! @name PIO1_1 (number 14), LD1[4]/CN1[30]/PIO1_1/CAPT_X2
-  @{ */
-
-/* Symbols to be used with GPIO driver */
-#define BOARD_LED_BLUE_GPIO GPIO                /*!<@brief GPIO peripheral base pointer */
-#define BOARD_LED_BLUE_INIT_GPIO_VALUE 0U       /*!<@brief GPIO output initial state */
-#define BOARD_LED_BLUE_GPIO_PIN_MASK (1U << 1U) /*!<@brief GPIO pin mask */
-#define BOARD_LED_BLUE_PORT 1U                  /*!<@brief PORT device index: 1 */
-#define BOARD_LED_BLUE_PIN 1U                   /*!<@brief PORT pin number */
-#define BOARD_LED_BLUE_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
-                                                /* @} */
 
 /*!
  * @brief Configures pin routing and optionally pin electrical features.
