@@ -52,10 +52,53 @@ component:
 #include "peripherals.h"
 
 /***********************************************************************************************************************
+ * BOARD_InitPeripherals functional group
+ **********************************************************************************************************************/
+/***********************************************************************************************************************
+ * PINT initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'PINT'
+- type: 'pint'
+- mode: 'interrupt_mode'
+- custom_name_enabled: 'false'
+- type_id: 'pint_2.2.0'
+- functional_group: 'BOARD_InitPeripherals'
+- peripheral: 'PINT'
+- config_sets:
+  - general:
+    - interrupt_array:
+      - 0:
+        - interrupt_id: 'INT_0'
+        - interrupt_selection: 'PINT.0'
+        - interrupt_type: 'kPINT_PinIntEnableBothEdges'
+        - enable_callback: 'true'
+        - interrupt:
+          - IRQn: 'PIN_INT0_IRQn'
+          - enable_priority: 'false'
+          - priority: '0'
+    - callback_function: ''
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+
+static void PINT_init(void) {
+  /* PINT initiation  */
+  PINT_Init(PINT_PERIPHERAL);
+  /* PINT PINT.0 interrupt configuration */
+  PINT_PinInterruptConfig(PINT_PERIPHERAL, PINT_INT_0, kPINT_PinIntEnableBothEdges);
+  /* Enable PINT PINT.0 callback */
+  PINT_EnableCallbackByIndex(PINT_PERIPHERAL, kPINT_PinInt0);
+}
+
+/***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
 void BOARD_InitPeripherals(void)
 {
+  /* Initialize components */
+  PINT_init();
 }
 
 /***********************************************************************************************************************
