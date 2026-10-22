@@ -19,13 +19,6 @@ typedef enum {
 } LED_state_t;
 
 /**
- * @brief Configura como salida digital el pin del LED.
- * @param port Identificador del puerto GPIO (ej. BOARD_LED_PORT).
- * @param pin  Número de pin del puerto seleccionado (ej. BOARD_LED_PIN).
- */
-void Driver_LED_Init(uint8_t port, uint8_t pin);
-
-/**
  * @brief Aplica el estado visual solicitado al LED.
  * @param port  Identificador del puerto GPIO.
  * @param pin   Número de pin del puerto seleccionado.

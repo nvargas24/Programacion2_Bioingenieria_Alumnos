@@ -15,19 +15,6 @@
 #include "hal_defs.h"
 
 /**
- * @brief Inicializa y configura la dirección de un pin GPIO.
- *
- * @param port      Identificador del puerto GPIO (ej. PORT_1).
- * @param pin       Número de pin del puerto seleccionado.
- * @param direction Dirección deseada para el pin (HAL_GPIO_INPUT o HAL_GPIO_OUTPUT).
- */
-void HAL_GPIO_InitPin(
-    uint8_t port, 
-    uint8_t pin, 
-    hal_gpio_dir_t direction
-);
-
-/**
  * @brief Escribe un nivel lógico en un pin configurado como salida.
  *
  * @param port  Identificador del puerto GPIO.

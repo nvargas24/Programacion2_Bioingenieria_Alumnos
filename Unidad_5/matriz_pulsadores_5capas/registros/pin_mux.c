@@ -23,15 +23,15 @@ pin_labels:
 - {pin_num: '4', pin_signal: PIO0_12, label: 'K1/CN1[25]/PIO0_12', identifier: K1}
 - {pin_num: '5', pin_signal: RESETN/PIO0_5, label: 'K2/CN3[10]/CN1[9]/CN1[34]/RESET/PIO0_5', identifier: K2}
 - {pin_num: '6', pin_signal: PIO0_4/ADC_11, label: 'K3/CN1[35]/PIO0_4/ADC_11/TRSTN/WAKEUP', identifier: K3}
-- {pin_num: '7', pin_signal: PIO0_28/WKTCLKIN, label: 'CN1[14]/PIO0_28/WKTCLKIN', identifier: MATRIX_ROW_2}
+- {pin_num: '7', pin_signal: PIO0_28/WKTCLKIN, label: 'CN1[14]/PIO0_28/WKTCLKIN', identifier: MATRIX_ROW_2;MATRIX_COL_2}
 - {pin_num: '8', pin_signal: SWCLK/PIO0_3, label: 'CN3[4]/CN1[36]/SWCLK/PIO0_3/TCK'}
 - {pin_num: '9', pin_signal: PIO0_31/CAPT_X0, label: S1/PIO0_31/CAPT_X0, identifier: CAPX;MATRIX_COLUMN_1}
 - {pin_num: '10', pin_signal: SWDIO/PIO0_2, label: 'CN3[2]/CN1[37]/SWDIO/PIO0_2/TMS'}
 - {pin_num: '12', pin_signal: PIO0_11/I2C0_SDA, label: 'CN1[24]/PIO0_11/I2C0_SDA', identifier: MATRIX_COLUMN_1;MATRIX_COLUMN_0}
 - {pin_num: '13', pin_signal: PIO0_10/I2C0_SCL, label: 'CN1[23]/PIO0_10/I2C0_SCL', identifier: MATRIX_COLUMN_0;MATRIX_COLUMN_1}
 - {pin_num: '15', pin_signal: PIO0_16, label: 'CN1[1]/PIO0_16'}
-- {pin_num: '17', pin_signal: PIO0_27, label: 'CN1[13]/PIO0_27', identifier: MATRIX_ROW_1}
-- {pin_num: '18', pin_signal: PIO0_26, label: 'CN1[12]/PIO0_26', identifier: MATRIX_ROW_0}
+- {pin_num: '17', pin_signal: PIO0_27, label: 'CN1[13]/PIO0_27', identifier: MATRIX_ROW_1;MATRIX_COL_1}
+- {pin_num: '18', pin_signal: PIO0_26, label: 'CN1[12]/PIO0_26', identifier: MATRIX_ROW_0;MATRIX_COL_0}
 - {pin_num: '19', pin_signal: PIO0_25, label: 'CN1[11]/PIO0_25', identifier: DEBUG_UART_TX}
 - {pin_num: '20', pin_signal: PIO0_24, label: 'CN1[10]/PIO0_24', identifier: DEBUG_UART_RX}
 - {pin_num: '21', pin_signal: PIO1_3/CAPT_X4, label: PIO1_3/CAPT_X4}
@@ -51,14 +51,14 @@ pin_labels:
 - {pin_num: '35', pin_signal: PIO1_7/CAPT_X8, label: PIO1_7/CAPT_X8}
 - {pin_num: '36', pin_signal: PIO0_0/ACMP_I1, label: 'CN1[39]/PIO0_0/ACMP_I1/TDO'}
 - {pin_num: '37', pin_signal: PIO0_14/ACMP_I3/ADC_2, label: 'CN1[27]/PIO0_14/ACMP_I3/ADC_2'}
-- {pin_num: '38', pin_signal: PIO0_29/DACOUT_1, label: 'CN1[15]/PIO0_29/DACOUT_1', identifier: MATRIX_ROW_3}
-- {pin_num: '39', pin_signal: PIO0_23/ADC_3/ACMP_I4, label: 'CN1[8]/PIO0_23/ADC_3/ACMP_I4'}
+- {pin_num: '38', pin_signal: PIO0_29/DACOUT_1, label: 'CN1[15]/PIO0_29/DACOUT_1', identifier: MATRIX_ROW_3;MATRIX_COL_3}
+- {pin_num: '39', pin_signal: PIO0_23/ADC_3/ACMP_I4, label: 'CN1[8]/PIO0_23/ADC_3/ACMP_I4', identifier: MATRIX_COL_4;MATRIX_COL_3;MATRIX_ROW_3}
 - {pin_num: '40', pin_signal: VDDA, label: FB1/VDDA, identifier: VDDA}
 - {pin_num: '41', pin_signal: VSSA, label: FB2/VSSA, identifier: VSSA}
 - {pin_num: '42', pin_signal: PIO0_30/ACMP_I5, label: S1/PIO0_30/ACMP_I5, identifier: CAPY_R;MATRIX_COLUMN_0}
-- {pin_num: '43', pin_signal: PIO0_22/ADC_4, label: 'CN1[7]/PIO0_22/ADC_4'}
-- {pin_num: '44', pin_signal: PIO0_21/ADC_5, label: 'CN1[6]/PIO0_21/ADC_5'}
-- {pin_num: '45', pin_signal: PIO0_20/ADC_6, label: 'CN1[5]/PIO0_20/ADC_6'}
+- {pin_num: '43', pin_signal: PIO0_22/ADC_4, label: 'CN1[7]/PIO0_22/ADC_4', identifier: MATRIX_COL_3;MATRIX_COL_2;MATRIX_ROW_2}
+- {pin_num: '44', pin_signal: PIO0_21/ADC_5, label: 'CN1[6]/PIO0_21/ADC_5', identifier: MATRIX_COL_2;MATRIX_COL_1;MATRIX_ROW_1}
+- {pin_num: '45', pin_signal: PIO0_20/ADC_6, label: 'CN1[5]/PIO0_20/ADC_6', identifier: MATRIX_COL_1;MATRIX_COL_0;MATRIX_ROW0;MATRIX_ROW_0}
 - {pin_num: '46', pin_signal: PIO0_19/ADC_7, label: 'CN1[4]/PIO0_19/ADC_7'}
 - {pin_num: '47', pin_signal: PIO0_18/ADC_8, label: 'CN1[3]/PIO0_18/ADC_8'}
 - {pin_num: '48', pin_signal: PIO0_17/ADC_9/DACOUT_0, label: 'CN1[2]/PIO0_17/ADC_9/DACOUT_0'}
@@ -87,16 +87,17 @@ void BOARD_InitBootPins(void)
 BOARD_InitPins:
 - options: {callFromInitBoot: 'true', prefix: BOARD_, coreID: core0, enableClock: 'true'}
 - pin_list:
-  - {pin_num: '6', peripheral: GPIO, signal: 'PIO0, 4', pin_signal: PIO0_4/ADC_11, direction: INPUT}
-  - {pin_num: '14', peripheral: GPIO, signal: 'PIO1, 1', pin_signal: PIO1_1/CAPT_X2, direction: OUTPUT}
-  - {pin_num: '18', peripheral: GPIO, signal: 'PIO0, 26', pin_signal: PIO0_26, direction: INPUT}
-  - {pin_num: '17', peripheral: GPIO, signal: 'PIO0, 27', pin_signal: PIO0_27, direction: INPUT}
-  - {pin_num: '7', peripheral: GPIO, signal: 'PIO0, 28', pin_signal: PIO0_28/WKTCLKIN, direction: INPUT}
-  - {pin_num: '38', peripheral: GPIO, signal: 'PIO0, 29', pin_signal: PIO0_29/DACOUT_1, direction: INPUT}
-  - {pin_num: '12', peripheral: GPIO, signal: 'PIO0, 11', pin_signal: PIO0_11/I2C0_SDA, identifier: MATRIX_COLUMN_0, direction: INPUT}
-  - {pin_num: '13', peripheral: GPIO, signal: 'PIO0, 10', pin_signal: PIO0_10/I2C0_SCL, identifier: MATRIX_COLUMN_1, direction: INPUT}
-  - {pin_num: '25', peripheral: GPIO, signal: 'PIO0, 9', pin_signal: PIO0_9/XTALOUT, direction: INPUT}
-  - {pin_num: '26', peripheral: GPIO, signal: 'PIO0, 8', pin_signal: PIO0_8/XTALIN, direction: INPUT}
+  - {pin_num: '14', peripheral: GPIO, signal: 'PIO1, 1', pin_signal: PIO1_1/CAPT_X2, direction: OUTPUT, gpio_init_state: 'true', mode: inactive}
+  - {pin_num: '45', peripheral: GPIO, signal: 'PIO0, 20', pin_signal: PIO0_20/ADC_6, identifier: MATRIX_ROW_0, direction: OUTPUT, gpio_init_state: 'true', mode: pullUp}
+  - {pin_num: '44', peripheral: GPIO, signal: 'PIO0, 21', pin_signal: PIO0_21/ADC_5, identifier: MATRIX_ROW_1, direction: OUTPUT, gpio_init_state: 'true', mode: pullUp}
+  - {pin_num: '43', peripheral: GPIO, signal: 'PIO0, 22', pin_signal: PIO0_22/ADC_4, identifier: MATRIX_ROW_2, direction: OUTPUT, gpio_init_state: 'true', mode: pullUp}
+  - {pin_num: '39', peripheral: GPIO, signal: 'PIO0, 23', pin_signal: PIO0_23/ADC_3/ACMP_I4, identifier: MATRIX_ROW_3, direction: OUTPUT, gpio_init_state: 'true',
+    mode: pullUp}
+  - {pin_num: '18', peripheral: GPIO, signal: 'PIO0, 26', pin_signal: PIO0_26, identifier: MATRIX_COL_0, direction: INPUT, mode: pullUp}
+  - {pin_num: '17', peripheral: GPIO, signal: 'PIO0, 27', pin_signal: PIO0_27, identifier: MATRIX_COL_1, direction: INPUT, mode: pullUp}
+  - {pin_num: '7', peripheral: GPIO, signal: 'PIO0, 28', pin_signal: PIO0_28/WKTCLKIN, identifier: MATRIX_COL_2, direction: INPUT, mode: pullUp}
+  - {pin_num: '38', peripheral: GPIO, signal: 'PIO0, 29', pin_signal: PIO0_29/DACOUT_1, identifier: MATRIX_COL_3, direction: INPUT, mode: pullUp}
+  - {pin_num: '16', peripheral: GPIO, signal: 'PIO1, 2', pin_signal: PIO1_2/CAPT_X3, direction: OUTPUT, gpio_init_state: 'true', mode: inactive}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -110,80 +111,162 @@ BOARD_InitPins:
 /* Function assigned for the Cortex-M0P */
 void BOARD_InitPins(void)
 {
+    /* Enables clock for IOCON.: enable */
+    CLOCK_EnableClock(kCLOCK_Iocon);
     /* Enables the clock for the GPIO0 module */
     CLOCK_EnableClock(kCLOCK_Gpio0);
     /* Enables the clock for the GPIO1 module */
     CLOCK_EnableClock(kCLOCK_Gpio1);
 
-    gpio_pin_config_t K3_config = {
-        .pinDirection = kGPIO_DigitalInput,
-        .outputLogic = 0U,
-    };
-    /* Initialize GPIO functionality on pin PIO0_4 (pin 6)  */
-    GPIO_PinInit(BOARD_K3_GPIO, BOARD_K3_PORT, BOARD_K3_PIN, &K3_config);
-
-    gpio_pin_config_t MATRIX_COLUMN_3_config = {
-        .pinDirection = kGPIO_DigitalInput,
-        .outputLogic = 0U,
-    };
-    /* Initialize GPIO functionality on pin PIO0_8 (pin 26)  */
-    GPIO_PinInit(BOARD_MATRIX_COLUMN_3_GPIO, BOARD_MATRIX_COLUMN_3_PORT, BOARD_MATRIX_COLUMN_3_PIN, &MATRIX_COLUMN_3_config);
-
-    gpio_pin_config_t MATRIX_COLUMN_2_config = {
-        .pinDirection = kGPIO_DigitalInput,
-        .outputLogic = 0U,
-    };
-    /* Initialize GPIO functionality on pin PIO0_9 (pin 25)  */
-    GPIO_PinInit(BOARD_MATRIX_COLUMN_2_GPIO, BOARD_MATRIX_COLUMN_2_PORT, BOARD_MATRIX_COLUMN_2_PIN, &MATRIX_COLUMN_2_config);
-
-    gpio_pin_config_t MATRIX_COLUMN_1_config = {
-        .pinDirection = kGPIO_DigitalInput,
-        .outputLogic = 0U,
-    };
-    /* Initialize GPIO functionality on pin PIO0_10 (pin 13)  */
-    GPIO_PinInit(BOARD_MATRIX_COLUMN_1_GPIO, BOARD_MATRIX_COLUMN_1_PORT, BOARD_MATRIX_COLUMN_1_PIN, &MATRIX_COLUMN_1_config);
-
-    gpio_pin_config_t MATRIX_COLUMN_0_config = {
-        .pinDirection = kGPIO_DigitalInput,
-        .outputLogic = 0U,
-    };
-    /* Initialize GPIO functionality on pin PIO0_11 (pin 12)  */
-    GPIO_PinInit(BOARD_MATRIX_COLUMN_0_GPIO, BOARD_MATRIX_COLUMN_0_PORT, BOARD_MATRIX_COLUMN_0_PIN, &MATRIX_COLUMN_0_config);
-
     gpio_pin_config_t MATRIX_ROW_0_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 1U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_20 (pin 45)  */
+    GPIO_PinInit(BOARD_MATRIX_ROW_0_GPIO, BOARD_MATRIX_ROW_0_PORT, BOARD_MATRIX_ROW_0_PIN, &MATRIX_ROW_0_config);
+
+    gpio_pin_config_t MATRIX_ROW_1_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 1U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_21 (pin 44)  */
+    GPIO_PinInit(BOARD_MATRIX_ROW_1_GPIO, BOARD_MATRIX_ROW_1_PORT, BOARD_MATRIX_ROW_1_PIN, &MATRIX_ROW_1_config);
+
+    gpio_pin_config_t MATRIX_ROW_2_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 1U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_22 (pin 43)  */
+    GPIO_PinInit(BOARD_MATRIX_ROW_2_GPIO, BOARD_MATRIX_ROW_2_PORT, BOARD_MATRIX_ROW_2_PIN, &MATRIX_ROW_2_config);
+
+    gpio_pin_config_t MATRIX_ROW_3_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 1U,
+    };
+    /* Initialize GPIO functionality on pin PIO0_23 (pin 39)  */
+    GPIO_PinInit(BOARD_MATRIX_ROW_3_GPIO, BOARD_MATRIX_ROW_3_PORT, BOARD_MATRIX_ROW_3_PIN, &MATRIX_ROW_3_config);
+
+    gpio_pin_config_t MATRIX_COL_0_config = {
         .pinDirection = kGPIO_DigitalInput,
         .outputLogic = 0U,
     };
     /* Initialize GPIO functionality on pin PIO0_26 (pin 18)  */
-    GPIO_PinInit(BOARD_MATRIX_ROW_0_GPIO, BOARD_MATRIX_ROW_0_PORT, BOARD_MATRIX_ROW_0_PIN, &MATRIX_ROW_0_config);
+    GPIO_PinInit(BOARD_MATRIX_COL_0_GPIO, BOARD_MATRIX_COL_0_PORT, BOARD_MATRIX_COL_0_PIN, &MATRIX_COL_0_config);
 
-    gpio_pin_config_t MATRIX_ROW_1_config = {
+    gpio_pin_config_t MATRIX_COL_1_config = {
         .pinDirection = kGPIO_DigitalInput,
         .outputLogic = 0U,
     };
     /* Initialize GPIO functionality on pin PIO0_27 (pin 17)  */
-    GPIO_PinInit(BOARD_MATRIX_ROW_1_GPIO, BOARD_MATRIX_ROW_1_PORT, BOARD_MATRIX_ROW_1_PIN, &MATRIX_ROW_1_config);
+    GPIO_PinInit(BOARD_MATRIX_COL_1_GPIO, BOARD_MATRIX_COL_1_PORT, BOARD_MATRIX_COL_1_PIN, &MATRIX_COL_1_config);
 
-    gpio_pin_config_t MATRIX_ROW_2_config = {
+    gpio_pin_config_t MATRIX_COL_2_config = {
         .pinDirection = kGPIO_DigitalInput,
         .outputLogic = 0U,
     };
     /* Initialize GPIO functionality on pin PIO0_28 (pin 7)  */
-    GPIO_PinInit(BOARD_MATRIX_ROW_2_GPIO, BOARD_MATRIX_ROW_2_PORT, BOARD_MATRIX_ROW_2_PIN, &MATRIX_ROW_2_config);
+    GPIO_PinInit(BOARD_MATRIX_COL_2_GPIO, BOARD_MATRIX_COL_2_PORT, BOARD_MATRIX_COL_2_PIN, &MATRIX_COL_2_config);
 
-    gpio_pin_config_t MATRIX_ROW_3_config = {
+    gpio_pin_config_t MATRIX_COL_3_config = {
         .pinDirection = kGPIO_DigitalInput,
         .outputLogic = 0U,
     };
     /* Initialize GPIO functionality on pin PIO0_29 (pin 38)  */
-    GPIO_PinInit(BOARD_MATRIX_ROW_3_GPIO, BOARD_MATRIX_ROW_3_PORT, BOARD_MATRIX_ROW_3_PIN, &MATRIX_ROW_3_config);
+    GPIO_PinInit(BOARD_MATRIX_COL_3_GPIO, BOARD_MATRIX_COL_3_PORT, BOARD_MATRIX_COL_3_PIN, &MATRIX_COL_3_config);
 
     gpio_pin_config_t LED_BLUE_config = {
         .pinDirection = kGPIO_DigitalOutput,
-        .outputLogic = 0U,
+        .outputLogic = 1U,
     };
     /* Initialize GPIO functionality on pin PIO1_1 (pin 14)  */
     GPIO_PinInit(BOARD_LED_BLUE_GPIO, BOARD_LED_BLUE_PORT, BOARD_LED_BLUE_PIN, &LED_BLUE_config);
+
+    gpio_pin_config_t LED_RED_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 1U,
+    };
+    /* Initialize GPIO functionality on pin PIO1_2 (pin 16)  */
+    GPIO_PinInit(BOARD_LED_RED_GPIO, BOARD_LED_RED_PORT, BOARD_LED_RED_PIN, &LED_RED_config);
+
+    IOCON->PIO[28] = ((IOCON->PIO[28] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
+                       * enabled. */
+                      | IOCON_PIO_MODE(PIO0_20_MODE_PULL_UP));
+
+    IOCON->PIO[27] = ((IOCON->PIO[27] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
+                       * enabled. */
+                      | IOCON_PIO_MODE(PIO0_21_MODE_PULL_UP));
+
+    IOCON->PIO[26] = ((IOCON->PIO[26] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
+                       * enabled. */
+                      | IOCON_PIO_MODE(PIO0_22_MODE_PULL_UP));
+
+    IOCON->PIO[25] = ((IOCON->PIO[25] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
+                       * enabled. */
+                      | IOCON_PIO_MODE(PIO0_23_MODE_PULL_UP));
+
+    IOCON->PIO[22] = ((IOCON->PIO[22] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
+                       * enabled. */
+                      | IOCON_PIO_MODE(PIO0_26_MODE_PULL_UP));
+
+    IOCON->PIO[21] = ((IOCON->PIO[21] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
+                       * enabled. */
+                      | IOCON_PIO_MODE(PIO0_27_MODE_PULL_UP));
+
+    IOCON->PIO[20] = ((IOCON->PIO[20] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
+                       * enabled. */
+                      | IOCON_PIO_MODE(PIO0_28_MODE_PULL_UP));
+
+    IOCON->PIO[50] = ((IOCON->PIO[50] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor
+                       * enabled. */
+                      | IOCON_PIO_MODE(PIO0_29_MODE_PULL_UP));
+
+    IOCON->PIO[37] = ((IOCON->PIO[37] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Inactive. Inactive (no
+                       * pull-down/pull-up resistor enabled). */
+                      | IOCON_PIO_MODE(PIO1_1_MODE_INACTIVE));
+
+    IOCON->PIO[38] = ((IOCON->PIO[38] &
+                       /* Mask bits to zero which are setting */
+                       (~(IOCON_PIO_MODE_MASK)))
+
+                      /* Selects function mode (on-chip pull-up/pull-down resistor control).: Inactive. Inactive (no
+                       * pull-down/pull-up resistor enabled). */
+                      | IOCON_PIO_MODE(PIO1_2_MODE_INACTIVE));
 }
 /***********************************************************************************************************************
  * EOF

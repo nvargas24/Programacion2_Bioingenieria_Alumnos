@@ -25,4 +25,10 @@ void sysTime_updateTick(void);
  * @return uint32_t Cantidad total de ticks acumulados (milisegundos).
  */
 uint32_t sysTime_getTicks(void);
+
+/**
+ * @brief Espera ocupada: bloquea la CPU hasta que transcurran delay_ms ticks.
+ */
+void sysTime_delay_ms(uint32_t delay_ms);
+
 #endif

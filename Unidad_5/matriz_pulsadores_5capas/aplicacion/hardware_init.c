@@ -1,11 +1,10 @@
 #include "app_config.h"
 #include "hardware_init.h"
-#include "../drivers/driver_led.h"
-#include "../drivers/driver_matriz.h"
-#include "../hal/fsl_common.h"
-#include "../registros/clock_config.h"
-#include "../registros/pin_mux.h"
-#include "../servicios/sys_time.h"
+#include "driver_matriz.h"
+#include "fsl_common.h"
+#include "clock_config.h"
+#include "pin_mux.h"
+#include "sys_time.h"
 
 static const char matrix_keymap[] = MATRIX_KEYMAP;
 
@@ -17,13 +16,13 @@ static const matriz_config_t matrix_config = {
         {BOARD_MATRIX_ROW_3_PORT, BOARD_MATRIX_ROW_3_PIN}
     },
     .columnas = {
-        {BOARD_MATRIX_COLUMN_0_PORT, BOARD_MATRIX_COLUMN_0_PIN},
-        {BOARD_MATRIX_COLUMN_1_PORT, BOARD_MATRIX_COLUMN_1_PIN},
-        {BOARD_MATRIX_COLUMN_2_PORT, BOARD_MATRIX_COLUMN_2_PIN},
-        {BOARD_MATRIX_COLUMN_3_PORT, BOARD_MATRIX_COLUMN_3_PIN}
+        {BOARD_MATRIX_COL_0_PORT, BOARD_MATRIX_COL_0_PIN},
+        {BOARD_MATRIX_COL_1_PORT, BOARD_MATRIX_COL_1_PIN},
+        {BOARD_MATRIX_COL_2_PORT, BOARD_MATRIX_COL_2_PIN},
+        {BOARD_MATRIX_COL_3_PORT, BOARD_MATRIX_COL_3_PIN}
     },
     .cantidad_filas = MATRIX_ROW_COUNT,
-    .cantidad_columnas = MATRIX_COLUMN_COUNT,
+    .cantidad_columnas = MATRIX_COL_COUNT,
     .mapa_teclas = matrix_keymap
 };
 
@@ -36,8 +35,7 @@ void BSP_Hardware_Init(void)
     SysTick_Config(SystemCoreClock / 1000U);
     sysTime_init();
 
-    /* LED de confirmacion y matriz de teclas */
-    Driver_LED_Init(LED1_PORT, LED1_PIN);
+    /* Bloqueo si no incializa correctamente matriz de teclas */
     if (!Driver_Matriz_Init(&matrix_config)) {
         while (1) {
         }

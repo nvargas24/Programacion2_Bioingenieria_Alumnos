@@ -24,12 +24,4 @@ typedef enum {
     HAL_GPIO_HIGH = 1   /**< Nivel lógico alto (1 lógico, típicamente VCC). */
 } hal_gpio_state_t;
 
-/**
- * @brief Dirección de configuración operacional de un pin GPIO.
- */
-typedef enum {
-    HAL_GPIO_INPUT  = 0,  /**< Configuración del pin como entrada digital. */
-    HAL_GPIO_OUTPUT = 1   /**< Configuración del pin como salida digital. */
-} hal_gpio_dir_t;
-
 #endif /* HAL_DEFS_H_ */

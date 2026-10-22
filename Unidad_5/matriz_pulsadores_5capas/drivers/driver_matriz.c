@@ -69,18 +69,6 @@ bool Driver_Matriz_Init(const matriz_config_t *config)
     }
 
     matriz_config = *config;
-
-    for (uint8_t fila = 0U; fila < matriz_config.cantidad_filas; fila++) {
-        matriz_gpio_t pin = matriz_config.filas[fila];
-        HAL_GPIO_InitPin(pin.port, pin.pin, HAL_GPIO_OUTPUT);
-        HAL_GPIO_WritePin(pin.port, pin.pin, HAL_GPIO_HIGH);
-    }
-
-    for (uint8_t columna = 0U; columna < matriz_config.cantidad_columnas; columna++) {
-        matriz_gpio_t pin = matriz_config.columnas[columna];
-        HAL_GPIO_InitPin(pin.port, pin.pin, HAL_GPIO_INPUT);
-    }
-
     matriz_inicializada = true;
     return true;
 }
