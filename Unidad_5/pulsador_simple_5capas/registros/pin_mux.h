@@ -41,7 +41,7 @@ void BOARD_InitBootPins(void);
 
 /* Symbols to be used with GPIO driver */
 #define BOARD_LED_BLUE_GPIO GPIO                /*!<@brief GPIO peripheral base pointer */
-#define BOARD_LED_BLUE_INIT_GPIO_VALUE 0U       /*!<@brief GPIO output initial state */
+#define BOARD_LED_BLUE_INIT_GPIO_VALUE 1U       /*!<@brief GPIO output initial state */
 #define BOARD_LED_BLUE_GPIO_PIN_MASK (1U << 1U) /*!<@brief GPIO pin mask */
 #define BOARD_LED_BLUE_PORT 1U                  /*!<@brief PORT device index: 1 */
 #define BOARD_LED_BLUE_PIN 1U                   /*!<@brief PORT pin number */
