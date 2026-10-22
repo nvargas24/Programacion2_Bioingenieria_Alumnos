@@ -13,4 +13,10 @@ typedef enum {
 	PULSADOR1_PIN = BOARD_K3_PIN
 } pulsadores_t;
 
+typedef enum{
+    ST_READ_PULSADOR1,
+    ST_LED_ON,
+    ST_LED_OFF
+} app_state_t;
+
 #endif

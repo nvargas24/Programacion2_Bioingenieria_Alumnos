@@ -20,19 +20,36 @@
 int main() {
 	/* Variables */
     pulsador_state_t state_btn = BTN_RELEASED;
-
+    app_state_t currentState = ST_READ_PULSADOR1;
     /* Setup - Configuracion HW*/
     BSP_Hardware_Init(); //Inicializa pines, clocks y SysTick de la placa
     
     /* Loop */
     while(1) {
-        state_btn = Driver_Pulsador_Read(PULSADOR1_PORT, PULSADOR1_PIN);
-
-        if (state_btn == BTN_PRESSED) {
+        switch (currentState)
+        {
+        case ST_READ_PULSADOR1:
+            state_btn = Driver_Pulsador_Read(PULSADOR1_PORT, PULSADOR1_PIN);
+            if (state_btn == BTN_PRESSED) {
+                currentState = ST_LED_ON;
+            }        
+            else{
+                currentState = ST_LED_OFF;
+            }     
+            break;
+        
+        case ST_LED_ON:
             Driver_LED_Set(LED1_PORT, LED1_PIN, LED_ON);
-        } 
-        else {
+            currentState = ST_READ_PULSADOR1;
+            break;
+        
+        case ST_LED_OFF:
             Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
+            currentState = ST_READ_PULSADOR1;   
+            break;
+        
+        default:
+            break;
         }
     }
 }
