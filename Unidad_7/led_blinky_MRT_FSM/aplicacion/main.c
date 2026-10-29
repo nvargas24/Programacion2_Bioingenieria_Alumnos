@@ -16,23 +16,20 @@ int main(void)
 {
     app_state_t currentState = ST_LED_OFF;
     uint32_t state_start_tick = 0;
-    uint32_t now = 0;
 
     BSP_Hardware_Init();
 
 
     while (1)
     {
-        now = mrt_tick_count;
-
         switch (currentState)
         {
         case ST_LED_OFF:
             Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
 
-            if ((now - state_start_tick) >= LED_INTERVAL_TICKS)
+            if ((mrt_tick_count - state_start_tick) >= LED_INTERVAL_TICKS)
             {
-                state_start_tick = now;
+                state_start_tick = mrt_tick_count;
                 currentState = ST_LED_ON;
             }
             break;
@@ -40,16 +37,15 @@ int main(void)
         case ST_LED_ON:
             Driver_LED_Set(LED1_PORT, LED1_PIN, LED_ON);
 
-            if ((now - state_start_tick) >= LED_INTERVAL_TICKS)
+            if ((mrt_tick_count - state_start_tick) >= LED_INTERVAL_TICKS)
             {
-                state_start_tick = now;
+                state_start_tick = mrt_tick_count;
                 currentState = ST_LED_OFF;
             }
             break;
 
         default:
             currentState = ST_LED_OFF;
-            state_start_tick = now;
             break;
         }
     }
