@@ -15,12 +15,12 @@ int main(){
         {
         case ST_LED_OFF:
         		Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
-                sysTime_delay_ms(BLINK_PERIOD_MS);
+                sysTime_delay_ms(BLINK_PERIOD_MS); // delay bloqueante
                 currentState = LED_ON;
             break;
         case ST_LED_ON:
         		Driver_LED_Set(LED1_PORT, LED1_PIN, LED_ON);
-                sysTime_delay_ms(BLINK_PERIOD_MS);
+                sysTime_delay_ms(BLINK_PERIOD_MS); // delay_bloqueante
                 currentState = LED_OFF;
             break;
         
