@@ -72,7 +72,7 @@ void PIN_INT0_IRQHandler(void)
     if (flag_rise)
     {
         PINT_PinInterruptClrRiseFlag(PINT, kPINT_PinInt0);
-        flag_k3 = true;
+        flag_k3 = BTN_PRESSED;
     }
 
     __DSB();
