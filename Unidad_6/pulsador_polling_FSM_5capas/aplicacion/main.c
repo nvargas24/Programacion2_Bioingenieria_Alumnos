@@ -30,12 +30,10 @@ int main() {
         {
         case ST_READ_PULSADOR1:
             state_btn = Driver_Pulsador_Read(PULSADOR1_PORT, PULSADOR1_PIN);
-            if (state_btn == BTN_PRESSED) {
-                currentState = ST_LED_ON;
-            }        
-            else{
+            if (state_btn == BTN_PRESSED)
+                currentState = ST_LED_ON;   
+            else if (state_btn == BTN_RELEASED)
                 currentState = ST_LED_OFF;
-            }     
             break;
         
         case ST_LED_ON:
@@ -46,9 +44,6 @@ int main() {
         case ST_LED_OFF:
             Driver_LED_Set(LED1_PORT, LED1_PIN, LED_OFF);
             currentState = ST_READ_PULSADOR1;   
-            break;
-        
-        default:
             break;
         }
     }
