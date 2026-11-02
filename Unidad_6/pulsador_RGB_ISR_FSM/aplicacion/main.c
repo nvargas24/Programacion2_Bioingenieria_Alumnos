@@ -16,7 +16,7 @@
 
 #include <stdint.h>
 
-volatile uint8_t flag_k3 = BTN_RELEASED;
+volatile pulsador_state_t flag_k3 = BTN_RELEASED;
 
 int main() {
     estado_fsm_t estado_actual = ST_ROJO;
@@ -31,7 +31,7 @@ int main() {
     	            Driver_LED_Set(LED_BLUE_PORT, LED_BLUE_PIN, LED_OFF);
 
     	            if (flag_k3) {
-    	                flag_k3 = false;
+    	                flag_k3 = BTN_RELEASED;
     	                estado_actual = ST_VERDE;
     	            }
     	            break;
@@ -42,7 +42,7 @@ int main() {
     	            Driver_LED_Set(LED_BLUE_PORT, LED_BLUE_PIN, LED_OFF);
 
     	            if (flag_k3) {
-    	                flag_k3 = false;
+    	                flag_k3 = BTN_RELEASED;
     	                estado_actual = ST_AZUL;
     	            }
     	            break;
@@ -53,7 +53,7 @@ int main() {
     	            Driver_LED_Set(LED_BLUE_PORT, LED_BLUE_PIN, LED_ON);
 
     	            if (flag_k3) {
-    	                flag_k3 = false;
+    	                flag_k3 = BTN_RELEASED;
     	                estado_actual = ST_ROJO;
     	            }
     	            break;
