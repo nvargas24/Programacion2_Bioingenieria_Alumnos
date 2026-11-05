@@ -51,6 +51,30 @@ void BOARD_InitBootPins(void);
 #define BOARD_LED_BLUE_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
                                                 /* @} */
 
+/*! @name PIO1_0 (number 11), LD1[3]/CN1[31]/PIO1_0/CAPT_X1
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define BOARD_LED_GREEN_GPIO GPIO                /*!<@brief GPIO peripheral base pointer */
+#define BOARD_LED_GREEN_INIT_GPIO_VALUE 1U       /*!<@brief GPIO output initial state */
+#define BOARD_LED_GREEN_GPIO_PIN_MASK (1U << 0U) /*!<@brief GPIO pin mask */
+#define BOARD_LED_GREEN_PORT 1U                  /*!<@brief PORT device index: 1 */
+#define BOARD_LED_GREEN_PIN 0U                   /*!<@brief PORT pin number */
+#define BOARD_LED_GREEN_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
+                                                 /* @} */
+
+/*! @name PIO1_2 (number 16), LD1[2]/CN1[29]/PIO1_2/CAPT_X3
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define BOARD_LED_RED_GPIO GPIO                /*!<@brief GPIO peripheral base pointer */
+#define BOARD_LED_RED_INIT_GPIO_VALUE 1U       /*!<@brief GPIO output initial state */
+#define BOARD_LED_RED_GPIO_PIN_MASK (1U << 2U) /*!<@brief GPIO pin mask */
+#define BOARD_LED_RED_PORT 1U                  /*!<@brief PORT device index: 1 */
+#define BOARD_LED_RED_PIN 2U                   /*!<@brief PORT pin number */
+#define BOARD_LED_RED_PIN_MASK (1U << 2U)      /*!<@brief PORT pin mask */
+                                               /* @} */
+
 /*!
  * @brief Configures pin routing and optionally pin electrical features.
  *

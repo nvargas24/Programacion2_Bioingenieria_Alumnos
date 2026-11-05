@@ -91,6 +91,8 @@ BOARD_InitPins:
   - {pin_num: '19', peripheral: USART0, signal: TXD, pin_signal: PIO0_25}
   - {pin_num: '20', peripheral: USART0, signal: RXD, pin_signal: PIO0_24}
   - {pin_num: '14', peripheral: GPIO, signal: 'PIO1, 1', pin_signal: PIO1_1/CAPT_X2, direction: OUTPUT, gpio_init_state: 'true'}
+  - {pin_num: '11', peripheral: GPIO, signal: 'PIO1, 0', pin_signal: PIO1_0/CAPT_X1, direction: OUTPUT, gpio_init_state: 'true'}
+  - {pin_num: '16', peripheral: GPIO, signal: 'PIO1, 2', pin_signal: PIO1_2/CAPT_X3, direction: OUTPUT, gpio_init_state: 'true'}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -109,12 +111,26 @@ void BOARD_InitPins(void)
     /* Enables the clock for the GPIO1 module */
     CLOCK_EnableClock(kCLOCK_Gpio1);
 
+    gpio_pin_config_t LED_GREEN_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 1U,
+    };
+    /* Initialize GPIO functionality on pin PIO1_0 (pin 11)  */
+    GPIO_PinInit(BOARD_LED_GREEN_GPIO, BOARD_LED_GREEN_PORT, BOARD_LED_GREEN_PIN, &LED_GREEN_config);
+
     gpio_pin_config_t LED_BLUE_config = {
         .pinDirection = kGPIO_DigitalOutput,
         .outputLogic = 1U,
     };
     /* Initialize GPIO functionality on pin PIO1_1 (pin 14)  */
     GPIO_PinInit(BOARD_LED_BLUE_GPIO, BOARD_LED_BLUE_PORT, BOARD_LED_BLUE_PIN, &LED_BLUE_config);
+
+    gpio_pin_config_t LED_RED_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 1U,
+    };
+    /* Initialize GPIO functionality on pin PIO1_2 (pin 16)  */
+    GPIO_PinInit(BOARD_LED_RED_GPIO, BOARD_LED_RED_PORT, BOARD_LED_RED_PIN, &LED_RED_config);
 
     /* USART0_TXD connect to P0_25 */
     SWM_SetMovablePinSelect(SWM0, kSWM_USART0_TXD, kSWM_PortPin_P0_25);
