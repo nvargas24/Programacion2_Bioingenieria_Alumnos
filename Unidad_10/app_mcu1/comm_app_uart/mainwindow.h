@@ -24,9 +24,6 @@ private slots:
     void on_btn_encender_clicked();
     void on_btn_apagar_clicked();
     void on_btn_invertir_clicked();
-    void on_btn_consultar_clicked();
-    void on_btn_ayuda_clicked();
-    void on_btn_probar_clicked();
     void recibirDatosSeriales();
     void manejarErrorSerial(QSerialPort::SerialPortError error);
     void manejarTimeoutRespuesta();

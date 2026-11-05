@@ -78,21 +78,6 @@ void MainWindow::on_btn_invertir_clicked()
     enviarComando('t');
 }
 
-void MainWindow::on_btn_consultar_clicked()
-{
-    enviarComando('s');
-}
-
-void MainWindow::on_btn_ayuda_clicked()
-{
-    enviarComando('?');
-}
-
-void MainWindow::on_btn_probar_clicked()
-{
-    enviarComando('p');
-}
-
 void MainWindow::recibirDatosSeriales()
 {
     m_responseBuffer.append(m_serial.readAll());
@@ -258,9 +243,6 @@ void MainWindow::actualizarInterfazConexion(bool conectado)
     ui->btn_encender->setEnabled(conectado);
     ui->btn_apagar->setEnabled(conectado);
     ui->btn_invertir->setEnabled(conectado);
-    ui->btn_consultar->setEnabled(conectado);
-    ui->btn_ayuda->setEnabled(conectado);
-    ui->btn_probar->setEnabled(conectado);
     actualizarEstadoEnvio();
 
     if (!conectado) {
@@ -275,7 +257,4 @@ void MainWindow::actualizarEstadoEnvio()
     ui->btn_encender->setEnabled(puedeEnviar);
     ui->btn_apagar->setEnabled(puedeEnviar);
     ui->btn_invertir->setEnabled(puedeEnviar);
-    ui->btn_consultar->setEnabled(puedeEnviar);
-    ui->btn_ayuda->setEnabled(puedeEnviar);
-    ui->btn_probar->setEnabled(puedeEnviar);
 }
